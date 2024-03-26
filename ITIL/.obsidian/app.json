@@ -1,0 +1,10 @@
+{
+  "strictLineBreaks": true,
+  "showFrontmatter": true,
+  "spellcheckLanguages": [
+    "vi"
+  ],
+  "spellcheck": false,
+  "promptDelete": true,
+  "alwaysUpdateLinks": true
+}

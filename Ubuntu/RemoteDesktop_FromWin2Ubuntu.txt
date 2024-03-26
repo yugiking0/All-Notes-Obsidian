@@ -1,0 +1,84 @@
+Xem các thông tin:
+whoami
+Kiểm tra IP
+ip addr show : để check IP
+ip a
+
+SSH
+ssh it@192.168.232.132
+user@ip_local
+
+
+Cài đặt SSH
+sudo apt install openssh-server
+Disable
+sudo systemctl set-default multi-user
+
+
+Bat Desktop
+sudo systemctl start gdm3
+
+Để học bài cần đi qua các khái niệm:
+- Closures : Tính đóng của hàm.
+Cấu trúc :
+	- Khai báo biến: var count
+	- Function
+	- Return value
+- So sánh với Thư viện 30 dòng code
+- Và React + Redux sẽ gồm:
+	- Store -> Xem như là 1 khai báo biến
+	- Các function sẽ tương ứng với Reducer, Action
+	- 
+
+- Các định nghĩa liên quan:
+	- Views
+	- Dispatch
+	- Actions
+	- Reducers
+	- Store
+	- Render
+	- state: Trạng thái thuộc Store
+	- Roots
+	- kiểu dữ liệu Map
+	- Component
+	- Props
+	- Action
+
+Th@nLon9
+
+
+Deleted branch tester
+
+
+git remote add f8.html-css.basic https://github.com/yugiking0/f8.html-css.basic.git
+
+git remote rm f8.html-css.basic
+
+--------------------------
+Tắt giao diện GUI chỉ dùng command
+
+sudo systemctl set-default multi-user
+
+gnome-session-quit
+
+
+How to enable GUI to start on boot
+sudo systemctl set-default graphical
+
+sudo systemctl start gdm3
+
+
+
+docker run -p 8002:8002 f3332d3336c9
+
+
+
+
+
+docker run --name test  f3332d3336c9.
+
+docker rmi Image cb90f98fd791 
+
+rm -r docker-image
+
+

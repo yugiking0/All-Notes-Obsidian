@@ -1,0 +1,2 @@
+# Actions
+![[redux-workflows.gif]]

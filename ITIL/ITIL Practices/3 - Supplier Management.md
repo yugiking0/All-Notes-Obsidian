@@ -1,0 +1,2 @@
+- Ensure the  organization’s suppliers and their ==performance== are managed ==**appropriately**==
+- *Quản lý các NCC và quản lý khả năng cung ứng của NCC luôn phù hợp với tổ chức.*

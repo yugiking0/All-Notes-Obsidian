@@ -1,0 +1,2 @@
+- **specialised organizational capabilities**
+- Tập hợp những năng lực chuyên môn của tổ chức.

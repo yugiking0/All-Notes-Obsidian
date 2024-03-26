@@ -1,0 +1,3 @@
+- Cải tiến liên tục
+- **Continual Improvement** - a **recurring organizational activity** performed at  all levels to ensure that an organization’s performance continually improves in meeting stakeholders’ expectations.
+- Là hành động lặp lại định kỳ của tổ chức được thực hiện ở tất cả các cấp độ nhằm đảm bảo luôn luôn cải tiến liên tục hiệu suất của tổ chức nhằm đáp ứng những kỳ vọng của đối tác.

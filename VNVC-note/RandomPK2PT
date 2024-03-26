@@ -1,0 +1,216 @@
+Tập trung vào đoạn này tại sao không Load PT11
+EXEC ws_Vaccine_Random_PhongTiem_NhieuMaChung '222222', '8.11',8, 1
+
+
+
+
+
+SELECT TOP 100 * FROM QAHosGenericDB..Err_Random_PhongTiem (NOLOCK)
+History.dbo.sp_MDM_Patient_LogUpdate
+
+--------------------
+
+SELECT	name, definition
+FROM	sys.sql_modules M JOIN sys.objects O ON M.OBJECT_ID = O.OBJECT_ID AND name like '%tiem%'
+
+SELECT	name, definition, modify_date 
+FROM	sys.sql_modules M JOIN sys.objects O ON M.OBJECT_ID = O.OBJECT_ID AND name like '%tiem%'
+--------------------
+
+exec History..opt_GetProcedureInfo_ByName 'sp_MDM_Patient_LogUpdate'
+
+select  FacID,	RoomNo,	RoomName,	RoomOption,	IsMedicare,	IsService,	IsArmy
+from L_DepartmentRoom 
+WHERE FacID='8.11' and RoomNo like N'ĐNA01.TVC1%'
+
+8.11
+
+ws_Vaccine_Random_PhongTiem
+    @SessionID VARCHAR(MAX),
+    @FacID VARCHAR(10),
+    @MaChung VARCHAR(100) = NULL,
+    @RoomID INT = NULL
+	
+	
+EXEC ws_Vaccine_Random_PhongTiem '2222222', '8.11',8,1
+
+EXEC ws_Vaccine_Random_PhongTiem '2222222', '8.11', 6,1
+
+EXEC ws_Vaccine_Random_PhongTiem_NhieuMaChung '2222222', '8.11',8,2
+
+
+EXEC ws_Vaccine_Random_PhongTiem '2222222', '8.11',10011,2
+
+The module 'ws_L_Customer_Save' depends on the missing object 'QAHosGenericDB..ws_Facility_Save'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_L_Customer_Save' depends on the missing object 'Security..ws_UserFacility_Save'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_L_Customer_Save' depends on the missing object 'QAHosGenericDB..ws_Facility_Save'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_L_Customer_Save' depends on the missing object 'Security..ws_UserFacility_Save'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_L_Customer_Save' depends on the missing object 'History..sp_L_Customer_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_L_Customer_Save' depends on the missing object 'History..sp_L_Customer_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_INV_KetChuyen_XoaKetChuyen' depends on the missing object 'History..sp_INV_KetChuyen_LogDelete'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_CN_ClinicalSessions_SaveV2' depends on the missing object 'History.dbo.sp_CN_ClinicalSessions_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_CN_ClinicalSessions_SaveV2' depends on the missing object 'dbo.ws_CN_ClinicalSessions_Ext_SaveByReception'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_INV_ApprovedOutDetail_XoaDetailV10' depends on the missing object 'dbo.ws_INV_Product_UpdateQtyV2'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_INV_ApprovedOutDetail_XoaDetailV10' depends on the missing object 'dbo.ws_INV_ApprovedOutDetail_DeleteV2'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_INV_ApprovedOutDetail_XoaDetailV10' depends on the missing object 'dbo.ws_INV_ProductTemp_UpdateQtyV2'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_INV_ApprovedOutDetail_XoaDetailV10' depends on the missing object 'dbo.ws_INV_Product_UpdateQtyV2'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_INV_ApprovedOutDetail_XoaDetailV10' depends on the missing object 'dbo.ws_INV_ApprovedInDetail_DeleteV2'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_INV_ApprovedOutDetail_XoaDetailV10' depends on the missing object 'dbo.ws_INV_ProductTemp_UpdateQtyV2'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_INV_ApprovedOut_DuyetPhieuXinDuTruTuKhoKhac' depends on the missing object 'dbo.ws_INV_ApprovedOut_SaveTri'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_INV_ApprovedOut_DuyetPhieuXinDuTruTuKhoKhac' depends on the missing object 'dbo.ws_INV_Product_UpdateQtyV2'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_INV_ApprovedOut_DuyetPhieuXinDuTruTuKhoKhac' depends on the missing object 'ws_INV_ProductTemp_UpdateQtyV2'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_INV_ApprovedOut_DuyetPhieuXinDuTruTuKhoKhac' depends on the missing object 'ws_INV_ProductTemp_UpdateQtyV2'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_INV_ApprovedOut_DuyetPhieuXinDuTruTuKhoKhac' depends on the missing object 'ws_INV_ProductTemp_UpdateQtyV2'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_INV_ApprovedOut_DuyetPhieuXinDuTruTuKhoKhac' depends on the missing object 'ws_INV_ProductTemp_UpdateQtyV2'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_Vaccine_HopDong_UpdateIsPaid' depends on the missing object 'History..sp_Vaccine_HopDong_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+
+
+
+Msg 2715, Level 16, State 3, Procedure ws_Vaccine_CauHoiBenhNhanSauTiem_Save_Table, Line 9 [Batch Start Line 0]
+Column, parameter, or variable #4: Cannot find data type Vaccine_CauHoiBenhNhan_Type.
+Parameter or variable '@DataSave' has an invalid data type.
+Msg 1087, Level 16, State 1, Procedure ws_Vaccine_CauHoiBenhNhanSauTiem_Save_Table, Line 87 [Batch Start Line 0]
+Must declare the table variable "@DataSave".
+Msg 1087, Level 16, State 1, Procedure ws_Vaccine_CauHoiBenhNhanSauTiem_Save_Table, Line 101 [Batch Start Line 0]
+Must declare the table variable "@DataSave".
+Msg 1087, Level 16, State 1, Procedure ws_Vaccine_CauHoiBenhNhanSauTiem_Save_Table, Line 110 [Batch Start Line 0]
+Must declare the table variable "@DataSave".
+Msg 1087, Level 16, State 1, Procedure ws_Vaccine_CauHoiBenhNhanSauTiem_Save_Table, Line 129 [Batch Start Line 0]
+Must declare the table variable "@DataSave".
+
+
+The module 'ws_CN_PhysicanAdmissions_FinishPractice' depends on the missing object 'dbo.ws_CN_PhysicianAdmissions_UpdatePrimaryDoctor'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_CN_PhysicanAdmissions_FinishPractice' depends on the missing object 'dbo.ws_CN_PhysicianAdmissions_UpdatePrimaryDoctor'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_CN_PhysicanAdmissions_FinishPractice' depends on the missing object 'dbo.ws_CN_DoctorDecision_Save'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_CN_PhysicanAdmissions_FinishPractice' depends on the missing object 'dbo.ws_CN_ClinicalSessions_UpdateComplete'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_CN_PhysicanAdmissions_FinishPractice' depends on the missing object 'dbo.ws_CN_PhysicianAdmissions_UpdateComplete'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_API_GetPatientByPatientHospitalID' depends on the missing object 'dbo.ws_L_Vaccine_Phacdo_Detail_Get_API'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_API_GetPatientByPatientHospitalID' depends on the missing object 'dbo.ws_Vaccine_LichSuTiemVaccine_API'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_L_ServicePrice_Save' depends on the missing object 'History..sp_L_ServicePrice_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_L_ServicePrice_Save' depends on the missing object 'History..sp_L_ServicePrice_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_INV_Approved_DieuChinhTonKho' depends on the missing object 'dbo.ws_INV_ApprovedIn_SaveV2'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_INV_Approved_DieuChinhTonKho' depends on the missing object 'dbo.ws_INV_ApprovedOutDetail_DeleteV2'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_INV_Approved_DieuChinhTonKho' depends on the missing object 'dbo.ws_INV_ApprovedInDetail_SaveV2'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_INV_Approved_DieuChinhTonKho' depends on the missing object 'dbo.ws_INV_ApprovedInDetail_DeleteV2'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_INV_Approved_DieuChinhTonKho' depends on the missing object 'dbo.ws_INV_ApprovedOut_SaveTri'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_INV_Approved_DieuChinhTonKho' depends on the missing object 'dbo.ws_INV_ApprovedOutDetail_SaveV2'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_INV_Approved_DieuChinhTonKho' depends on the missing object 'dbo.ws_INV_ApprovedInDetail_DeleteV2'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_INV_Approved_DieuChinhTonKho' depends on the missing object 'dbo.ws_INV_ApprovedOutDetail_DeleteV2'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_INV_Approved_DieuChinhTonKho' depends on the missing object 'dbo.ws_INV_Product_UpdateQtyV2'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_INV_Approved_DieuChinhTonKho' depends on the missing object 'dbo.ws_INV_Product_UpdateQtyV2'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_INV_Approved_DieuChinhTonKho' depends on the missing object 'History..sp_INV_PastPeriodProducts_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_INV_Approved_DieuChinhTonKho' depends on the missing object 'dbo.ws_INV_ApprovedInDetail_DeleteV2'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_INV_Approved_DieuChinhTonKho' depends on the missing object 'dbo.ws_INV_ApprovedOutDetail_DeleteV2'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_INV_Approved_DieuChinhTonKho' depends on the missing object 'dbo.ws_INV_Product_UpdateQtyV2'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_INV_Approved_DieuChinhTonKho' depends on the missing object 'dbo.ws_INV_Product_UpdateQtyV2'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_INV_Approved_DieuChinhTonKho' depends on the missing object 'History..sp_INV_PastPeriodProducts_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_INV_Approved_DieuChinhTonKho' depends on the missing object 'ws_INV_ProductTemp_UpdateAll'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_INV_ApprovedOut_TaoChiTietPhieuXuat30xV2' depends on the missing object 'ws_INV_ProductTemp_UpdateQtyV2'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_INV_ApprovedOut_TaoChiTietPhieuXuat30xV2' depends on the missing object 'dbo.ws_INV_ApprovedOut_SaveTri'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_INV_ApprovedOut_TaoChiTietPhieuXuat30xV2' depends on the missing object 'dbo.ws_INV_ApprovedOutDetail_Luu'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_INV_ApprovedOut_TaoChiTietPhieuXuat30xV2' depends on the missing object 'dbo.ws_INV_Product_UpdateQtyV2'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_Vaccine_HopDong_Detail_Save' depends on the missing object 'History.dbo.sp_Vaccine_PhacDoBenhNhan_Detail_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_Vaccine_HopDong_Detail_Save' depends on the missing object 'History.dbo.sp_CN_ClinicalSessions_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_Vaccine_HopDong_Detail_Save' depends on the missing object 'History.dbo.sp_Vaccine_PhacDoBenhNhan_Detail_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_Vaccine_HopDong_Detail_Save' depends on the missing object 'History.dbo.sp_CN_ClinicalSessions_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_Vaccine_HopDong_Detail_Save' depends on the missing object 'dbo.ws_Vaccine_CapNhatIsTiemNgoai_NhomBenh'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_Vaccine_HopDong_Detail_Save' depends on the missing object 'History.dbo.sp_Vaccine_HopDong_Detail_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_Vaccine_Completed' depends on the missing object 'History..sp_CN_ClinicalSessions_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_Vaccine_Completed' depends on the missing object 'History..sp_Vaccine_PhacDoBenhNhan_Detail_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_Vaccine_Completed' depends on the missing object 'History..sp_Vaccine_PhacDoBenhNhan_NhomBenh_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_INV_ApprovedOut_NhanHoanTraThuocBenhNhan' depends on the missing object 'dbo.ws_INV_Product_UpdateQty'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_CN_Service_Promo_Save' depends on the missing object 'History..sp_CN_Service_Promo_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_XuatVaccine_BK20190326' depends on the missing object 'FW..sp_ErrorLog_Insert'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_XuatVaccine_BK20190326' depends on the missing object 'dbo.ws_INV_ApprovedOut_SaveTri'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_XuatVaccine_BK20190326' depends on the missing object 'FW..sp_ErrorLog_Insert'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_XuatVaccine_BK20190326' depends on the missing object 'dbo.ws_INV_Product_UpdateQtyV2'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_XuatVaccine_BK20190326' depends on the missing object 'dbo.ws_INV_ProductTemp_UpdateQtyV2'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_XuatVaccine_BK20190326' depends on the missing object 'dbo.ws_INV_ApprovedOutDetail_SaveV3'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_XuatVaccine_BK20190326' depends on the missing object 'dbo.ws_INV_ProductTemp_UpdateQtyV2'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_Vaccine_PhacDoBenhNhan_Detail_Save' depends on the missing object 'FW.dbo.ws_Error_Save'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_Vaccine_PhacDoBenhNhan_Detail_Save' depends on the missing object 'History.dbo.sp_CN_ClinicalSessions_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_Vaccine_PhacDoBenhNhan_Detail_Save' depends on the missing object 'History.dbo.sp_CN_ClinicalSessions_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_Vaccine_PhacDoBenhNhan_Detail_Save' depends on the missing object 'History.dbo.sp_Vaccine_PhacDoBenhNhan_Detail_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_CapNhatDuLieuHuyMuiHopDong' depends on the missing object 'History.dbo.sp_CN_ClinicalSessions_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_CapNhatDuLieuHuyMuiHopDong' depends on the missing object 'History.dbo.sp_Vaccine_HopDong_Detail_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_CapNhatDuLieuHuyMuiHopDong' depends on the missing object 'History.dbo.sp_Vaccine_PhacDoBenhNhan_Detail_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_Vaccine_XacNhanTiemNgoai' depends on the missing object 'History.dbo.sp_Vaccine_PhacDoBenhNhan_Detail_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_Vaccine_XacNhanTiemNgoai' depends on the missing object 'History.dbo.sp_CN_ClinicalSessions_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_L_DepartmentRoom_Save' depends on the missing object 'History..sp_L_DepartmentRoom_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_L_DepartmentRoom_Save' depends on the missing object 'History..sp_L_DepartmentRoom_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_XuatVaccine_201903262100' depends on the missing object 'FW..sp_ErrorLog_Insert'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_XuatVaccine_201903262100' depends on the missing object 'dbo.ws_INV_ApprovedOut_SaveTri'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_XuatVaccine_201903262100' depends on the missing object 'FW..sp_ErrorLog_Insert'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_XuatVaccine_201903262100' depends on the missing object 'dbo.ws_INV_Product_UpdateQtyV2'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_XuatVaccine_201903262100' depends on the missing object 'dbo.ws_INV_ApprovedOutDetail_SaveV3'. The module will still be created; however, it cannot run successfully until the object exists.
+
+Msg 195, Level 15, State 10, Procedure ws_GetDanhSachVaccineDatTruoc, Line 372 [Batch Start Line 0]
+'NUMERIC' is not a recognized built-in function name.
+Msg 319, Level 15, State 1, Procedure ws_GetDanhSachVaccineDatTruoc, Line 373 [Batch Start Line 0]
+Incorrect syntax near the keyword 'with'. If this statement is a common table expression, an xmlnamespaces clause or a change tracking context clause, the previous statement must be terminated with a semicolon.
+
+The module 'ws_Vaccine_HopDong_Delete' depends on the missing object 'History.dbo.sp_Vaccine_HopDong_LogDelete'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_ToolForSupport_Structures' depends on the missing object 'FW.dbo.sp_ErrorLog_Insert'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_Vaccine_VaccineSuDungThucTe_Save' depends on the missing object 'History..sp_CN_ClinicalSessions_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_Vaccine_VaccineSuDungThucTe_Save' depends on the missing object 'History..sp_Vaccine_VaccineSuDungThucTe_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_Vaccine_HuyTiem' depends on the missing object 'History..sp_CN_ClinicalSessions_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_Vaccine_HuyTiem' depends on the missing object 'History..sp_Vaccine_PhacDoBenhNhan_Detail_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_Vaccine_HuyTiem' depends on the missing object 'dbo.ws_Vaccine_VaccineSuDungThucTe_Delete'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_Vaccine_HuyTiem' depends on the missing object 'dbo.ws_INV_ApprovedOutDetail_XoaDetailV2'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_Vaccine_HuyTiem' depends on the missing object 'dbo.ws_INV_ApprovedOutDetail_XoaDetailV2'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_Vaccine_TaoSoThuThu_PhongTiem' depends on the missing object 'dbo.ws_Vaccine_DanhSachChoTiem_Save'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_GetDataBaoCaoChiTietDoanhThuVNVC' depends on the missing object 'Reports..rep_BaoCaoChiTietDoanhThuVNVC'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_CapNhatDuaMuiLeVaoHopDong' depends on the missing object 'History.dbo.sp_CN_ClinicalSessions_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_CapNhatDuaMuiLeVaoHopDong' depends on the missing object 'History.dbo.sp_Vaccine_PhacDoBenhNhan_Detail_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_Vaccine_PhacDoBenhNhan_Delete' depends on the missing object 'History..sp_Vaccine_PhacDoBenhNhan_LogDelete'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_CapNhatThongTinCongKhamVaccine' depends on the missing object 'dbo.ws_CN_PhysicianAdmissions_Delete'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_CapNhatThongTinCongKhamVaccine' depends on the missing object 'dbo.ws_Vaccine_DanhSachChoKham_Delete'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_Salesforce_Lead_Save' depends on the missing object 'History..sp_Salesforce_Lead_Log'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_Salesforce_Lead_Save' depends on the missing object 'History..sp_Salesforce_Lead_Log'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_Vaccine_HopDong_Save' depends on the missing object 'QAHosGenericDB..ws_CN_HopDongTonTaiTheoCoSo_Save'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_Vaccine_HopDong_Save' depends on the missing object 'History.dbo.sp_Vaccine_HopDong_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_Vaccine_ChiDinhVaccine' depends on the missing object 'History..sp_CN_ClinicalSessions_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_Vaccine_ChiDinhVaccine' depends on the missing object 'History..sp_CN_ClinicalSessions_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_Vaccine_ChiDinhVaccine' depends on the missing object 'History..sp_Vaccine_PhacDoBenhNhan_Detail_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_TheoDoiSauTiem_SaveAll' depends on the missing object 'ws_Vaccine_DuaMuiTiemVaoHangDoiDayViettel'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_Vaccine_HuyXuTri' depends on the missing object 'History..sp_CN_ClinicalSessions_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_Vaccine_HuyXuTri' depends on the missing object 'dbo.ws_CN_PhysicianAdmissions_UpdateComplete'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_Vaccine_Huy_IsChiDinhTiem' depends on the missing object 'History..sp_Vaccine_LichHenNhacLai_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+The module 'ws_Vaccine_Huy_IsChiDinhTiem' depends on the missing object 'History..sp_Vaccine_PhacDoBenhNhan_Detail_LogUpdate'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_Vaccine_PhacDoBenhNhan_Save' depends on the missing object 'FW.dbo.ws_Error_Save'. The module will still be created; however, it cannot run successfully until the object exists.
+
+The module 'ws_DuaMuiTiemVaoHangDoiChoXoaTrenViettel' depends on the missing object 'Application..ws_BackgroundWorkerQueue_Save'. The module will still be created; however, it cannot run successfully until the object exists.
+

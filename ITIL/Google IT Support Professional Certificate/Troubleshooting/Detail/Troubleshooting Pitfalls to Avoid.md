@@ -1,0 +1,19 @@
+# Troubleshooting Pitfalls to Avoid - *Một số sai lầm cần tránh*
+
+
+There are **some common pitfalls** that you **should try to avoid in order** to be at the top of your troubleshooting game. As an IT support specialist, you'll sometimes encounter the same issue over and over again. Before the next issue comes in, you may find yourself using your muscle memory to fix the issue: 
+*Có một số cạm bẫy phổ biến mà bạn nên cố gắng tránh để luôn dẫn đầu trong trò chơi khắc phục sự cố của mình. Là một chuyên gia hỗ trợ CNTT, đôi khi bạn sẽ gặp đi gặp lại cùng một vấn đề. Trước khi vấn đề tiếp theo xuất hiện, bạn có thể thấy mình đang sử dụng bộ nhớ cơ bắp của mình để khắc phục sự cố.*
+
+### 1. Pitfall number 1 - **Going into autopilot**
+- Makes sure you don't default to autopilot mode. Moving through issues out of habit without careful thought more often than not, they're small variables that change the problem you're seeing entirely. Ask questions and gather data so you can fully understand an issue. This takes less time than having to redo some sloppy work you did in autopilot mode. 
+
+### 1. Cạm bẫy số 1 - **Xử lý máy móc** 
+- *Đảm bảo rằng bạn không mặc định ở chế độ lái tự động. Thường xuyên vượt qua các vấn đề theo thói quen mà không suy nghĩ cẩn thận, chúng là những biến số nhỏ làm thay đổi hoàn toàn vấn đề mà bạn đang gặp phải. Đặt câu hỏi và thu thập dữ liệu để bạn có thể hiểu đầy đủ về một vấn đề. Việc này tốn ít thời gian hơn so với việc phải làm lại một số công việc cẩu thả mà bạn đã làm ở chế độ lái tự động - máy móc.* 
+
+### 2. Pitfall number 2 - **Not finding the root cause**. 
+- It's very easy to get distracted by small problems that pop up but it's super important to remember there's probably a very big problem causing all these small problems. Spend a little extra time investigating the issue instead of trying to fix all the small holes. If you're trying to do a quick fix, it's tempting to wipe the system and start from scratch. This approach is like using a hammer when a surgical scalpel might be more appropriate tool. 
+### 2. Cạm bẫy số 2 - **Không tìm ra nguyên nhân gốc rễ** 
+- *Bạn rất dễ bị phân tâm bởi những vấn đề nhỏ xuất hiện nhưng điều cực kỳ quan trọng cần nhớ là có thể có một vấn đề rất lớn gây ra tất cả những vấn đề nhỏ này. Dành thêm một chút thời gian để điều tra vấn đề thay vì cố gắng khắc phục tất cả các lỗ hổng nhỏ. Nếu bạn đang cố gắng khắc phục nhanh, bạn nên xóa sạch hệ thống và bắt đầu lại từ đầu. Cách tiếp cận này giống như sử dụng một cái búa khi dao mổ có thể là công cụ thích hợp hơn.* 
+
+- Let's say user isn't able to access a particular website, re-inventing the system isn't a great solve. It doesn't get to the root cause and it doesn't help further your knowledge investigating the problem but testing out possible issues and solutions incrementally and identifying the root cause can end up saving a lot of time and effort in the end and it feels really empowering as an IT support specialist. With that, you'll be able to go out in the real world and use your new skills to methodically troubleshoot an issue.
+- *Giả sử người dùng không thể truy cập một trang web cụ thể, việc phát minh lại hệ thống không phải là một giải pháp hay. Nó không tìm ra nguyên nhân gốc rễ và nó không giúp nâng cao kiến thức của bạn trong việc điều tra vấn đề nhưng việc thử nghiệm các vấn đề và giải pháp có thể xảy ra dần dần và xác định nguyên nhân gốc rễ có thể giúp tiết kiệm rất nhiều thời gian và công sức cuối cùng và bạn cảm thấy như vậy thực sự trao quyền như một chuyên gia hỗ trợ CNTT. Cùng với đó, bạn sẽ có thể bước ra thế giới thực và sử dụng các kỹ năng mới của mình để khắc phục sự cố một cách có phương pháp.*

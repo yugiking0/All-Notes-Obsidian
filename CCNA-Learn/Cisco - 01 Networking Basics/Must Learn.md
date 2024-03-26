@@ -1,0 +1,4 @@
+- [ ] 10.133.1.0/24 là gì?
+- [ ] Cách chia Subnet
+- [ ] cxccc
+- [ ] 

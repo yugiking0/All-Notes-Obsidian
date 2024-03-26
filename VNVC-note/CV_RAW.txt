@@ -1,0 +1,405 @@
+THÔNG TIN CHUNG
+	Họ và Tên
+		ĐINH QUANG DUY
+	Công việc
+		Chuyên viên IT
+		Chuyên viên CNTT
+		Chuyên viên phân tích và triển khai dự án
+	Thông tin liên lạc
+		Ngày sinh: 20/01/1985
+		Giới tính: Nam
+		Tình trạng hôn nhân: Độc thân
+		Điện thoại: 0935.399.222 - 0866.95.65.95
+		Email: quangduy.dinh@gmail.com
+		Địa chỉ: 46 An Hải Đông 1, P. An Hải Đông, Q. Sơn Trà, TP. Đà Nẵng
+		Facebook: https://www.facebook.com/ZDinhQuangDuy
+	Độc thân
+
+MỤC TIÊU NGHỀ NGHIỆP
+		- Công việc liên quan đến Phân tích dữ liệu và thống kê về công nghệ, máy tính.
+		- Công việc liên quan viết tài liệu: Khảo sát yêu cầu, thiết kế dữ liệu hệ thống, lập trình, nghiệp vụ testcase và hướng dẫn sử dụng.
+		- Công việc liên quan đào tạo, trao đổi và giao tiếp.
+		- Công việc liên quan đến thiết kế, trình bày, lập trình.
+		- Công việc liên quan đến tìm hiểu công nghệ mới và thuật toán.
+		- Công việc tiếp xúc và hỗ trợ người dùng.
+	Key words:
+			Phân tích & Thống kê
+			Khảo sát
+			Thiết kế dữ liệu hệ thống
+			Thiết kế
+			Viết tài liệu
+			Lập trình
+			Thuật toán
+			Test Case
+			Trình bày
+			Đào tạo
+			Hướng dẫn sử dụng
+			Hỗ trợ người dùng
+			Trao đổi & Giao tiếp
+			Nghiên cứu công nghệ mới
+
+HỌC VẤN
+	2003-2008 : ĐH Kinh Tế Đà Nẵng 
+		Thống kê và Quản lý thông tin
+	2009-2012 : ĐH Ngoại Ngữ Đà Nẵng
+		Tiếng Anh Thương Mại(Văn bằng 2)
+
+
+
+KINH NGHIỆM LÀM VIỆC
+	T11/2019 - Nay
+		CÔNG TY CỔ PHẦN VACXIN VIỆT NAM
+		TT TIÊM CHỦNG VẮC XIN TRẺ EM VÀ NGƯỜI LỚN - TT VNVC ĐÀ NẴNG
+		https://vnvc.vn
+		Chuyên Viên IT
+		Công việc:
+			- Công việc IT Helpdesk.
+			- Vận hành, kiểm tra và hỗ trợ xử lý sự cố đối với với các thiết bị Văn phòng như: PC, máy In, máy Photocopy, POS, Barcode, Điện thoại, Hệ thống Server, Camera, Wifi, Máy chấm công,...
+			- Xây dựng kế hoạch bảo trì, bảo dưỡng, nâng cấp hệ thống và đánh giá các rủi ro để đề xuất giải pháp phòng tránh.
+			- Hỗ trợ các vấn đề CNTT cho các bộ phận: Bác sỹ, Điều Dưỡng, Thu Ngân, Lễ Tân, Kinh Doanh, Văn Phòng & Kế Toán, Kho và các phòng ban khác.
+			- Hỗ trợ phần mềm QAs xếp khám và luồng khám tiêm chủng thuộc hệ thống VNVC về phác đồ vắc xin, qui trình và các báo cáo.
+			- Hỗ trợ phần mềm Kế Toán.
+			- Hỗ trợ phần mềm Chấm Công và Quản Lý Nhân Sự.
+			- Viết tài liệu hướng dẫn và đào tạo các chức năng mới của phần mềm thuộc VNVC, training nhân viên thao tác theo các kế hoạch.
+			- Quản lý máy chủ Server Offline làm backup khu vực khi máy chủ hoạt động bị quá tải hoặc mất kết nối.
+			- Quản lý, vận hành các hệ thống: CISCO trực tuyến, âm thanh gọi số và bấm số, IPPhone, SalesForce,...
+			- IT Admin Miền Trung hỗ trợ các Trung Tâm thuộc khu vực miền Trung (các TT Huế, TT Quảng Nam, TT Quảng Ngãi, TT Qui Nhơn, TT Gia Lai, TT Nha Trang, TT Buôn Mê Thuộc) về phần mềm chuyên biệt, phân công công việc, các qui trình xử lý và các chứng từ liên quan.
+			- Làm việc với các đối tác, nhà cung cấp dịch vụ, thiết bị, giải pháp cho Trung Tâm và chứng từ Đề Nghị mua hàng, báo giá, so sánh,...
+			- Và một số công việc khác.
+			
+	T10/2017 - T10/2019
+		CÔNG TY CP GIẢI PHÁP PHẦN MỀM STHINK
+		Simple Think
+		https://sthink.com.vn
+		Khởi nghiệp Công ty Phần Mềm Giải Pháp. 
+		Công việc:
+			CÔNG TY CP GIẢI PHÁP PHẦN MỀM STHINK
+			 Simple Think
+			 https://sthink.com.vn
+			 Khởi nghiệp Công ty Phần Mềm Giải Pháp. 
+			 Phát triển phần mềm
+			 - Phụ trách triển khai dự án và phát triển các Module theo yêu cầu chuyên biệt khách hàng:
+			 - Bệnh viện Thái Bình Dương Hội An và Tam Kỳ
+			 - Khách sạn Diamond Bay Đà Nẵng
+			 - Tập đoàn Đại Phúc về Đầu Tư & BĐS
+			 - Tập đoàn Hưng Thịnh GROUP Co.
+			 - Cty CP Trung Nghĩa Quảng Ninh quản lý máy móc và thiết bị xe cơ giới.
+			 - CÔNG TY CỔ PHẦN GỖ CÔNG NGHIỆP QUẢNG NAM.
+			 https://goquangnam.com/
+			 - Kỹ năng:
+			 + Tập hợp yêu cầu và phân tích.
+			 + Xây dựng báo giá theo Module
+			 + Viết tài liệu lập trình chuyển BP Lập trình
+			 + Hỗ trợ viết một số Module và xử lý báo cáo.
+			 + Đào tạo và hướng dẫn sử dụng.
+			 + Viết tài liệu hướng dẫn sử dụng.
+			 + Nâng cấp và mở rộng các yêu cầu bổ sung.
+ 
+	T06/2016 - T10/2017
+		CÔNG TY TNHH PHẦN MỀM SẮC MÀU
+		Color Software
+		https://sthink.com.vn
+		Triển khai dự án & Kinh Doanh
+		Công việc:
+			- Làm việc tại Văn Phòng đại diện Miền Trung của Công Ty TNHH Phần Mềm Sắc Màu. 
+			 - Kinh doanh phần mềm 
+			 - Các phần mềm chuyên biệt thuộc các lĩnh vực: 
+			 + Kế toán
+			 + Tài chính
+			 + Xây dựng & Đầu tư
+			 + Sản xuất theo BOM
+			 + ...
+			 - Triển khai dự án
+			 - Các ngôn ngữ lập trình C#, SQL, Javascrip,...
+
+	T05/2008 - T05/2016
+		CÔNG TY CP PHẦN MỀM QUẢN LÝ DOANH NGHIỆP FAST
+		Fast Software Company
+		https://fast.com.vn
+		CN FAST tại Đà Nẵng
+			T10/2012 - T05/2016
+				Bộ phận Dự Án
+				Triển khai dự án ERP
+				Công việc
+					Triển khai các phân hệ ERP Doanh nghiệp cho khách hàng. 
+					 1. Lên kế hoạch triển khai dự án từng giai đoạn (TimeLine Project) và thành lập nhân sự dự án 
+					 2. Khảo sát và phân tích yêu cầu của khách hàng và viết tài liệu khảo sát 
+					 3. Viết tài liệu mô tả lập trình 
+					 4. Đào tạo hướng dẫn sử dụng phần mềm 
+					 5. Nhận chỉnh sửa từ bộ phận Phát triển sản phẩm, kiểm tra lại nghiệp vụ lần cuối và Update cho khách hàng 
+					 6. Hỗ trợ khách hàng nhập liệu và lên báo cáo 
+					 7. Kiểm soát thực hiện dự án và thanh toán 
+					 8. Viết tài liệu Hướng dẫn sử dụng cho khách hàng 
+					 9. Viết tài liệu chuyển giao cho bộ phận bảo hành. 
+					 10. Các dự án đã tham gia tiêu biểu: 
+					 - Triển khai Quản Lý Tài Chính và Mua Hàng cho Tập Đoàn Quốc Cường Gia Lai 
+					 - Triển khai Mua Hàng, Bán Hàng, Phân Tích Doanh Thu và Chi Phí cho FLC Qui Nhơn 
+					 - Triển khai Mua Hàng, Bán Hàng, Phân Tích Doanh Thu và Chi Phí cho Diamond Bay Nha Trang Hotel 
+					 - Triển khai Mua Hàng, Bán Hàng, Phân Tích Doanh Thu và Chi Phí cho Diamond Bay Nha Trang Resort & Condotel 
+					 - Triển khai Mua Hàng, Bán Hàng, Quản lý Nội Bộ cho Thuê, Đầu Tư Xây Dựng Căn Hộ, CRM cho Công ty VCN Nha Trang 
+					 - Triển khai phân hệ Đầu Tư và Xây Dựng cho Cty XD Vạn Tường
+ 
+			T05/2009 - T10/2012
+				Bộ phận CSKH
+				Phụ trách Phòng bảo hành và chăm sóc khách hàng
+				Công việc
+					Phụ trách Phòng bảo hành và chăm sóc khách hàng tại Chi Nhánh Công ty CP Phần Mềm Quản Lý Doanh Nghiệp FAST 
+					1. Chịu trách nhiệm quản lý nhân sự 7 thành viên phòng bảo hành và chăm sóc khách hàng 
+					2. Hỗ trợ và chăm sóc khách hàng sử dụng phần mềm FAST 
+					3. Lên kế hoạch công việc, phân công và báo cáo công việc thực hiện của Phòng Bảo Hành 
+					4. Kiểm soát và chịu trách nhiệm về Doanh số bảo hành 
+					5. Nghiên cứu và bổ sung các chức năng nghiệp vụ cho khách hàng 6. Làm việc với ngôn ngữ: FoxPro, SQL, VB, Dot Net, HTML,...
+					Các dự án: Bệnh viện Family, Bệnh Viện Tân Trí Huế
+					- VinaFor Đà Nẵng
+					- Đa Phương Thức
+					- Vietrolimex
+					- Vạn Tường
+					- 532
+					- ..
+			T05/2008 - T05/2016
+				Bộ phận Triển Khai
+				Triển khai dự án phần mềm Tài Chính - Kế Toán
+				Công việc
+					Triển khai dự án phần mềm Kế Toán Tài Chính
+					1. Viết yêu cầu khảo sát 
+					2. Viết tài liệu mô tả lập trình 
+					3. Cài đặt và đào tạo sử dụng phần mềm 
+					4. Kiểm tra Update và TestCase nghiệp vụ lại yêu cầu của khách hàng 
+					5. Đào tạo sử dụng chỉnh sửa(Nhân sự tham gia đào tạo từ 5-20 nhân sự) 
+					6. Viết tài liệu hướng dẫn sử dụng 
+					7. Hỗ trợ khách hàng nhập liệu và hỗ trợ lên báo cáo tài chính kế toán. 
+					8. Nghiên cứu chức năng bổ sung mới của các phiên bản phần mềm
+									
+CHỨNG CHỈ & KỸ NĂNG
+	Chứng chỉ
+		2018 : Bằng lái xe ô tô B2
+		2013 : Lớp NIIT lập trình viên C#
+	Kỹ năng
+		Tin học văn phòng
+		Các phần mềm khác
+		Viết tài liệu và Đào Tạo
+		Tiếng Anh
+			Khả năng giao tiếp Tiếng Anh cơ bản
+			Đọc hiểu và nghiên cứu các tài liệu
+		Ngôn ngữ lập trình
+			Ngôn ngữ: Foxpro, Dot Net, JavaScript,...
+			Cơ sở dữ liệu: MSSQL, Oracle,..
+		IT Helpdesk Hỗ trợ người dùng.
+		Mạng & Thiết bị : Kiểm tra theo dõi, lắp đặt xử lý về WAN_LAN, Wifi, Camera, máy chấm công, DataLog Nhiệt độ, Âm thanh gọi số, Cisco Trực Tuyến, IPPhone,..
+		Lái xe ô tô - Bằng B2
+	Tinh thần làm việc
+		Có tinh thần làm việc trách nhiệm cao
+		Cẩn thận
+		Chính xác
+		Chịu áp lực
+		Đúng giờ và có kế hoạch
+		Có thể tăng ca
+		Đi công tác xa dài ngày.
+
+GIẢI THƯỞNG
+	2009 - 2010 : Nhân viên bảo hành xuất sắc cấp Chi nhánh FAST Đà Nẵng
+	2011 - 2012 : Nhân viên bảo hành xuất sắc cấp công ty.
+	2019 - 2020 : Nhân viên IT xuất sắc của Trung Tâm VNVC Đà Nẵng.
+
+SỞ THÍCH
+	Đọc sách kinh doanh & kỹ năng
+	Nghe nhạc
+	Tìm hiểu công nghệ và áp dụng
+	Phát triển ứng dụng và phần mềm
+	Ngôn ngữ phần mềm
+	Nghiên cứu thuật toán
+	
+	
+	
+	
+-------------------------------------------------------------------------------------------------
+
+Tên: ĐINH QUANG DUY
+- Chuyên viên IT
+- Chuyên viên CNTT
+- Chuyên viên phân tích và triển khai dự án
+
+Ngày sinh: 
+Giới tính:
+Tình trạng hôn nhân:
+Điện thoại: 0935.399.222 - 0866.95.65.95
+Email: quangduy.dinh@gmail.com
+Địa chỉ: 46 An Hải Đông 1, P. An Hải Đông, Q. Sơn Trà, TP. Đà Nẵng
+Facebook: https://www.facebook.com/ZDinhQuangDuy
+
+HỌC VẤN:
+- ĐH Kinh Tế Đà Nẵng(T10/2003-T08/2008)
+	Thống kê và Quản lý thông tin
+- ĐH Ngoại Ngữ Đà Nẵng (T04/2009-T10/2012)
+	Tiếng Anh Thương Mại(Văn bằng 2)
+
+MỤC TIÊU NGHỀ NGHIỆP
+- Công việc liên quan đến Phân tích dữ liệu và thống kê về công nghệ, máy tính.
+- Công việc liên quan viết tài liệu: Khảo sát yêu cầu, thiết kế dữ liệu hệ thống, lập trình, nghiệp vụ testcase và hướng dẫn sử dụng.
+- Công việc liên quan đào tạo, trao đổi và giao tiếp.
+- Công việc liên quan đến thiết kế, trình bày, lập trình.
+- Công việc liên quan đến tìm hiểu công nghệ mới và thuật toán.
+- Công việc tiếp xúc và hỗ trợ người dùng
+---------------------------
+	+ 
+
+
+
+
+	
+	
+	
+KINH NGHIỆM LÀM VIỆC:
+* T11/2019 - Nay
+	CÔNG TY CỔ PHẦN VACXIN VIỆT NAM
+	TT TIÊM CHỦNG VẮC XIN TRẺ EM VÀ NGƯỜI LỚN - TT VNVC ĐÀ NẴNG
+	https://vnvc.vn
+	Chuyên Viên IT
+		- Công việc IT Helpdesk.
+		- Vận hành, kiểm tra và hỗ trợ xử lý sự cố đối với với các thiết bị Văn phòng như: PC, máy In, máy Photocopy, POS, Barcode, Điện thoại, Hệ thống Server, Camera, Wifi, Máy chấm công,...
+		- Xây dựng kế hoạch bảo trì, bảo dưỡng, nâng cấp hệ thống và đánh giá các rủi ro để đề xuất giải pháp phòng tránh.
+		- Hỗ trợ các vấn đề CNTT cho các bộ phận: Bác sỹ, Điều Dưỡng, Thu Ngân, Lễ Tân, Kinh Doanh, Văn Phòng & Kế Toán, Kho và các phòng ban khác.
+		- Hỗ trợ phần mềm QAs xếp khám và luồng khám tiêm chủng thuộc hệ thống VNVC về phác đồ vắc xin, qui trình và các báo cáo.
+		- Hỗ trợ phần mềm Kế Toán.
+		- Hỗ trợ phần mềm Chấm Công và Quản Lý Nhân Sự.
+		- Viết tài liệu hướng dẫn và đào tạo các chức năng mới của phần mềm thuộc VNVC, training nhân viên thao tác theo các kế hoạch.
+		- Quản lý máy chủ Server Offline làm backup khu vực khi máy chủ hoạt động bị quá tải hoặc mất kết nối.
+		- Quản lý, vận hành các hệ thống: CISCO trực tuyến, âm thanh gọi số và bấm số, IPPhone, SalesForce,...
+		- IT Admin Miền Trung hỗ trợ các Trung Tâm thuộc khu vực miền Trung (các TT Huế, TT Quảng Nam, TT Quảng Ngãi, TT Qui Nhơn, TT Gia Lai, TT Nha Trang, TT Buôn Mê Thuộc) về phần mềm chuyên biệt, phân công công việc, các qui trình xử lý và các chứng từ liên quan.
+		- Làm việc với các đối tác, nhà cung cấp dịch vụ, thiết bị, giải pháp cho Trung Tâm và chứng từ Đề Nghị mua hàng, báo giá, so sánh,...
+		- Và một số công việc khác.
+
+* T10/2017 - T10/2019
+	CÔNG TY CP GIẢI PHÁP PHẦN MỀM STHINK
+	Simple Think
+	https://sthink.com.vn
+	Khởi nghiệp Công ty Phần Mềm Giải Pháp. 
+	Phát triển phần mềm
+	- Phụ trách triển khai dự án và phát triển các Module theo yêu cầu chuyên biệt khách hàng:
+		- Bệnh viện Thái Bình Dương Hội An và Tam Kỳ
+		- Khách sạn Diamond Bay Đà Nẵng
+		- Tập đoàn Đại Phúc về Đầu Tư & BĐS
+		- Tập đoàn Hưng Thịnh GROUP Co.
+		- Cty CP Trung Nghĩa Quảng Ninh quản lý máy móc và thiết bị xe cơ giới.
+		- CÔNG TY CỔ PHẦN GỖ CÔNG NGHIỆP QUẢNG NAM.
+		https://goquangnam.com/
+	- Kỹ năng:
+		+ Tập hợp yêu cầu và phân tích.
+		+ Xây dựng báo giá theo Module
+		+ Viết tài liệu lập trình chuyển BP Lập trình
+		+ Hỗ trợ viết một số Module và xử lý báo cáo.
+		+ Đào tạo và hướng dẫn sử dụng.
+		+ Viết tài liệu hướng dẫn sử dụng.
+		+ Nâng cấp và mở rộng các yêu cầu bổ sung.
+
+* T06/2016 - T10/2017
+	CÔNG TY TNHH PHẦN MỀM SẮC MÀU
+	Color Software
+	https://sthink.com.vn
+	Triển khai dự án & Kinh Doanh
+	- Làm việc tại Văn Phòng đại diện Miền Trung của Công Ty TNHH Phần Mềm Sắc Màu. 
+	- Kinh doanh phần mềm 
+	- Các phần mềm chuyên biệt thuộc các lĩnh vực: 
+		+ Kế toán
+		+ Tài chính
+		+ Xây dựng & Đầu tư
+		+ Sản xuất theo BOM
+		+ ...
+	- Triển khai dự án
+	- Các ngôn ngữ lập trình C#, SQL, Javascrip,...
+ 
+* T05/2008 - T05/2016
+CÔNG TY CP PHẦN MỀM QUẢN LÝ DOANH NGHIỆP FAST
+Công ty Cổ phần Phần mềm Quản lý Doanh nghiệp
+Fast Software Company
+FAST
+https://fast.com.vn
+	* T10/2012 - 05/2016
+	Triển khai dự án ERP
+	Triển khai các phân hệ ERP Doanh nghiệp cho khách hàng. 
+		1. Lên kế hoạch triển khai dự án từng giai đoạn (TimeLine Project) và thành lập nhân sự dự án 
+		2. Khảo sát và phân tích yêu cầu của khách hàng và viết tài liệu khảo sát 
+		3. Viết tài liệu mô tả lập trình 
+		4. Đào tạo hướng dẫn sử dụng phần mềm 
+		5. Nhận chỉnh sửa từ bộ phận Phát triển sản phẩm, kiểm tra lại nghiệp vụ lần cuối và Update cho khách hàng 
+		6. Hỗ trợ khách hàng nhập liệu và lên báo cáo 
+		7. Kiểm soát thực hiện dự án và thanh toán 
+		8. Viết tài liệu Hướng dẫn sử dụng cho khách hàng 
+		9. Viết tài liệu chuyển giao cho bộ phận bảo hành. 
+		10. Các dự án đã tham gia tiêu biểu: 
+		- Triển khai Quản Lý Tài Chính và Mua Hàng cho Tập Đoàn Quốc Cường Gia Lai 
+		- Triển khai Mua Hàng, Bán Hàng, Phân Tích Doanh Thu và Chi Phí cho FLC Qui Nhơn 
+		- Triển khai Mua Hàng, Bán Hàng, Phân Tích Doanh Thu và Chi Phí cho Diamond Bay Nha Trang Hotel 
+		- Triển khai Mua Hàng, Bán Hàng, Phân Tích Doanh Thu và Chi Phí cho Diamond Bay Nha Trang Resort & Condotel 
+		- Triển khai Mua Hàng, Bán Hàng, Quản lý Nội Bộ cho Thuê, Đầu Tư Xây Dựng Căn Hộ, CRM cho Công ty VCN Nha Trang 
+		- Triển khai phân hệ Đầu Tư và Xây Dựng cho Cty XD Vạn Tường
+
+	* T10/2012 - T09/2012
+	Bộ phận CSKH 
+Phụ trách Phòng bảo hành và chăm sóc khách hàng tại Chi Nhánh Công ty CP Phần Mềm Quản Lý Doanh Nghiệp FAST 
+1. Chịu trách nhiệm quản lý nhân sự 7 thành viên phòng bảo hành và chăm sóc khách hàng 
+2. Hỗ trợ và chăm sóc khách hàng sử dụng phần mềm FAST 
+3. Lên kế hoạch công việc, phân công và báo cáo công việc thực hiện của Phòng Bảo Hành 
+4. Kiểm soát và chịu trách nhiệm về Doanh số bảo hành 
+5. Nghiên cứu và bổ sung các chức năng nghiệp vụ cho khách hàng 6. Làm việc với ngôn ngữ: FoxPro, SQL, VB, Dot Net, HTML,...
+Các dự án: Bệnh viện Family, Bệnh Viện Tân Trí Huế
+- VinaFor Đà Nẵng
+- Đa Phương Thức
+- Vietrolimex
+- Vạn Tường
+- 532
+- ..
+
+	* T05/2008 - T05/2016
+	Bộ phận Triển Khai và CSKH
+Triển khai dự án phần mềm Kế Toán Tài Chính
+1. Viết yêu cầu khảo sát 
+2. Viết tài liệu mô tả lập trình 
+3. Cài đặt và đào tạo sử dụng phần mềm 
+4. Kiểm tra Update và TestCase nghiệp vụ lại yêu cầu của khách hàng 
+5. Đào tạo sử dụng chỉnh sửa(Nhân sự tham gia đào tạo từ 5-20 nhân sự) 
+6. Viết tài liệu hướng dẫn sử dụng 
+7. Hỗ trợ khách hàng nhập liệu và hỗ trợ lên báo cáo tài chính kế toán. 
+8. Nghiên cứu chức năng bổ sung mới của các phiên bản phần mềm
+
+CHỨNG CHỈ
+- 2018 Bằng lái xe ô tô B2 2018
+- 2013 Lớp NIIT lập trình viên C#
+
+CÁC KỸ NĂNG
+Tin học văn phòng - Sử dụng thành thạo các công cụ Word, Excel, Power Point, Visio,...
+Các phần mềm khác 
+- Phần mềm kế toán như FAST, MISA, BRAVO,...
+- SQL Server
+- Phần mềm Mindmap xây dựng sơ đồ
+- Adobe Illutrator & Photoshop đơn giản.
+- Phần mềm Zoom, WebEx,...
+Viết tài liệu và Đào Tạo - Viết tài liệu khảo sát, tài liệu hướng dẫn sử dụng và đào tạo người
+dùng các vấn đề về phần mềm, thiết bị CNTT,...
+Tiếng Anh - Khả năng giao tiếp Tiếng Anh cơ bản
+Ngôn ngữ lập trình - Ngôn ngữ: Foxpro, Dot Net, JavaScript,...
+- Cơ sở dữ liệu: MSSQL, Oracle,..
+Mạng & Thiết bị Kiểm tra theo dõi, lắp đặt xử lý về LAN, Wifi, Camera, máy chấm công,
+DataLog Nhiệt độ, Âm thanh gọi số, Cisco Trực Tuyến, IPPhone,..
+IT Helpdesk Hỗ trợ người dùng.
+Áp lực & kỷ luật Có tinh thần làm việc có trách nhiệm cao, chịu áp lực, có thể tăng ca và
+đi công tác xa dài ngày.
+Bằng lái xe ô tô - Bằng B2
+
+
+
+
+
+GIẢI THƯỞNG
+	- 2009: Nhân viên bảo hành xuất sắc cấp Chi nhánh FAST Đà Nẵng
+	- Nhân viên bảo hành xuất sắc cấp công ty 
+	- Nhân viên IT xuất sắc của Trung Tâm VNVC Đà Nẵng vận hành, hỗ trợ người dùng và xử lý sự cố.
+	
+	
+	
+SỞ THÍCH
+- Đọc sách kinh doanh & kỹ năng
+- Nghe nhạc
+- Tìm hiểu công nghệ và áp dụng
+- Phát triển ứng dụng và phần mềm
+- Nghiên cứu thuật toán

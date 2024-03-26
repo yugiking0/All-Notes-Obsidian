@@ -1,0 +1,136 @@
+QAs Inside
+-----------------------------
+001. Thêm User Add Quyền
+--
+exec HR..ws_MDM_Employee_SaveV2 
+@SessionID='E30AD681-4288-4CF4-9792-665ADB7EFAFA#::1',
+@FacID=N'',
+@EmployeeID=N'4e3ac96b-9bf5-458a-af01-b18dff20e1dd',
+@FullName=N'Dinh Quang Duy',
+@EmpDepartmentID=N'5',
+@EmpPositionID=N'90',
+@EmpAddress=N'',@EmpPhone=N'',
+@EmpDOB=N'1985-01-20',@EmployeeCard=N'',
+@EmployeeCode=N'DUY',@EmpTechniqueID=N'1',@EmpExtensionID=N'00000000-0000-0000-0000-000000000000',
+@EmpWorkingDate=N'',@EmpGender=N'0',@EmpDOBPlace=N'',@EmpAddress2=N'',@EmpIDCard=N'',@EmpDateIssueCard=N'',
+@EmpPlaceIssueCard=N'',@EmpMarried=N'',@EmpEthnic=N'',@EmpReligion=N'',@EmpEducation=N'',@EmpDegree=N'',
+@EmpNativeCountry=N'',
+@EmpTaxNumber=N'',
+@EmpBankNumber=N'',
+@EmpBankName=N'',
+@EmpHealthInsurance=N'',
+@EmpSocialInsurance=N'',
+@EmpSocialRegPlace=N'',
+@EmpReducedPersonNumber=N'',
+@EmpPicture=N'',
+@Email=N'',
+@IsNoiBo=N'0',
+@DonViCongTac=N'',
+@TrucThuoc=N'Nhà Thuốc',
+@PasswordHash=N'c4ca4238a0b923820dcc509a6f75849b',
+@IsTongDai=N'0',
+@CustomerID=N'8'
+--
+declare @p14 dbo.RoleUserFacility
+insert into @p14 values(N'8.11',N'c39a5fb2-28c5-4902-932f-a5448e7b5fdb')
+insert into @p14 values(N'8.11',N'3704f92d-569c-421d-a4b3-bff19f7b9ded')
+insert into @p14 values(N'8.11',N'd8e7e6cf-9fec-45fe-9c84-c56d2e345df9')
+insert into @p14 values(N'8.11',N'cb793de8-3cc7-4f05-940d-eed69ea7d0ba')
+
+exec Security..ws_UserRoleFacility_Save 
+@SessionID='E30AD681-4288-4CF4-9792-665ADB7EFAFA#::1',
+@ID=N'9a46bcf3-5753-4705-9763-486fae14933f',
+@Username=N'DUY',
+@Password=N'1',
+@PasswordConfirm=N'1',
+@PasswordHash=N'c4ca4238a0b923820dcc509a6f75849b',
+@EmpID=N'4e3ac96b-9bf5-458a-af01-b18dff20e1dd',
+@FirstName=N'',
+@LastName=N'',@Locked=N'0',
+@Active=N'1',
+@FacID=N'8.11',
+@FacIDList=N'8.11',
+@DataTableRole=@p14
+--
+declare @p3 dbo.RoomUserPermissionFacility
+insert into @p3 values(N'8.11',N'79')
+insert into @p3 values(N'8.11',N'10')
+insert into @p3 values(N'8.11',N'8')
+insert into @p3 values(N'8.11',N'1')
+insert into @p3 values(N'8.11',N'2')
+insert into @p3 values(N'8.11',N'3')
+insert into @p3 values(N'8.11',N'4')
+insert into @p3 values(N'8.11',N'5')
+insert into @p3 values(N'8.11',N'127')
+insert into @p3 values(N'8.11',N'130')
+insert into @p3 values(N'8.11',N'129')
+insert into @p3 values(N'8.11',N'125')
+insert into @p3 values(N'8.11',N'126')
+insert into @p3 values(N'8.11',N'124')
+insert into @p3 values(N'8.11',N'123')
+insert into @p3 values(N'8.11',N'119')
+insert into @p3 values(N'8.11',N'122')
+insert into @p3 values(N'8.11',N'116')
+insert into @p3 values(N'8.11',N'120')
+insert into @p3 values(N'8.11',N'128')
+insert into @p3 values(N'8.11',N'132')
+insert into @p3 values(N'8.11',N'133')
+insert into @p3 values(N'8.11',N'134')
+insert into @p3 values(N'8.11',N'135')
+insert into @p3 values(N'8.11',N'66')
+insert into @p3 values(N'8.11',N'131')
+insert into @p3 values(N'8.11',N'144')
+insert into @p3 values(N'8.11',N'145')
+insert into @p3 values(N'8.11',N'146')
+insert into @p3 values(N'8.11',N'147')
+insert into @p3 values(N'8.11',N'148')
+insert into @p3 values(N'8.11',N'149')
+insert into @p3 values(N'8.11',N'150')
+insert into @p3 values(N'8.11',N'151')
+insert into @p3 values(N'8.11',N'152')
+insert into @p3 values(N'8.11',N'153')
+insert into @p3 values(N'8.11',N'154')
+insert into @p3 values(N'8.11',N'117')
+insert into @p3 values(N'8.11',N'110')
+insert into @p3 values(N'8.11',N'105')
+insert into @p3 values(N'8.11',N'7')
+insert into @p3 values(N'8.11',N'118')
+insert into @p3 values(N'8.11',N'121')
+insert into @p3 values(N'8.11',N'114')
+insert into @p3 values(N'8.11',N'112')
+insert into @p3 values(N'8.11',N'115')
+insert into @p3 values(N'8.11',N'113')
+insert into @p3 values(N'8.11',N'111')
+insert into @p3 values(N'8.11',N'109')
+insert into @p3 values(N'8.11',N'108')
+insert into @p3 values(N'8.11',N'136')
+insert into @p3 values(N'8.11',N'107')
+insert into @p3 values(N'8.11',N'104')
+insert into @p3 values(N'8.11',N'97')
+insert into @p3 values(N'8.11',N'98')
+insert into @p3 values(N'8.11',N'61')
+insert into @p3 values(N'8.11',N'57')
+insert into @p3 values(N'8.11',N'9')
+insert into @p3 values(N'8.11',N'11')
+insert into @p3 values(N'8.11',N'12')
+insert into @p3 values(N'8.11',N'72')
+insert into @p3 values(N'8.11',N'51')
+insert into @p3 values(N'8.11',N'13')
+insert into @p3 values(N'8.11',N'14')
+insert into @p3 values(N'8.11',N'87')
+insert into @p3 values(N'8.11',N'96')
+insert into @p3 values(N'8.11',N'15')
+insert into @p3 values(N'8.11',N'54')
+insert into @p3 values(N'8.11',N'52')
+
+exec Security..ws_UserRoomFacility_Save 
+@SessionID='E30AD681-4288-4CF4-9792-665ADB7EFAFA#::1',
+@ID=N'9a46bcf3-5753-4705-9763-486fae14933f',
+@DataTableRoom=@p3
+
+--
+
+
+
+
+

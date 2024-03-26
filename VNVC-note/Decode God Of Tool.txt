@@ -1,0 +1,453 @@
+God Of Tool
+qasup	QAhcm388883
+- ws_Admin_Vaccine_GoBienLai
+- ws_Admin_Vaccine_4Tables
+- ws_Vaccine_Admin_GoMuiHiopDong
+- ws_Admin_Vaccine_DoiThongTinMuiTiem
+- ws_Admin_Vaccine_DoiBienLaiChoMui
+- ws_KTMuiTiemTruocKhiDuaVaoHD
+- ws_CapNhatDuaMuiLeVaoHopDong
+- ws_TimKiemBenhNhan
+- 
+
+
+---------------------------
+Xử lý ở CN_ClinicalSessions và ở Vaccine_PhacDoBenhNhan_Detail
+1. ws_CapNhatDuaMuiLeVaoHopDong
+
+UPDATE dbo.CN_ClinicalSessions
+SET HopDongID = @HopDongID,
+	GoiID = @ServicePackageID,
+	IsMuiNgoaiDanhMuc = NULL,
+	DonGia = @GiaMuiTiem,
+	ModifiedBy = @UserID,
+	ModifiedOn = GETDATE(),
+	Note = ISNULL( Note, '' ) + N'. Cập nhật đưa mũi lẻ vào HĐ bằng Tool',
+	IsDatTruoc = NULL
+WHERE ClinicalSessionID = @MuiTiemCanDuaVaoHopDong
+
+DECLARE @IDPhacDoBenhNhan_Detail UNIQUEIDENTIFIER
+SELECT @IDPhacDoBenhNhan_Detail = IDPhacDoBenhNhan_Detail
+FROM dbo.Vaccine_PhacDoBenhNhan_Detail WITH ( NOLOCK )
+WHERE ClinicalSessionID = @MuiTiemCanDuaVaoHopDong
+
+UPDATE dbo.Vaccine_PhacDoBenhNhan_Detail
+SET HopDongID = @HopDongID,
+	Note = ISNULL( Note, '' ) + N'. Cập nhật đưa mũi lẻ vào HĐ bằng Tool',
+	ModifiedBy = @UserID,
+	ModifiedOn = GETDATE()
+WHERE IDPhacDoBenhNhan_Detail = @IDPhacDoBenhNhan_Detail
+
+
+2. ws_Admin_Vaccine_4Tables
+Load 4 bảng table ở đây
+-- Version: 1.0.1.1 20190528 M.Hieu tối ưu + bảng 4 chỉ lấy các mũi của phác đồ còn mở
+SELECT IsPaid,
+	   DonGia,
+	   ClinicalSessionID,
+	   HopDongID,
+	   Vaccine_MaChung,
+	   PhacDo_ID,
+	   PatientID,
+	   CompletedOn,
+	   IsMuiNgoaiDanhMuc,
+	   STTMuiTiem
+INTO #CN_ClinicalSessionsByPatientID
+FROM dbo.CN_ClinicalSessions WITH ( NOLOCK )
+WHERE PatientID = @PatientID
+
+SELECT IDPhacDoBenhNhan_Detail,
+	   IDPhacDoBenhNhan,
+	   ClinicalSessionID,
+	   IDPhacDo_Detail,
+	   IDPhacDo,
+	   HopDongID,
+	   CompleteOn
+INTO #Vaccine_PhacDoBenhNhan_DetailByPatientID
+FROM dbo.Vaccine_PhacDoBenhNhan_Detail WITH ( NOLOCK )
+WHERE PatientID = @PatientID
+	
+
+
+--3.ws_Vaccine_Admin_GoMuiHiopDong
+Description:	Gỡ mũi tiêm ra khỏi hợp đồng
+Khi gỡ mũi thì chỉ là Update lại bảng không xóa hoàn toàn record
+
+UPDATE CN_ClinicalSessions
+SET IsMuiNgoaiDanhMuc = 1,
+	ModifiedBy = @UserID,
+	ModifiedOn = GETDATE(),
+	Note = N'God of tool -- Admin gỡ mũi này ra khỏi hợp đồng'
+WHERE ClinicalSessionID = @ClinicalSessionID
+	
+--4. ws_Admin_Vaccine_GoBienLai
+Description:	gỡ biên lai
+SELECT IsMuiNgoaiDanhMuc,
+	   HopDongID,
+	   DonGia,
+	   IsPaid,
+	   ClinicalSessionID,
+	   Vaccine_MaChung
+INTO #tempClini
+FROM CN_ClinicalSessions AS ccs WITH (NOLOCK)
+WHERE ClinicalSessionID = @ClinicalSessionID
+
+        IF EXISTS
+        (
+            SELECT 1
+            FROM #tempClini AS tc
+            WHERE HopDongID IS NOT NULL
+                  AND ISNULL(IsMuiNgoaiDanhMuc, 0) = 0
+        )
+        BEGIN
+            SELECT N'Chú ý mũi này là mũi hợp đồng. Hiện tại chỉ cập nhật không thanh toán cho mũi này.' Mess
+
+            UPDATE CN_ClinicalSessions
+            SET IsPaid = 0,
+                ModifiedBy = @UserID,
+                ModifiedOn = GETDATE()
+            WHERE ClinicalSessionID = @ClinicalSessionID
+
+--6. ws_Admin_Vaccine_DoiBienLaiChoMui
+Description:	đổi biên lai thanh toán cho mũi
+
+ DECLARE @Clinical_BienLai UNIQUEIDENTIFIER
+    SELECT @Clinical_BienLai = ClinicalSessionID
+    FROM BIL_InvoiceDetail AS bid WITH (NOLOCK)
+    WHERE InvoiceDetailID = @InvoiceID_Detail
+
+    IF NOT EXISTS
+    (
+        SELECT 1
+        FROM CN_ClinicalSessions AS ccs WITH (NOLOCK)
+        WHERE ClinicalSessionID = @Clinical_BienLai
+    )
+    BEGIN
+        DECLARE @clinica_PhacDo UNIQUEIDENTIFIER
+
+        SELECT @clinica_PhacDo = ClinicalSessionID
+        FROM Vaccine_PhacDoBenhNhan_Detail AS vpdbnd WITH (NOLOCK)
+        WHERE IDPhacDoBenhNhan_Detail = @IDPhacDoBenhNhanDetail
+
+        IF @clinica_PhacDo IS NULL
+        BEGIN
+            RAISERROR(N'Mũi tiêm này không có Clinical. Liên hệ support cung cấp thông tin mũi này', 16, 1)
+
+        END
+        ELSE
+        BEGIN
+            DECLARE @DonGia_BienLai MONEY
+
+            SELECT @DonGia_BienLai = DonGia
+            FROM BIL_InvoiceDetail AS bid WITH (NOLOCK)
+            WHERE InvoiceDetailID = @InvoiceID_Detail
+
+            UPDATE CN_ClinicalSessions
+            SET DonGia = @DonGia_BienLai,
+                IsPaid = 1,
+                ModifiedBy = @UserID,
+                ModifiedOn = GETDATE()
+            WHERE ClinicalSessionID = @clinica_PhacDo
+
+            UPDATE BIL_InvoiceDetail
+            SET ClinicalSessionID = @clinica_PhacDo,
+                ModifiedBy = @UserID,
+                ModifiedOn = GETDATE(),
+                NoteForDev = ISNULL(NoteForDev, '') + ' - God of tool, ws_Admin_Vaccine_DoiBienLaiChoMui'
+            WHERE InvoiceDetailID = @InvoiceID_Detail
+
+        
+        END
+
+    END
+    ELSE
+    BEGIN
+
+        DECLARE @Clinical_orginal UNIQUEIDENTIFIER
+        DECLARE @Idphacdodetail_original UNIQUEIDENTIFIER
+
+
+        SELECT @Clinical_orginal = ClinicalSessionID
+        FROM Vaccine_PhacDoBenhNhan_Detail AS vpdbnd WITH (NOLOCK)
+        WHERE IDPhacDoBenhNhan_Detail = @IDPhacDoBenhNhanDetail
+
+
+        SELECT @Idphacdodetail_original = IDPhacDoBenhNhan_Detail
+        FROM Vaccine_PhacDoBenhNhan_Detail AS vpdbnd
+        WHERE ClinicalSessionID = @Clinical_BienLai
+
+        UPDATE Vaccine_PhacDoBenhNhan_Detail
+        SET ClinicalSessionID = @Clinical_BienLai,
+            ModifiedBy = @UserID,
+            ModifiedOn = GETDATE()
+        WHERE IDPhacDoBenhNhan_Detail = @IDPhacDoBenhNhanDetail
+
+       
+        UPDATE Vaccine_PhacDoBenhNhan_Detail
+        SET ClinicalSessionID = @Clinical_orginal,
+            ModifiedBy = @UserID,
+            ModifiedOn = GETDATE()
+        WHERE IDPhacDoBenhNhan_Detail = @Idphacdodetail_original
+       
+    END
+
+
+
+--8. ws_Admin_Vaccine_DoiThongTinMuiTiem
+Description:	đổi thông tin thanh toán cho mũi tiêm
+
+ DECLARE @Original_clinical UNIQUEIDENTIFIER
+    DECLARE @Original_phacdobenhnhan_Detail_Of_Clinical UNIQUEIDENTIFIER
+
+    SELECT @Original_clinical = ClinicalSessionID
+    FROM Vaccine_PhacDoBenhNhan_Detail AS vpdbnd WITH (NOLOCK)
+    WHERE IDPhacDoBenhNhan_Detail = @IDPhacDoBenhNhanDetail
+
+    SELECT @Original_phacdobenhnhan_Detail_Of_Clinical = IDPhacDoBenhNhan_Detail
+    FROM Vaccine_PhacDoBenhNhan_Detail AS vpdbnd WITH (NOLOCK)
+    WHERE ClinicalSessionID = @ClinicalSessionID_Change
+
+    UPDATE Vaccine_PhacDoBenhNhan_Detail
+    SET ClinicalSessionID = @ClinicalSessionID_Change,
+        ModifiedBy = @UserID,
+        ModifiedOn = GETDATE()
+    WHERE IDPhacDoBenhNhan_Detail = @IDPhacDoBenhNhanDetail
+
+
+    UPDATE Vaccine_PhacDoBenhNhan_Detail
+    SET ClinicalSessionID = @Original_clinical,
+        ModifiedBy = @UserID,
+        ModifiedOn = GETDATE()
+    WHERE IDPhacDoBenhNhan_Detail = @Original_phacdobenhnhan_Detail_Of_Clinical
+
+
+
+
+--9. Kiểm tra mũi tiêm với HĐ trước khi đưa vào HĐ
+ws_KTMuiTiemTruocKhiDuaVaoHD
+Version: 1.0.0.0 M.Hieu 20190514 10:20 Kiểm tra mũi tiêm với HĐ trước khi đưa vào HĐ
+
+ DECLARE @KT BIT = 0
+    DECLARE @PhacDo_Detail_ID INT
+    DECLARE @PhacDo_ID INT
+    DECLARE @HopDongDetailID UNIQUEIDENTIFIER
+    DECLARE @GiaMuiTiem DECIMAL(18, 2) = 0
+    DECLARE @ServicePackageID INT
+
+    SELECT @PhacDo_Detail_ID = PhacDo_Detail_ID,
+           @PhacDo_ID = PhacDo_ID
+    FROM dbo.CN_ClinicalSessions WITH (NOLOCK)
+    WHERE ClinicalSessionID = @MuiTiemCanDuaVaoHopDong
+
+    SELECT MaMuiTiem,
+           IsMuiNgoaiDanhMuc,
+           IDPhacDo,
+           GiaChenhLechChuaGiam,
+           HopDongDetailID,
+           GiaMuiTiem,
+           ServicePackageID
+    INTO #Vaccine_HopDong_Detail
+    FROM dbo.Vaccine_HopDong_Detail WITH (NOLOCK)
+    WHERE HopDongID = @HopDongID
+
+    SELECT @KT = 1,
+           @HopDongDetailID = HopDongDetailID,
+           @GiaMuiTiem = GiaMuiTiem,
+           @ServicePackageID = ServicePackageID
+    FROM #Vaccine_HopDong_Detail
+    WHERE MaMuiTiem = @PhacDo_Detail_ID
+          AND ISNULL(IsMuiNgoaiDanhMuc, 0) = 0
+
+    IF @KT = 1
+    BEGIN
+        DECLARE @GiaChenhLechChuaGiam DECIMAL(18, 2) = 0
+        DECLARE @SLMuiDeChiaChenhLech INT
+        DECLARE @TienChechLenhDeCapNhat DECIMAL(18, 2) = 0
+
+        /*Tính lại tiền chênh lệch nếu có*/
+        SELECT @GiaChenhLechChuaGiam = SUM(GiaChenhLechChuaGiam),
+               @SLMuiDeChiaChenhLech = COUNT(1)
+        FROM #Vaccine_HopDong_Detail WITH (NOLOCK)
+        WHERE IDPhacDo = @PhacDo_ID
+              AND ISNULL(IsMuiNgoaiDanhMuc, 0) = 0
+
+
+    END
+	
+
+
+
+--11. Lấy lịch sử mũi tiêm xử lý
+-- Description:	lấy lịch sử mũi tiêm
+-- Version: 1.0.2.0 Anhnn 20201007 17:13 Phần history bị cắt đi sẽ là bảng "Vaccine_PhacDoBenhNhan_Detail2", kiểm tra nếu có bảng này sẽ lấy thêm dữ liệu từ bảng này để hiển thị log cho khách hàng xem
+-- =============================================
+IF (EXISTS (select 1 from History.sys.tables where name = 'Vaccine_PhacDoBenhNhan_Detail_20200101_20200823'))
+	BEGIN
+		INSERT INTO #TempResult (NgayHenTiem, ModifiedOn, UserID)
+		SELECT vpdbnd.NgayHenTiem, vpdbnd.ModifiedOn, vpdbnd.ModifiedBy
+		FROM History..Vaccine_PhacDoBenhNhan_Detail_20200101_20200823 AS vpdbnd WITH (NOLOCK)
+		WHERE vpdbnd.IDPhacDoBenhNhan_Detail = @IDPhacDoBenhNhanDetail
+		ORDER BY HistorySeq
+	END
+
+	INSERT INTO #TempResult (NgayHenTiem, ModifiedOn, UserID)
+	SELECT vpdbnd.NgayHenTiem, vpdbnd.ModifiedOn, vpdbnd.ModifiedBy
+    FROM History..Vaccine_PhacDoBenhNhan_Detail AS vpdbnd WITH (NOLOCK)
+    WHERE vpdbnd.IDPhacDoBenhNhan_Detail = @IDPhacDoBenhNhanDetail
+    ORDER BY HistorySeq
+
+	UPDATE a
+	SET a.Username = u.Username
+	FROM #TempResult  a
+	JOIN Security..Users AS u WITH (NOLOCK) ON a.UserID = u.ID
+
+	SELECT Username, NgayHenTiem, ModifiedOn 
+	FROM #TempResult
+	ORDER BY STT
+
+
+
+
+-- =============================================
+-- Author:		Hieunt
+-- Create date: 2019-07-23 9:32
+-- Description:	tool admin chuyển đổi phác đồ nhóm bệnh
+-- Version: 1.0.0.0
+-- =============================================
+
+CREATE PROCEDURE [dbo].[ws_Admin_ChuyenDoiPhacDoNhomBenh]
+	@SessionID VARCHAR(MAX), @PatientID UNIQUEIDENTIFIER, @IDPhacDoBenhNhan_NhomBenh UNIQUEIDENTIFIER, @IDPhacDoVaccine INT, @NhomBenhID INT
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	DECLARE @UserID UNIQUEIDENTIFIER
+	DECLARE @HistoryCaptureYN VARCHAR(1)
+
+	SELECT	@UserID = UserID
+	FROM	[Security]..[Sessions] WITH (NOLOCK)
+	WHERE	[SessionID] = @SessionID
+
+	-- check if user authenticated
+	IF @UserID IS NULL
+		RETURN
+
+	SELECT	vpdbnnbd.*, lvnbpdd.STTMuiTiem, CAST(0 AS BIT) IsDelete, CAST(0 AS BIT) IsInsert
+	INTO	#tempPhacDoBenhNhanNhomBenh_Detail
+	FROM	Vaccine_PhacDoBenhNhan_NhomBenh_Detail AS vpdbnnbd WITH (NOLOCK)
+			INNER JOIN L_Vaccine_NhomBenh_PhacDo_Detail AS lvnbpdd WITH (NOLOCK) ON lvnbpdd.IDPhacDo = vpdbnnbd.IDPhacDo
+	WHERE	PatientID = @PatientID AND	IDPhacDoBenhNhan_NhomBenh = @IDPhacDoBenhNhan_NhomBenh
+
+	DECLARE @DoiTuongSuDungID INT
+
+	SELECT	@DoiTuongSuDungID = DoiTuongSuDungID
+	FROM	L_Vaccine_Phacdo AS lvp WITH (NOLOCK)
+	WHERE	IDPhacDo = @IDPhacDoVaccine
+
+	DECLARE @IDPhacDo_NhomBenhChuyenDoi INT
+
+	SELECT	@IDPhacDo_NhomBenhChuyenDoi = IDPhacDo
+	FROM	L_Vaccine_NhomBenh_PhacDo AS lvnbpd WITH (NOLOCK)
+	WHERE	DoiTuongSuDungID = @DoiTuongSuDungID AND MaNhomBenh = @NhomBenhID
+
+	SELECT	*
+	INTO	#tempPhacDoNhomBenhDanhMuc
+	FROM	L_Vaccine_NhomBenh_PhacDo_Detail AS lvnbpdd WITH (NOLOCK)
+	WHERE	IDPhacDo = @IDPhacDo_NhomBenhChuyenDoi
+
+	IF (SELECT COUNT(1)FROM		#tempPhacDoBenhNhanNhomBenh_Detail AS tpdbnnbd) > (SELECT COUNT(1)FROM		#tempPhacDoNhomBenhDanhMuc AS tpdnbdm)
+	BEGIN
+		UPDATE	#tempPhacDoBenhNhanNhomBenh_Detail
+			SET IsDelete = 1
+		FROM	#tempPhacDoBenhNhanNhomBenh_Detail AS tpdbnnbd
+				LEFT JOIN #tempPhacDoNhomBenhDanhMuc AS tpdnbdm ON tpdbnnbd.STTMuiTiem = tpdnbdm.STTMuiTiem
+		WHERE	tpdnbdm.STTMuiTiem IS NULL
+	END
+	ELSE	IF (SELECT COUNT(1)FROM #tempPhacDoBenhNhanNhomBenh_Detail AS tpdbnnbd) < (SELECT COUNT(1)FROM		#tempPhacDoNhomBenhDanhMuc AS tpdnbdm)
+	BEGIN
+		INSERT	INTO #tempPhacDoBenhNhanNhomBenh_Detail
+			(PatientID, HopDongID, IsLocked, MaDot, IsPrioritySauTiem, STTDaBoQuaSauTiem, IsPriority, STTDaBoQua, IsTheoDoi, MacAddressUser, IPUser,
+			ModifiedOn, ModifiedBy, CreatedOn, CreatedBy, LieuDung, UserCreatedByChiDinh, UserCreatedOn, IsTiemTaiBV, TiemNgoaiOn, IsTiemNgoai,
+			CompleteOnAsInt, CompleteBy, CompleteOn, ChiDinhAsInt, IsChiDinh, IsGoi, Note, NgayHenTiemAsInt, NgayHenTiem, ClinicalSessionID, IDPhacDo_Detail,
+			IDPhacDo, IDPhacDoBenhNhan, FacID, IDPhacDoBenhNhan_Detail, IDPhacDoBenhNhan_NhomBenh, IDPhacDoBenhNhan_Detail_NhomBenh, IsInsert)
+		SELECT	@PatientID, HopDongID, IsLocked, MaDot, IsPrioritySauTiem, STTDaBoQuaSauTiem, IsPriority, STTDaBoQua, IsTheoDoi, NULL, NULL, GETDATE(),
+				@UserID, GETDATE(), @UserID, LieuDung, UserCreatedByChiDinh, UserCreatedOn, IsTiemTaiBV, TiemNgoaiOn, IsTiemNgoai, CompleteOnAsInt, CompleteBy,
+				CompleteOn, ChiDinhAsInt, IsChiDinh, IsGoi, 'Tool chuyển đổi phác đồ insert thêm', NgayHenTiemAsInt, NgayHenTiem, ClinicalSessionID,
+				tpdnbdm.ID_Detail, tpdnbdm.IDPhacDo, IDPhacDoBenhNhan, FacID, IDPhacDoBenhNhan_Detail, @IDPhacDoBenhNhan_NhomBenh,
+				Application.dbo.fn_GUID_NewSequential(), 1
+		FROM	#tempPhacDoBenhNhanNhomBenh_Detail AS tpdbnnbd
+				RIGHT JOIN #tempPhacDoNhomBenhDanhMuc AS tpdnbdm ON tpdbnnbd.STTMuiTiem = tpdnbdm.STTMuiTiem
+		WHERE	tpdbnnbd.STTMuiTiem IS NULL
+	END
+
+	UPDATE	#tempPhacDoBenhNhanNhomBenh_Detail
+		SET IDPhacDo = tpdnbdm.IDPhacDo, IDPhacDo_Detail = tpdnbdm.ID_Detail
+	FROM	#tempPhacDoBenhNhanNhomBenh_Detail AS tpdbnnbd
+			INNER JOIN #tempPhacDoNhomBenhDanhMuc AS tpdnbdm ON tpdbnnbd.STTMuiTiem = tpdnbdm.STTMuiTiem
+
+	UPDATE	Vaccine_PhacDoBenhNhan_NhomBenh_Detail
+		SET IDPhacDo = tpdbnnbd.IDPhacDo, IDPhacDo_Detail = tpdbnnbd.IDPhacDo_Detail, ModifiedBy = @UserID, ModifiedOn = GETDATE(),
+			Note = N'Tool chuyển đổi phác đồ '
+	FROM	#tempPhacDoBenhNhanNhomBenh_Detail AS tpdbnnbd
+			INNER JOIN Vaccine_PhacDoBenhNhan_NhomBenh_Detail AS vpdbnnbd WITH (NOLOCK) ON tpdbnnbd.IDPhacDoBenhNhan_Detail_NhomBenh = vpdbnnbd.IDPhacDoBenhNhan_Detail_NhomBenh
+	WHERE	tpdbnnbd.IsDelete = 0
+
+	INSERT INTO History..Vaccine_PhacDoBenhNhan_NhomBenh_Detail
+		(DeleteFlag, IDPhacDoBenhNhan_Detail_NhomBenh, IDPhacDoBenhNhan_NhomBenh, IDPhacDoBenhNhan_Detail, FacID, IDPhacDoBenhNhan, IDPhacDo, IDPhacDo_Detail,
+		ClinicalSessionID, NgayHenTiem, NgayHenTiemAsInt, Note, IsGoi, IsChiDinh, ChiDinhAsInt, CompleteOn, CompleteBy, CompleteOnAsInt, IsTiemNgoai,
+		TiemNgoaiOn, IsTiemTaiBV, UserCreatedOn, UserCreatedByChiDinh, LieuDung, CreatedBy, CreatedOn, ModifiedBy, ModifiedOn, IPUser, MacAddressUser,
+		IsTheoDoi, STTDaBoQua, IsPriority, STTDaBoQuaSauTiem, IsPrioritySauTiem, MaDot, IsLocked, HopDongID, PatientID)
+	SELECT CASE WHEN IsDelete = 1 THEN 1 ELSE 0 END, IDPhacDoBenhNhan_Detail_NhomBenh, IDPhacDoBenhNhan_NhomBenh, IDPhacDoBenhNhan_Detail, FacID,
+			IDPhacDoBenhNhan, IDPhacDo, IDPhacDo_Detail, ClinicalSessionID, NgayHenTiem, NgayHenTiemAsInt, Note, IsGoi, IsChiDinh, ChiDinhAsInt, CompleteOn,
+			CompleteBy, CompleteOnAsInt, IsTiemNgoai, TiemNgoaiOn, IsTiemTaiBV, UserCreatedOn, UserCreatedByChiDinh, LieuDung, CreatedBy, CreatedOn,
+			ModifiedBy, ModifiedOn, IPUser, MacAddressUser, IsTheoDoi, STTDaBoQua, IsPriority, STTDaBoQuaSauTiem, IsPrioritySauTiem, MaDot, IsLocked,
+			HopDongID, PatientID
+	FROM	#tempPhacDoBenhNhanNhomBenh_Detail AS tpdbnnbd
+	WHERE	IsInsert = 1 OR IsDelete = 1
+
+	INSERT INTO History..Vaccine_PhacDoBenhNhan_NhomBenh_Detail
+		(DeleteFlag, IDPhacDoBenhNhan_Detail_NhomBenh, IDPhacDoBenhNhan_NhomBenh, IDPhacDoBenhNhan_Detail, FacID, IDPhacDoBenhNhan, IDPhacDo, IDPhacDo_Detail,
+		ClinicalSessionID, NgayHenTiem, NgayHenTiemAsInt, Note, IsGoi, IsChiDinh, ChiDinhAsInt, CompleteOn, CompleteBy, CompleteOnAsInt, IsTiemNgoai,
+		TiemNgoaiOn, IsTiemTaiBV, UserCreatedOn, UserCreatedByChiDinh, LieuDung, CreatedBy, CreatedOn, ModifiedBy, ModifiedOn, IPUser, MacAddressUser,
+		IsTheoDoi, STTDaBoQua, IsPriority, STTDaBoQuaSauTiem, IsPrioritySauTiem, MaDot, IsLocked, HopDongID, PatientID)
+	SELECT	0, vpdbnnbd.IDPhacDoBenhNhan_Detail_NhomBenh, vpdbnnbd.IDPhacDoBenhNhan_NhomBenh, vpdbnnbd.IDPhacDoBenhNhan_Detail, vpdbnnbd.FacID,
+			vpdbnnbd.IDPhacDoBenhNhan, vpdbnnbd.IDPhacDo, vpdbnnbd.IDPhacDo_Detail, vpdbnnbd.ClinicalSessionID, vpdbnnbd.NgayHenTiem,
+			vpdbnnbd.NgayHenTiemAsInt, vpdbnnbd.Note, vpdbnnbd.IsGoi, vpdbnnbd.IsChiDinh, vpdbnnbd.ChiDinhAsInt, vpdbnnbd.CompleteOn, vpdbnnbd.CompleteBy,
+			vpdbnnbd.CompleteOnAsInt, vpdbnnbd.IsTiemNgoai, vpdbnnbd.TiemNgoaiOn, vpdbnnbd.IsTiemTaiBV, vpdbnnbd.UserCreatedOn, vpdbnnbd.UserCreatedByChiDinh,
+			vpdbnnbd.LieuDung, vpdbnnbd.CreatedBy, vpdbnnbd.CreatedOn, vpdbnnbd.ModifiedBy, vpdbnnbd.ModifiedOn, vpdbnnbd.IPUser, vpdbnnbd.MacAddressUser,
+			vpdbnnbd.IsTheoDoi, vpdbnnbd.STTDaBoQua, vpdbnnbd.IsPriority, vpdbnnbd.STTDaBoQuaSauTiem, vpdbnnbd.IsPrioritySauTiem, vpdbnnbd.MaDot,
+			vpdbnnbd.IsLocked, vpdbnnbd.HopDongID, vpdbnnbd.PatientID
+	FROM	#tempPhacDoBenhNhanNhomBenh_Detail AS tpdbnnbd
+			INNER JOIN Vaccine_PhacDoBenhNhan_NhomBenh_Detail AS vpdbnnbd WITH (NOLOCK) ON tpdbnnbd.IDPhacDoBenhNhan_Detail_NhomBenh = vpdbnnbd.IDPhacDoBenhNhan_Detail_NhomBenh
+	WHERE	tpdbnnbd.IsDelete = 0
+
+	DELETE	Vaccine_PhacDoBenhNhan_NhomBenh_Detail
+		FROM	#tempPhacDoBenhNhanNhomBenh_Detail AS tpdbnnbd
+				INNER JOIN Vaccine_PhacDoBenhNhan_NhomBenh_Detail AS vpdbnnbd WITH (NOLOCK) ON tpdbnnbd.IDPhacDoBenhNhan_Detail_NhomBenh = vpdbnnbd.IDPhacDoBenhNhan_Detail_NhomBenh
+	WHERE	tpdbnnbd.IsDelete = 1
+
+	INSERT INTO Vaccine_PhacDoBenhNhan_NhomBenh_Detail
+		(IDPhacDoBenhNhan_Detail_NhomBenh, IDPhacDoBenhNhan_NhomBenh, IDPhacDoBenhNhan_Detail, FacID, IDPhacDoBenhNhan, IDPhacDo, IDPhacDo_Detail,
+		ClinicalSessionID, NgayHenTiem, NgayHenTiemAsInt, Note, IsGoi, IsChiDinh, ChiDinhAsInt, CompleteOn, CompleteBy, CompleteOnAsInt, IsTiemNgoai,
+		TiemNgoaiOn, IsTiemTaiBV, UserCreatedOn, UserCreatedByChiDinh, LieuDung, CreatedBy, CreatedOn, ModifiedBy, ModifiedOn, IPUser, MacAddressUser,
+		IsTheoDoi, STTDaBoQua, IsPriority, STTDaBoQuaSauTiem, IsPrioritySauTiem, MaDot, IsLocked, HopDongID, PatientID)
+	SELECT	IDPhacDoBenhNhan_Detail_NhomBenh, IDPhacDoBenhNhan_NhomBenh, IDPhacDoBenhNhan_Detail, FacID, IDPhacDoBenhNhan, IDPhacDo, IDPhacDo_Detail,
+			ClinicalSessionID, NgayHenTiem, NgayHenTiemAsInt, Note, IsGoi, IsChiDinh, ChiDinhAsInt, CompleteOn, CompleteBy, CompleteOnAsInt, IsTiemNgoai,
+			TiemNgoaiOn, IsTiemTaiBV, UserCreatedOn, UserCreatedByChiDinh, LieuDung, CreatedBy, CreatedOn, ModifiedBy, ModifiedOn, IPUser, MacAddressUser,
+			IsTheoDoi, STTDaBoQua, IsPriority, STTDaBoQuaSauTiem, IsPrioritySauTiem, MaDot, IsLocked, HopDongID, PatientID
+	FROM	#tempPhacDoBenhNhanNhomBenh_Detail AS tpdbnnbd
+	WHERE	IsInsert = 1
+
+	DROP TABLE #tempPhacDoBenhNhanNhomBenh_Detail, #tempPhacDoNhomBenhDanhMuc
+END
+
+
+
+
+
+
+
+
+	
+	
+	

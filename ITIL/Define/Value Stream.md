@@ -1,0 +1,2 @@
+A **Value Stream** is a series of steps an organization undertakes to **create and deliver** products and services *to service consumers*
+=> Là *tập hợp những bước liên tục* của tổ chức *được tạo ra* và *cung cấp* sản phẩm và dịch vụ đáp ứng nhu cầu của khách hàng.

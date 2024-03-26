@@ -1,0 +1,2 @@
+- **A problem** is a cause, or potential cause, of **one or more incidents**
+- Một vấn đề là nguyên nhân, hoặc nguyên nhân tiềm ẩn của một hoặc nhiều sự cố.

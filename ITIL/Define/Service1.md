@@ -1,0 +1,1 @@
+**A service** provider produces **outputs** that *allow customers* to **achieve outcomes**.

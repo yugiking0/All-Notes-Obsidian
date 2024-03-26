@@ -1,0 +1,2 @@
+**Service Management** is a set of **specialised organizational capabilities** for **enabling value for customers** in the form of services.
+- *Quản lý dịch vụ* là một tập hợp những *năng lực/khả năng tổ chức chuyên môn* để mang lại giá trị lợi ích cho khách hàng dưới hình thức dịch vụ.

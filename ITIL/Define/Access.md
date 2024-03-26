@@ -1,0 +1,1 @@
+**Access to resources**: Does not have the ownership transferred to a consumer

@@ -1,0 +1,181 @@
+Cần học lại:
+- Operators
+- while loop
+- array.property
+- object.property
+
+* Hot key
+- ctrl + L : clear Terminal
+- ctrl + C: kill Terminal(when running terminal)
+- F2 rename tag and close tag html
+
+- shift + ctrl + K: delete row line
+- altr + Up/Down arrow: move row line up/down
+- shift + Altr + Up/Down arrow: Duplicate row line, copy row line
+
+* Run LiveServer:
+live-server --port=8989 --browser=chrome
+- port: gan port de chay
+- browser: trinh duyet su dung
+
+
+Hltm:
+- Bao gom:
+<html>
+	<head>
+		<title> Tieu de trang</title>
+	</head>
+	<body>
+		<h1>Tieu de 1</h1>
+		<p>Noi dung trang</p>
+	</body>
+</html>
+
+- insert link: in body page 
+<a href="https://tuoitre.vn/">TuoiTre Online</a> : href: hypertext reference
+
+- insert image: don't need close tag
+<image scr = "link image" />: not have a tag </image>
+
+- Textbox 
+<input type="kind type..." placeholder="Your name here" /> : not have a tag </input>
+	* type: text, checkbox, button,...
+	* placeholder: Describe content textbox input
+	* don't need close tag </input>
+	
+- Button
+<button>OK!</button>
+	
+- Add extreme file .css:
+ <link href="style.css" rel="stylesheet" />
+ 
+- Add extreme file Javascript
+
+- Add class
+<p class="second">Just another paragraph</p>
+
+- Add ID
+<form id="your-name">
+</form>
+
+<div id="ID-Name01">
+</div>
+
+- Style CSS
+* Main style:
+body, h1, h2
+body {
+
+}
+
+* Class: need dot(.) before class name
+.first {
+
+}
+
+.first {
+
+}
+
+* IDS: need hash(#) before IDname
+#ID-Name01 {
+}
+
+#your-name {
+}
+
+Learn more HLTM & CSS
+-> get more documents
+tag
+css
+margin
+padding
+input
+button
+border
+...
+
+
+DOM: Document Objects Model
+Practice Assignments for JavaScript Fundamentals sections
+
+DevOps For Dummies_IBM3rdLimitedEdition_bySanjeevSharma _BernieCoyne
+
+
+
+https://blogtruyen.vn/8000/bac-dau-du-hiep
+
+
+https://blogtruyen.vn/10468/ueki
+
+https://blogtruyen.vn/2431/hanzou-no-mon
+
+
+https://blogtruyen.vn/23513/abyss-rage
+
+https://blogtruyen.vn/5043/anh-hung-vo-le
+
+
+
+
+
+https://blogtruyen.vn/c87334/veritas-new-chap-59
+
+https://blogtruyen.vn/7755/tenjou-tenge-7755
+
+
+https://blogtruyen.vn/460/breaction
+
+
+http://www.nettruyenvip.com/truyen-tranh/shinai-naru-boku-e-satsui-wo-komete-20668
+
+http://www.nettruyenvip.com/truyen-tranh/detective-xeno-and-the-seven-locked-murder-rooms-19949
+
+survival in the solitart island
+
+
+
+https://blogtruyen.vn/c82534/aphorism-new-chap-24
+
+https://blogtruyen.vn/c590645/shin-ai-naru-boku-e-satsui-wo-komete-chapter-92
+
+
+https://blogtruyen.vn/c290752/prison-lab-chap-22
+
+https://blogtruyen.vn/c326821/diner-chap-1
+
+https://blogtruyen.vn/c590/change-123-chap-8
+
+https://blogtruyen.vn/c495647/ban-cua-con-gai-toi-chap-48
+
+
+https://blogtruyen.vn/c530577/mahou-shoujo-site-chapter-110
+
+https://blogtruyen.vn/c242691/sekai-oni-8477-chap-77
+
+
+https://truyentranh.net/hakumei-to-mikochi-tiny-little-life-in-the-woods/chap-001-231261
+
+https://truyentranh.net/radiation-house/chap-001-187841
+
+https://truyentranh.net/casinogui
+
+https://truyentranh.net/suicide-island-dao-tu-sat
+
+https://truyentranh.net/real-account-ii-2
+
+https://truyentranh.net/sat-thu-ve-vuon
+
+https://truyentranh.net/shuuen-no-shiori
+
+
+https://mangapark.net/comic/62711/shiori-experience-jimi-na-watashi-to-hen-na-ojisan
+
+
+
+
+
+https://ehkoo.com/bai-viet/tat-tan-tat-ve-promise-va-async-await
+
+https://kipalog.com/posts/Promise-la-khi-gi-
+https://viblo.asia/p/tim-hieu-mot-so-phuong-thuc-cua-promise-ByEZkO3YZQ0

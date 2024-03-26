@@ -1,0 +1,2 @@
+- **Release management** => *MAKE*
+- **Deployment management** => *MOVE*

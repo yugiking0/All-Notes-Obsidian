@@ -1,0 +1,6 @@
+- **Services Definition** : is a means of enabling **value co-creation** by **facilitating outcomes** that customers want to achieve **without the customer having to manage specific costs and risks**. [[value co-creation]] [[Facilitating Outcomes]] [[without the customer having to manage specific costs and risks]]
+- **Product** : is defined as a configuration of an organization’s resources designed to **offer value** for a consumer.
+- **Service Offering** is defined as a description of **one or more services**, **designed to address the needs** of a target consumer group.
+	- **Services**: A ***service*** provider produces *outputs* that allow customers to achieve outcomes.
+	- **Output**: An ***output*** is a **tangible or intangible deliverable** of an activity.(Đầu ra - Một sản phẩm hữu hình hoặc vô hình của một hoạt động)
+	- **Outcome**: An ***outcome*** is a result for a stakeholder enabled by **one or more outputs**.(Kết quả - Kết quả cho một bên liên quan được kích hoạt bởi một hoặc nhiều đầu ra)

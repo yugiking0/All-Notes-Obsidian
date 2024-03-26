@@ -1,0 +1,1 @@
+(viết tắt của **_Information Technology Infrastructure Library_**), là một nền tảng đưa ra hướng dẫn tốt nhất để xây dựng hệ thống quản lý dịch vụ CNTT tại doanh nghiệp.

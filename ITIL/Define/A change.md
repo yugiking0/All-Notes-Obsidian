@@ -1,0 +1,2 @@
+**A change** is the addition, modification, or removal of anything that could have a  direct or indirect effect on IT services.
+- *Hành động được thêm vào, thay đổi hoặc loại bỏ bất thứ gì mang lại kết quả trực tiếp hoặc gián tiếp.*

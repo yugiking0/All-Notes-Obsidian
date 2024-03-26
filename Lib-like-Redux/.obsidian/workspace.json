@@ -1,0 +1,127 @@
+{
+  "main": {
+    "id": "f7b1c27281f16ee3",
+    "type": "split",
+    "children": [
+      {
+        "id": "d5571a4481257817",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e282a908f48fe64d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Actions.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "b296f534c79b485b",
+    "type": "split",
+    "children": [
+      {
+        "id": "a169858edfcff57d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0dbab9b2fdf8be20",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "083af6f3fc2725bd",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "8ef668cf543ae574",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 268
+  },
+  "right": {
+    "id": "cba9b1260ec39960",
+    "type": "split",
+    "children": [
+      {
+        "id": "e2922b829f801a90",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "36d8b3d3b881cf14",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Actions.md",
+                "collapseAll": true,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": true,
+                "unlinkedCollapsed": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "command-palette:Open command palette": false,
+      "markdown-importer:Open format converter": false
+    }
+  },
+  "active": "e282a908f48fe64d",
+  "lastOpenFiles": [
+    "Thư viện như React + Redux.md",
+    "Actions.md",
+    "Redux là gì.md",
+    "Core/Store.md",
+    "content/Dispatch.md",
+    "Core/Views.md",
+    "Core/state.md",
+    "Untitled.md",
+    "lib/script.js.md",
+    "lib/core.js.md"
+  ]
+}
