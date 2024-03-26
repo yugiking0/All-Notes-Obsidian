@@ -1,0 +1,2 @@
+- Incidents may be **escalated to a support team** for resolution. 
+- *The routing* is typically based on the **incident category**.

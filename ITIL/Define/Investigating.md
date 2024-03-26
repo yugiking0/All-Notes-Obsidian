@@ -1,0 +1,2 @@
+**Investigating**
+- cuộc điều tra ; các điều tra ; kiểm tra ; nghiên cứu về ; nghiên cứu ; quan tâm tới ; tiếp cận hơn ; tra ; trần ; xem xét ; đang điều tra ; điều tra mấy cái ; điều tra một vụ ; điều tra vài ; điều tra về ; điều tra ; để điều tra ;

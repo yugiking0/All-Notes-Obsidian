@@ -1,0 +1,36 @@
+{
+  "settings": {
+    "migrated": true,
+    "iconPacksPath": ".obsidian/plugins/obsidian-icon-folder/icons",
+    "fontSize": 16,
+    "emojiStyle": "none",
+    "iconColor": null,
+    "recentlyUsedIcons": [
+      "FasBook",
+      "FasAudioDescription",
+      "LiLeaf",
+      "RiBook3Fill",
+      "RiQuillPenFill"
+    ],
+    "recentlyUsedIconsSize": 5,
+    "rules": [],
+    "extraMargin": {
+      "top": 0,
+      "right": 4,
+      "bottom": 0,
+      "left": 0
+    },
+    "iconInTabsEnabled": false
+  },
+  "Demo Vault 2/0. MAP.md": "FasMap",
+  "Demo Vault 2/4. VISUAL NOTES": "FasAudioDescription",
+  "Demo Vault 2/3. ARCHIEVED": "FasBoxArchive",
+  "Demo Vault 2/2. RESOURCE": "FasTruck",
+  "Demo Vault 2/1. PROJECT": "IbTarget",
+  "Demo Vault 2/0. JOURNAL": "LiLeaf",
+  "Demo Vault 2/Hướng dẫn sử dụng.md": {
+    "iconName": "FasBook",
+    "inheritanceIcon": "FasBook"
+  },
+  "Demo Vault 2/3. ARCHIEVED/learn-skill/00. Main_learn_skill_tips.md": "FasBook"
+}

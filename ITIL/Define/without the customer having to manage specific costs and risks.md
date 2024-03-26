@@ -1,0 +1,2 @@
+- **without the customer having to manage specific costs and risks**
+-  Loại trừ khách hàng phải quản lý những chi phí và rủi ro đặc trưng.

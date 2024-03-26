@@ -1,0 +1,1 @@
+- **Collaboration** can ==facilitate information sharing and learning==, **as well as helping** to solve the incident **more efficiently and effectively**.

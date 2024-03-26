@@ -1,0 +1,35 @@
+- [[Value]]
+- [[Define/Service]]
+- [[Define/Service Management]]
+- [[Organization]]
+- [[Service provider]] & [[Service consumer]]
+- [[Service Provisioning]] & [[Service Consumption]]
+- [[Service relationship model]]
+- [[Define/Service]], [[Define/Product]] & [[Service Offering]]
+- [[Services]]
+- [[Service Request Management]]
+
+---
+ - **Service Management** - A set of organizational capabilities for enabling value to customers in the form of services.
+ - **Service** - A means of enabling value co-creation by facilitating outcomes that customers want to achieve, without customers having to manage specific costs and risk.
+ - **Value** - The perceived benefits, usefulness and importance of something.
+ - **Product** - A configuration of an organization’s resources designed to offer value to a customer.
+ - **Organization** - A person or a group of people that has its own functions with responsibilities, authorities and relationships to achieve its objectives.
+ - **Customer** - A person who defines requirements for services and takes responsibility for ==outcomes== from service consumption.
+ - **User** - A person who uses services.
+ - **Sponsor** - A person who authorizes the budget for service consumption.
+ - **Stakeholder** - A person with a (vested) interest in the service provision, this can include shareholders, executive, customers and users etc.
+ - **Output** - The tangible or intangible delivery of anactivity.
+ - **Outcome** - A result for a stakeholder enabled by *one or more activities*. These terms can cause confusion but a simple way to look at this is a car manufacturer produces an output (car) which is use by the stakeholder to achieve a required outcome (completion of a journey).
+ - **Utility** - The functionality offered by a productor service **to meet** a particular need. This is more easily understood as considering ==what the service does==.
+- **Warranty** - The assurance that a product or service **will meet** agreed requirements. This is more easily understood as considering ==how the service performs==.
+![[Utility_Warranty2.png]]
+- **Service Offering** - A formal description of one or more services, designed to meet the needs of a target consumer group. A service offering may include goods, access to resources and service actions.
+- **Service Relationship** - A cooperation between a service provider and a service consumer. Service relationships include service provision, service consumption and service relationship management.
+- **Service Consumer** - A role performed by anorganization in a service relationship to consume services.
+- **Service Provider** - A role performed by an organization in a service relationship to provide services to consumers.
+- **Service Relationship Management** - Joint activities performed by a service provider and aservice consumer to ensure continual value co-creation based on agreed available service offerings.
+- **Output** - A tangible or intangible delivery of an activity.
+- **Outcome** - A result for a stakeholder enabled by one or more outputs.
+- **Cost** - The a mount of money spent on a specific activity or resource.
+- **Risk** - A possible event that could cause harm or loss or make it more difficult to achieve objectives. Risk can also be defined as uncertainty of outcome, and can be used in the context of measuring the probability of positive outcomes as well as negative outcomes.

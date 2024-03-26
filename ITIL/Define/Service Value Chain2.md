@@ -1,0 +1,1 @@
+The **service value chain** is a set of ==interconnected activities== that an organization performs *in order to deliver a valuable* product or service to its consumers and to **facilitate value  realization**.

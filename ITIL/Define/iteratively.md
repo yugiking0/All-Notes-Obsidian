@@ -1,0 +1,2 @@
+- Lặp đi lặp lại
+- Chia nhỏ

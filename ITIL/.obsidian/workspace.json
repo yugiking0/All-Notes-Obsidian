@@ -1,0 +1,245 @@
+{
+  "main": {
+    "id": "fef32998884a7f28",
+    "type": "split",
+    "children": [
+      {
+        "id": "6fac86cde3fbb6db",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e75c8ed2a9ef83ee",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Guiding Principles/Guiding Principles.md",
+                "mode": "source",
+                "source": false
+              },
+              "pinned": true
+            }
+          },
+          {
+            "id": "ced7fb13dff94216",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Google IT Support Professional Certificate/Troubleshooting/Troubleshooting and Customer Support.md",
+                "mode": "source",
+                "source": false
+              },
+              "pinned": true
+            }
+          },
+          {
+            "id": "df919e6298192d92",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Main - ITIL 4 Foundation.md",
+                "mode": "source",
+                "source": false
+              },
+              "pinned": true
+            }
+          },
+          {
+            "id": "632a0eabe6efce83",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Four Dimensions/Information & Technology.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f2e9ccd1cc1e9d48",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "ITIL Practices/Service Other Practices/Monitoring and Event Management.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "44639b5c1d08dce8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Main - ITIL 4 Foundation.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 5
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "7548dfd8801f8330",
+    "type": "split",
+    "children": [
+      {
+        "id": "945add7e3ec08691",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9d049bfb31c84527",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "14bff11fc01a6d66",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "464dd88ae1baad5a",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "f7ec9bded65727c4",
+    "type": "split",
+    "children": [
+      {
+        "id": "414eb3d7eccd52c9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f5f39e0f85301caf",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Main - ITIL 4 Foundation.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "f6ad854b58ba464c",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Main - ITIL 4 Foundation.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "dbe01aaab8f171c5",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "708c108c9c209d89",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Main - ITIL 4 Foundation.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "44639b5c1d08dce8",
+  "lastOpenFiles": [
+    "Service Management/GLOSSARY.md",
+    "Four Dimensions/Value Streams & Processes.md",
+    "ITIL Practices/Service Level Management.md",
+    "ITIL Practices/IT Asset Management.md",
+    "Service Management/Cost and Risk.md",
+    "ITIL Practices/6 - Problem Management.md",
+    "Exam01.md",
+    "ITIL Practices/Service Other Practices/Monitoring and Event Management.md",
+    "ITIL Practices/Service Other Practices/Capacity Management.md",
+    "ITIL Practices/Service Other Practices/Availability Management.md",
+    "Four Dimensions/Organizations and People.md",
+    "Four Dimensions/Four Dimensions.md",
+    "ITIL Practices/2 - Relationship Management.md",
+    "ITIL Practices/7 - Service Desk.md",
+    "SVS - Service Value System.md",
+    "Themes.md",
+    "The Four Dimensions of Service Management.md",
+    "ITIL Practices/ITIL-Practices.md",
+    "Four Dimensions/Information & Technology.md",
+    "Main - ITIL 4 Foundation.md",
+    "Google IT Support Professional Certificate/Troubleshooting/Troubleshooting and Customer Support.md",
+    "Guiding Principles/Guiding Principles.md",
+    "ITIL Practices/Service Request Management.md",
+    "ITIL Practices/1 - Information Security Management.md",
+    "ITIL Practices/Detail/Closure.md",
+    "Service Value Chain.md"
+  ]
+}

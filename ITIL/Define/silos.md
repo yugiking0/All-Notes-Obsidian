@@ -1,0 +1,1 @@
+**Silo** là trạng thái tâm lý khi một số bộ phận *không muốn hợp tác* và *không muốn chia sẻ thông tin với những người khác* trong cùng một công ty

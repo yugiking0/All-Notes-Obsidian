@@ -1,0 +1,1 @@
+A **process** is a set of interrelated or interacting activities that transforms **inputs into outputs**. Processes are designed to accomplish a **specific objective**.

@@ -1,0 +1,10 @@
+{
+  "baseFontSize": 16,
+  "cssTheme": "Border",
+  "translucency": false,
+  "enabledCssSnippets": [
+    "obsidian_theme_config"
+  ],
+  "theme": "moonstone",
+  "accentColor": "#e4445c"
+}
