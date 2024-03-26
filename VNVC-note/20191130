@@ -1,0 +1,95 @@
+TT VNVC Đà Nẵng báo cáo cuối ngày <09/12/2019> 
+1. PM QAs Offline đăng nhập bình thường
+- Data dữ liệu đã đến ngày 29/11/2019
+- Link Tivi Offline: Bình thường
+2. Các lỗi chỉ định của bác sĩ giải quyết trong ngày.
+3. Các lỗi máy in, máy tính đã giải quyết trong ngày.
+4. Hạng mục máy bấm số, âm thanh: Bình thường.
+5. Mạng SD-WAN Status Check: Bình thường
+6. Lỗi Zalo ở một số máy LT, TN, Điều Dưỡng và Bác sỹ từ 8h00 đến 10h00
+7. Lỗi hiển thị màn hình Phòng Tiêm 05, đã khắc phục do lỗi Windown, khởi động lại máy.
+8. Xử lý cho 2 Hợp đồng Khách Hàng Chuyển Đổi Gói Thu Hồi Giảm 5% Do Thanh Toán Trễ Sau 24.11
+* Khách hàng: 1900266691 - NGUYỄN GIA KHIÊM 
+Gói vacxin: Gói INF 12 24. Số HĐ 2702.1/2019/VNVC-DNG. Mã gói 110919 - GÓI 12 24 THÁNG (INF)
+Ngày làm HĐ: 16/10/2019
+* Khách hàng: 1900520098 - ĐẶNG NGUYỄN KHÔI NGUYÊN
+Gói vacxin: Gói INF 12 24. Số HĐ 2510.1/2019/VNVC-DNG. Mã gói 110919 - GÓI 12 24 THÁNG (INF)
+Ngày làm HĐ: 07/10/2019
+9. Họp và trao đổi với bộ phận Chăm Sóc Khách Hàng về các lỗi, và phản hồi từ bộ phận IT về thao tác trên phần mềm QAs khi tiếp nhận, có đề xuất với Bộ Phận IT Support QAs hỗ trợ hướng dẫn lại thao tác cho phù hợp với Lễ Tân TT VNVC Đà Nẵng.
+10. Xử lý với NCC máy Photocopy Ricoh Hưng Thịnh Phát về lỗi kẹt giấy và thay mực in mới.
+
+
+
+TT VNVC Đà Nẵng báo cáo PM QAs OFFLine ngày 30/11/2019
+- Đăng nhập bình thường
+- Chạy full luồng các chức năng
+- Data hiện tại tới ngày 29/11/2019
+- Link tivi Offline bình thường
+- Mạng SD-WAN Status Check: Bình thường
+
+---------------------------------------------
+Báo cáo cuối ngày
+TT VNVC Đà Nẵng báo cáo cuối ngày <29/11/2019> 
+1. PM QAs Offline đăng nhập bình thường
+- Data dữ liệu đã đến ngày 24/11/2019
+- Link Tivi Offline: Bình thường
+2. Các lỗi chỉ định của bác sĩ giải quyết trong ngày.
+3. Các lỗi máy in, máy tính đã giải quyết trong ngày.
+4. Hạng mục máy bấm số, âm thanh: Bình thường.
+5. Mạng SD-WAN Status Check: Bình thường
+
+
+
+
+Test:
+Ngô Thảo Nguyên
+30/01/2019
+15 Đỗ Nhuận, Phường Hòa Minh, Quận Liên Chiểu, Đà Nẵng
+0905818552
+Cúm ngày hẹn: 07/11 VaxiGrip 0.5ml
+Cúm : 07/11 VaxiGrip 0.25ml
+Não mô cầu BC: 27/11/2019
+Viêm phổi phế cầu Synflorix
+Bạch cầu bại liệt: 10/07/2020
+
+
+Khả năng khách hàng và Bác sỹ nhớ ngày hẹn đã sửa 07/11/2019 là của Phát đồ khách lẻ bổ sung đầu tiên, nhưng khi lập hợp đồng mới chưa sửa lại ngày hẹn M3 đúng.
+Không rõ qui trình thực hiện tư vấn khi xảy ra ngày 08/09 và 08/10. 
+Khả năng sẽ là (giả định, mai sẽ hỏi lại những người liên quan)
+- Ngày 08/09: BN đến khám và được tư vấn và tiêm tại VNVC
+- Ngày 08/10: BN đến và thành mua gói, báo đã tiêm 1 mũi ngoài(nhớ nhầm không rõ), nhân viên tư vấn gói, chọn gói tiêm ngoài
+- Bác sỹ chỉ định ngày 08/10: đóng Phát đồ gói, mở phát đồ lẻ(nguyên nhân nào đó...) đã sửa ngày hẹn M3 là 07/11, nhưng của Phát đồ lẻ
+- Sau đó lại đóng phát đồ lẻ, mở phát đồ Gói và chưa sửa lại ngày hẹn M3 là 07/11 mà vẫn còn là ngày 07/12(Chương trình nhảy ngày hẹn M3 + 1 tháng) -> M3 sẽ là ngày hẹn 07/12
+--> Khách hàng và bác sỹ đều thắc mắc xem ngày 08/11 tại sao M3 lại trên hệ thống lại là 07/12, thay vì đúng hẹn khách hàng và bác sỹ nhớ là 07/11
+Cái này suy luận giả định thôi. :D
+
+
+Lỗi ngày 15/11
+
+
+Giải đáp thắc mắc về nhảy lịch đồng bộ mũi tiêm cho 2 bác sỹ
+Kiểm tra nguyên nhân tiêm tại VNVC lại thể hiện mũi tiêm ngoài
+
+
+Phan Tuấn Kiệt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

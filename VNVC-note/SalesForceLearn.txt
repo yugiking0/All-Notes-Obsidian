@@ -1,0 +1,17 @@
+SalesForce Learn
+========================================
+
+Opportunity Name
+Type
+Lead Source
+Amount
+Close Date
+Next Step
+Stage
+Probability (%)
+Fiscal Period
+Age
+Created Date
+Opportunity Owner
+Owner Role
+Account Name.

@@ -1,0 +1,1137 @@
+--//Đầu ngày--------------------------------------------------------
+TT Đà Nẵng, Mạng SD-WAN Status Check: Bình thường lúc 8h ngày 24.05.2020.
+Bản quyền FortiGate đã hết hạn 12.05.2020 cần bổ sung Licence mới.
+
+
+--------------------------------------------------------------------
+nslookup vnvc.qasol.net
+Kiểm tra kết nối với QAs Online
+Ping vnvc.qasol.net -t
+Ping 171.244.27.75 -t
+Name:    vnvc.qasol.net
+Addresses:  171.244.27.75
+			125.212.212.152
+			125.212.212.157
+			171.244.27.76
+
+--------------------------------------------------------------------
+Báo cáo:
+1. Báo cáo xuất Vaccine - Vật tư tại phòng tiêm
+- Chủ yếu là phải chụp lại mã lô của vật tư xuất, gởi lại PTiêm
+- Hủy tiêm rồi báo lại để cho phòng tiêm lại xuất đúng mã lô xuất cũ
+2. Báo cáo thu ngân(Thu tiền từng thu ngân ở từng quầy)
+3. Báo cáo chi tiết Doanh thu(Doanh thu từng loại khách)
+- Khách gói
+- Khách lẻ
+- Khách đặt trước
+
+--------------------------------------------------------------------
+---//Check Offline QAs----------------------------------------------
+--------------------------------------------------------------------
+TT VNVC Đà Nẵng báo cáo PM QAs OFFLine ngày 26/05/2020:
+- Đăng nhập bình thường.
+- Chạy full luồng các chức năng theo Checklist Offline.
+- Data dữ liệu đã Restore đến ngày 20.05.2020.
+- Link Tivi Offline: Bình thường.
+- Mạng SD-WAN Status Check: Bình thường.
+* Kiểm tra trên QAs Offline:
+- Tiếp nhận:
+	+ In Hợp Đồng được, nhưng Phụ Lục kèm theo báo lỗi.
+- Quản lý Hợp Đồng:
+	+ Hủy Hợp Đồng báo lỗi IDClient -> Vẫn còn xuất hiện lỗi.
+- Phòng khám:
+	+ Chọn nhóm bệnh Sùi mào gà -> Vaccine có 1 dòng bị trống không có tên(Cervarix).
+	Khi đặt trước ở Tiếp nhận thì chỉ ra 1 Vaccine Gardasil.
+
+Phạm Thị Tuần
+Thân Thị Mỹ Dung
+
+
+TT VNVC Đà Nẵng báo cáo PM QAs OFFLine ngày 23/05/2020:
+- Đăng nhập bình thường.
+- Chạy full luồng các chức năng theo Checklist Offline.
+- Data dữ liệu đã Restore đến ngày 20.05.2020.
+- Link Tivi Offline: Bình thường.
+- Mạng SD-WAN Status Check: Bình thường.
+* Phần mềm QAs Offline:
+- Không in được Phụ Lục Hợp Đồng
+- Quản lý Hợp Đồng khi Hủy Hợp Đồng báo lỗi.
+01. CheckIn - Lễ Tân:
+- Khi nhập Ghi Chú hoàn mũi bên Gói khi lưu lại thì bị mất thông tin.
+02. Thanh toán - Thu Ngân:
+- 
+03. Phòng khám - Bác sỹ: 
+- Không in được bảng cam kết.
+- Khi chọn khám khách hàng mà nếu không chuyển qua TAB Khám trước tiêm sẽ bị lỗi màn hình Tivi.
+- Phòng ưu tiên nếu chọn trực tiếp phòng khám sẽ báo chưa có chỉ định, bấm tạo phòng ngẫu nhiên thì được.
+04. Phòng Tiêm: 
+- Nếu tiêm 3 mũi, chọn và tiêm 1 mũi thì bị mất tên khách đang phục vụ. 	
+- Tiêm xong 3 mũi, hủy 1 mũi sẽ có xuất hiện lại.
+
+05. Sau Tiêm:
+- Nhập thông tin chi tiết: Chọn bất thường, hoàn tất tất cả -> Phần mềm tự động thoát.
+- 
+06. Các báo cáo:
+
+07. Các mục khác:
+- 
+
+
+
+Báo cáo cuối ngày
+TT VNVC Đà Nẵng báo cáo ngày <17/07/2020> 
+1. PM QAs Offline đăng nhập: Bình thường.
+- Data hiện tại đến ngày: 20/05/2020.
+- Các chức năng: Kiểm tra theo qui trình các chức năng. 
+- Link tivi Offline bình thường.
+- Mạng SD-WAN Status Check: Bình thường.
+- Lỗi mất thông tin ở ô ghi chú để note Hoàn mũi cho Gói.
+- Không in được Phụ Lục.
+- Không hủy được Hợp Đồng ở Quản Lý Hợp Động.
+- Mất ghi chú đã nhập ở chi tiết Sau Tiêm khi lưu.
+2. Các hỗ trợ bác sĩ đã giải quyết trong ngày.
+3. Các lỗi máy in, máy tính đã giải quyết trong ngày.
+4. Hạng mục máy bấm số, âm thanh: Bình thường.
+5. Phần mềm QAs Online hoạt động bình thường trong ngày.
+- Xử lý lên lại Gói cho trường hợp khách hàng tiêm lẻ 2000136762 - Nguyễn Minh Nhật.
+
+
+--------------------------------------------------------------------
+nslookup vnvc.qasol.net
+Kiểm tra kết nối với QAs Online
+Ping vnvc.qasol.net -t
+Ping 171.244.27.75 -t
+Name:    vnvc.qasol.net
+Addresses:  171.244.27.75
+			125.212.212.152
+			125.212.212.157
+			171.244.27.76
+
+--------------------------------------------------------------------
+Báo cáo:
+1. Báo cáo xuất Vaccine - Vật tư tại phòng tiêm
+- Chủ yếu là phải chụp lại mã lô của vật tư xuất, gởi lại PTiêm
+- Hủy tiêm rồi báo lại để cho phòng tiêm lại xuất đúng mã lô xuất cũ
+2. Báo cáo thu ngân(Thu tiền từng thu ngân ở từng quầy)
+3. Báo cáo chi tiết Doanh thu(Doanh thu từng loại khách)
+- Khách gói
+- Khách lẻ
+- Khách đặt trước
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+Kiểm tra cuối ngày:
+- Kiểm tra Camera sau tiêm.
+- Kiểm tra máy tính, máy in TN10, TN09.
+- Kiểm tra tắt đèn Server, các máy trên lầu.
+--------------------------------------------------------------------
+
+"'ksnb Mailing List'" <ksnb@vnvc.vn>, "'Phuong Bui Ngoc Diem'" <phuongbnd@vnvc.vn>, "'Diem Le Thi Thu'" <diemltt@vnvc.vn>, "'Nguyet Bui Thi Minh'" <nguyetbtm@vnvc.vn>, "'Uyen Nguyen Hanh Minh'" <uyennhm@vnvc.vn>, "Le Viet Nhi" <nhilv@vnvc.vn>, "Bac Le Thi" <baclt@vnvc.vn>,"Phuong Nguyen Thi Thu" <phuongntt1@vnvc.vn>,"Phuong Nguyen Thi Diem" <phuongntd@vnvc.vn>
+
+--------------------------------------------------------------------
+------//Báo cáo cuối ngày//-----------------------------------------
+--------------------------------------------------------------------
+MAIN:
+TT VNVC Đà Nẵng báo cáo ngày <01/06/2020> 
+1. PM QAs Offline đăng nhập: Bình thường.
+- Data hiện tại đến ngày: 20/05/2020.
+- Các chức năng theo Checklist(LT-TV-TN-PK-PT-ST-Gói): Không in được Phụ Lục và Hủy Gói. 
+- Link Tivi Offline: Bình thường.
+- Mạng SD-WAN Status Check: Hoạt động bình thường.
+- Lỗi lưu mất thông tin Ghi chú nếu bổ sung sau khi Thêm, nhập trước khi Thêm lưu sẽ không mất.
+- Lỗi in Phụ Lục.
+- Đã khắc phục lỗi Hủy Hợp Đồng -> Đã hủy được.
+- Chỉ định hơn 2 phòng khám, thì in phiếu chỉ định chỉ được 1 phiếu.
+- Sau tiêm chọn bất thường, hoàn tất tất cả -> Phần mềm tự thoát.
+- Báo cáo chi tiết doanh thu load dữ liệu lâu.
+- Xem Tồn kho -> Không chọn kho mà click sẽ báo lỗi.
+2. Các hỗ trợ bác sĩ và các bộ phận: Đã giải quyết xong trong ngày.
+3. Hạng mục máy bấm số, âm thanh, máy in, máy tính, máy photo: Bình thường.
+4. Các hạng mục IT: 
+- Tư Vấn báo in hay kẹt giấy khi in Header Page, cần kiểm tra các máy lại.
+- Đã báo nhà cung cấp qua kiểm tra máy Photo 2 mặt hay bị kẹt giấy.
+- Máy PC tại PK04A bị lỗi, đã đổi máy khác và Ghost WIN lại xong.
+5. Phần mềm QAs: Hoạt động bình thường trong ngày.
+
+
+
+
+
+TT VNVC Đà Nẵng báo cáo ngày <15/05/2020> 
+1. PM QAs Offline đăng nhập: Bình thường.
+- Data hiện tại đến ngày: 14/05/2020.
+- Các chức năng theo Checklist(LT-TV-TN-PK-PT-ST-Gói): Hoạt động bình thường. 
+- Link Tivi Offline: Bình thường.
+- Mạng SD-WAN Status Check: Bình thường.
+- Bản quyền FortiGate đã hết hạn 12.05.2020 cần bổ sung Licence mới.
+2. Các hỗ trợ bác sĩ và các bộ phận: Đã giải quyết xong trong ngày.
+3. Hạng mục máy bấm số, âm thanh, máy in, máy tính, máy photo: Bình thường.
+4. Các hạng mục IT: Đã xử lý trong ngày Checklist kiểm tra.
+5. Phần mềm QAs: 
+- Nhờ Team hỗ trợ đóng giúp Phác đồ Varicella khi đã có thay thế mũi 2 Varivax, tránh bị hẹn lịch tiêm mũi 2 Varicella không đúng, kiểm tra các chỉ định thời gian từ 01.02.2020.
+- Chưa nhận được thông tin kiểm tra lại tin nhắn của các khách hàng:
+	+ Khách hàng 1900214298 - Phan Trần Cát Nhiên
+	+ khách hàng 2000219174 - Nguyễn Tú Anh(SĐT 0935356596)
+6. Kiểm tra phần mềm QAs Offline:
+- Tiếp nhận Hợp Đồng:
+	+ Bị mất thông tin Ghi Chú: Nếu Tư Vấn quên nhập Ghi Chú(những mũi hoàn) trước khi bấm Thêm thì khi Lưu lại sẽ bị mất các thông tin này.
+- Phòng Khám:
+	+ Giãn cách thời gian của Phác đồ Rotateq và Rotarix không đồng nhất giữa Mũi lẻ, Mũi Đặt Trước, Mũi Trong Gói và nếu có điều chỉnh thời gian. 
+	+ Đang áp dụng giãn cách tháng và dãn cách 30 ngày. Tháng 5 có 31 ngày nên dãn cách 1 tháng là 31 ngày không phải 30 ngày.
+- Phòng Tiêm:
+	+ Nếu có 2 mũi cần tiêm, tiêm 1 mũi thì màn hình Tivi chờ bị mất luôn tên khách đang phục vụ.
+- Báo cáo:
+	+ Xem tồn kho báo lỗi do Store cũ hoặc không phù hợp nếu chọn tất cả kho.
+	
+
+
+TT VNVC Đà Nẵng báo cáo ngày <02/06/2020> 
+1. PM QAs Offline đăng nhập: Bình thường.
+- Data hiện tại đến ngày: 20/05/2020.
+- Các chức năng theo Checklist(LT-TV-TN-PK-PT-ST-Gói): Hoạt động bình thường. 
+- Link Tivi Offline: Bình thường.
+- Mạng SD-WAN Status Check: Bình thường.
+- Tiếp Nhận: Mất Ghi chú Hoàn Mũi nếu như nhập sau khi Bấm Thêm gói:
+	+ Bấm lưu sẽ mất
+	+ Thêm lại, nhưng bấm Đặt Trước không khám hoàn thành cũng bị mất.
+- Tiếp Nhận: Không in được Phụ Lục Hợp Đồng thể hiện các mũi trong Gói.
+- Thanh toán: Load chậm và không in được Phiếu Thu đối với 1 Gói, chưa tìm được nguyên nhân, thử nhiều lần vẫn in không được; Các gói và lẻ, đặt trước, làm lại gói vẫn in được.
+- Màn hình Khám: Không in được chỉ định, bảng kiểm trước tiêm load chậm xong rồi mất, sau đó xuất hiện lỗi Current Busy...
+- Sau Tiêm: Cũng có dấu hiệu load chậm, không in được Phiếu đánh giá sau tiêm.
+2. Các hỗ trợ bác sĩ và các bộ phận: Đã giải quyết xong trong ngày.
+3. Hạng mục máy bấm số, âm thanh, máy in, máy tính, máy photo: Bình thường.
+4. Các hạng mục IT: Đã được xử lý trong ngày.
+5. Phần mềm QAs: Hoạt động bình thường trong ngày.
+
+
+6. Nhập liệu thao tác trên QAs Offline:
+- Phòng khám:
+	+ Không in được Cam kết
+- Sau Tiêm:
+	+ Hủy sau tiêm, sẽ bị mất hết các thông tin lần khám trước đó.
+	+ Khi nhập chi tiết, chọn bất thường, hoàn tất tất cả -> thoát phần mềm.
+- Báo cáo:
+	+ Xem tồn kho: Vừa vào mặc định <chọn kho>, nếu không chọn mà bấm qua Xem toàn bộ sẽ bị lỗi.
+	
+7. Các hạng mục khác:
+- Trung Tâm bị mất điện lưới lúc 9h27", chạy máy phát, sau đó 15 phút có lại, hệ thống và các bộ phận hoạt động bình thường khi chuyển nguồn. 1 máy kế toán văn phòng báo UPS không tích điện, hẹn thay UPS và kiểm tra.
+- Đã chuyển nạp mực lần 2 của tháng 05 cho Toàn Cát sau khi được duyệt theo qui trình.
+
+
+
+Ex
+---
+Báo cáo cuối ngày
+TT VNVC Đà Nẵng báo cáo ngày <11/05/2020> 
+1. PM QAs Offline đăng nhập bình thường
+- Data dữ liệu đã đến ngày 08/05/2020
+- Link Tivi Offline: Bình thường
+2. Các hỗ trợ bác sĩ đã giải quyết trong ngày.
+3. Các lỗi máy in, máy tính đã giải quyết trong ngày.
+4. Hạng mục máy bấm số, âm thanh: Bình thường.
+5. Mạng SD-WAN Status Check: Bình thường.
+6. Phần mềm QAs Online chạy chậm ở các bộ phận: Lễ Tân, Phòng Khám, Thu Ngân, Phòng Tiêm, Sau Tiêm. Thời gian chậm từ 11h10" đến 12h10".
+7. Lỗi phần mềm trong thời gian 11h30 đến 12h10:
+- Sau tiêm không in được In phiếu đánh giá sau tiêm
+- Phòng khám không in được chứng từng
+- Tivi Phòng tiêm lỗi không load được danh sách khách hàng chờ tiêm 
+- Tivi Phòng khám có tên khách hàng, hoặc không có tên khách hàng dù Lễ Tân đã xếp khám rồi.
+- Bác sỹ Phòng Khám không thấy được tên khách hàng để chỉ định và in chứng từ chuyển Thu Ngân.
+8. Báo Group kiểm tra trường hợp 1900222887 - Đoàn Nguyễn Khánh Ngân chênh lệch tiền hoàn phí. Nhờ xử lý giúp.
+9. Trường hợp "Khách hàng 1900214298 - Phan Trần Cát Nhiên báo không nhận được tin nhắn mời đi tiêm lại sau khi hết dãn cách xã hội" vẫn chưa được phản hồi về kiểm tra nhắn tin để báo lại CSKH.
+10. Báo Group nhờ kiểm tra nhắn tin cho khách hàng 2000219174 - Nguyễn Tú Anh(SĐT 0935356596), không nhận được tin nhắn dù SalesForce có thể hiện đã nhắn thành công.
+11. Đã báo Group nhờ kiểm tra lại Phác đồ Rotateq mới và Rotarix mới về giãn cách các mũi bị sai lệch 1 ngày. Phác đồ Rotavim và Rotateq, Rotarix trong gói đúng giãn cách 30 ngày.
+12. Nhờ Team hỗ trợ kiểm tra các trường hợp Varicella Mũi 2 chưa được đóng phác đồ hẹn lịch sai. Nhờ hỗ trợ xử lý giúp để hạn chế khách hàng đến khám mà không có lịch mũi nào đến hẹn do sai Mũi 2 Varicella.
+
+
+
+--------------------------------------------------------------------
+------//Báo cáo cuối ngày//-----------------------------------------
+--------------------------------------------------------------------
+
+7. Trường hợp khách hàng 2000059002 - Nguyễn Ngọc Bảo Vy không chỉ định được Mũi Imojev và Vaxigrip(Tư Vấn xác nhận 2 mũi này nằm trong gói đã thanh toán hết tiền) -> Đã được Team hỗ trợ xử lý. Bác sỹ hẹn dời lịch 2 tuần sau tiêm 2 mũi này.
+9. Kiểm tra trên QAs Offline:
+- Phòng Khám:
+	+ Không in được bảng cam kết.
+	+ Phác đồ Rotateq và Rotarix có giãn cách mũi 1 và mũi 2 là 1 tháng thay vì 30 ngày. Phác đồ Rotavim giãn cách 30 ngày.
+- Sau Tiêm:
+	+ Hủy hoàn tất của ngày khám ngày hiện tại là mất hoàn tất của những ngày trước đó -> Gây khó khăn phải nhập lại thông tin.
+	+ Phần mềm tự thoát khi Bất thường và hoàn tất tất cả.
+	
+ 
+
+
+
+6. Khách hàng 2000125939 - Trần Thái Hoàng Gia xin thanh toán 3 lần.
+ - Khách đã cọc 1 triệu chưa tiêm mũi nào.
+ - Hôm này đến khách cọc thêm 3 triệu, tổng cọc là 4 triệu
+ - Xin tiêm mũi 1 Infanrix và Mũi 1 Rota hôm này.
+7. Máy in kim Epson của Kế Toán lỗi phải đem đi bảo trì, đã từng hư 1 lần Rờ le, khả năng lỗi lại Rờ le.
+
+
+
+6. Phần mềm QAs vào lúc 15h40 xuất hiện lỗi Load phần mềm chậm:
+- Load thông tin tại Lễ Tân Checkin và Phòng Khám bị rớt phần mềm khi chọn khách hàng chỉ định khám
+- Kiểm tra tốc độ mạng và Ping QAs bình thường. 
+- Lỗi xuất hiện kéo dài tầm 10 phút.
+
+
+
+6. Phần mềm QAs Online có hiện tượng xuất hiện lỗi; phải tắt đi và vào lại. 
+
+Đã chạy xóa file và Update mới lại hoàn toàn để theo dõi lỗi.
+7. Còn treo trường hợp đổi gói của Khách Hàng 1900591541 - ĐINH HOÀNG YẾN. Kho Tiêm lệch ngày 6.
+8. Trường hợp khách đặt trước CHÂU THỊ Ý - SĐT 0349497354, khi nhập số điện thoại valid sẽ bị mất thông tin đã nhập trước đó do đồng bộ lại với Tổng Đài. Biện pháp khắc phục tạm thời: Nhập số 1 ở Điện thoại và điện thoại nhập ở Điện thoại liên hệ 1; Lưu thành công, rồi copy dán lại ở Số điện thoại.
+9. Trường hợp khách hàng 1900370501 - NGUYỄN THỊ PHƯƠNG THẢO đã nhờ Team QAs Support hỗ trợ, khách hàng này tiêm mũi 2 VAT đã được thanh toán nằm trong gói Hợp Đồng bị hủy ngày 28/07/2019 trước đó. Đã được chuyển Case cho QAs tiếp nhận.
+
+
+
+7. Chuyển mực cho Toàn Cát nạp và kiểm tra.
+8. Hỗ trợ xử lý trường hợp khách hàng 1900539318 - Nguyễn Quỳnh Quyên thay đổi hình thức thanh toán để nhận ưu đãi cho gói cũ được mở lại.
+
+7. Buổi sáng tầm 9h lỗi không vào được Cổng Thông Tin Tiêm Chủng tầm 15 phút.
+8. Lỗi vào mail.vnvc.vn không được ở Trung Tâm VNVC Đà Nẵng; Đã được Team IT được hỗ trợ và khắc phục vào lại bình thường.
+9. Chuyển IPPhone YeahLink từ PK11 sang PK10 để OnCall
+
+
+
+
+
+6. PT11 sáng 9h có tình trạng treo mã khách không khớp giữa Tivi Online và Phần mềm QAs, đã thử tắt tivi và xóa lịch sử trình duyệt để khắc phục.
+7. Hỗ trợ làm lại gói khách hàng KH 1900643623 - TRẦN THỊ MY NY
+FortiGate001
+
+
+Báo cáo cuối ngày
+TT VNVC Đà Nẵng báo cáo cuối ngày <10/05/2020> 
+1. PM QAs Offline đăng nhập bình thường
+- Data dữ liệu đã đến ngày 08/05/2020
+- Link Tivi Offline: Bình thường
+2. Các lỗi chỉ định của bác sĩ giải quyết trong ngày.
+3. Các lỗi máy in, máy tính đã giải quyết trong ngày.
+4. Hạng mục máy bấm số, âm thanh: Bình thường.
+5. Mạng SD-WAN Status Check: Bình thường
+6. Phần mềm QAs bị chậm ở 1 số thời điểm:
+- Từ 9h06" đến 9h40", 9h55" Phòng Tiêm được tiêm lại.
+- Từ 14h21" đến 17h06".
+7. Do phần mềm chậm nên có trường hợp xếp khám: Tivi màn khám có tên, nhưng phần mềm không có tên -> phải xếp khám lại.
+8. Thu Ngân báo trường hợp 1900222887 - Đoàn Nguyễn Khánh Ngân hoàn mũi INFANRIX đặt ngày 20.05.2019, với giá là 915.000, nhưng khi hoàn phí lệch lên 284.200(Đúng phải là số tiền 28% của 915.000 là 256.200) Nhờ Team hỗ trợ cho giải pháp.
+
+
+
+* Phần mềm QAs Offline:
+- Không in được Phụ Lục Hợp Đồng
+- Quản lý Hợp Đồng khi Hủy Hợp Đồng báo lỗi.
+- Không in được Bảng Cam Kết.
+
+
+
+
+
+6. Đã cài đặt IPPhone cho 2 máy bàn PK12A,PK13A và bác sỹ.
+7. Phần mềm QAs chưa thể in trực tiếp Bảng kiểm, phải xuất PDF cho Bảng kiểm trước rồi mới in.
+Thao tác ở 1 số bác sỹ ban đầu theo thói quen chọn in BK làm lỗi máy in, phải tắt nguồn bật lại và in bảng kiểm thể hiện nhỏ, do mặc định A4 phải chuyển lại A5.
+8. Phát hiện cài đặt máy in mặc định Barcode không tự chọn máy Barcode được, mà phải nhờ User IT Admin đăng nhập vào chọn, hoặc phải xóa file chạy Update lại thì mới chọn lại được máy in mặc định từ QAs
+9. Họp trực tuyến Bộ Phận Kho bị hủy họp lúc 10h, đã thông báo họp nhưng hủy vì không có phòng ở các TT khác
+10. Đã xử lý xong trường hợp cọc tiền phân bổ treo tồn kho hôm qua, đẩy ngày chỉ định và ngày tiêm về 10.12 để hết lệch kho.
+
+
+
+6. Lỗi Zalo ở một số máy LT, TN, Điều Dưỡng và Bác sỹ từ 8h00 đến 10h00
+7. Lỗi hiển thị màn hình Phòng Tiêm 05, đã khắc phục do lỗi Windown, khởi động lại máy.
+8. Xử lý cho 2 Hợp đồng Khách Hàng Chuyển Đổi Gói Thu Hồi Giảm 5% Do Thanh Toán Trễ Sau 24.11
+* Khách hàng: 1900266691 - NGUYỄN GIA KHIÊM 
+Gói vacxin: Gói INF 12 24. Số HĐ 2702.1/2019/VNVC-DNG. Mã gói 110919 - GÓI 12 24 THÁNG (INF)
+Ngày làm HĐ: 16/10/2019
+* Khách hàng: 1900520098 - ĐẶNG NGUYỄN KHÔI NGUYÊN
+Gói vacxin: Gói INF 12 24. Số HĐ 2510.1/2019/VNVC-DNG. Mã gói 110919 - GÓI 12 24 THÁNG (INF)
+Ngày làm HĐ: 07/10/2019
+
+TT VNVC Đà Nẵng báo cáo ngày <25/04/2020> 
+1. PM QAs Offline: 
+- Không chạy được phần mềm.
+- Link tivi Offline bình thường.
+2. Các hỗ trợ bác sĩ đã giải quyết trong ngày.
+3. Các lỗi máy in, máy tính đã giải quyết trong ngày.
+4. Hạng mục máy bấm số, âm thanh: Bình thường.
+5. Mạng SD-WAN Status Check: Bình thường.
+6. Phần mềm QAs báo lỗi chậm và không chạy được:
+	- Từ 8h25" đến 8h40".
+	- Từ 8h49" đến 9h04".
+	
+	
+TT VNVC Đà Nẵng báo cáo <05/12/2019> 
+1. PM QAs Offline:
+- Đăng nhập bình thường
+- Data dữ liệu đã đến ngày 29/11/2019
+- Chạy full luồng các chức năng
+- Link Tivi Offline: Bình thường
+2. Các lỗi chỉ định của bác sĩ giải quyết trong ngày.
+3. Các lỗi máy in, máy tính đã giải quyết trong ngày.
+4. Hạng mục máy bấm số, âm thanh: Bình thường.
+5. Mạng SD-WAN Status Check: Bình thường
+
+
+Xử lý đầu ngày:
+- Test Offline và Tivi Offline
+- Kiểm tra phòng tiêm Ưu Tiên quá tải hay mất cân bằng
+- Kiểm tra Mạng 
+
+VC5634 - Trương Thị Mỹ Ngân
+VC5601 - Phạm Thị Loan
+
+
+
+10377*
+https://www.facebook.com/WildDaisy.Dalat
+KH lẻ
+KH Đặt trước không khám
+KH Đặt trước khám trước tiêm
+-------------------------------
+KH Hợp đồng
+KH Hợp đồng cọc tiền
+KH Hợp đồng thanh toán 50%
+KH Hợp đồng hủy chưa tiêm
+KH chuyển đổi gói chưa tiêm
+KH Nâng cấp gói chưa tiêm
+KH Hạ gói chưa tiêm
+
+KH Hủy gói đã tiêm
+KH chuyển đổi gói đã tiêm
+KH Nâng cấp gói đã tiêm
+KH Hạ gói đã tiêm
+
+
+
+Khách hàng đặt trước sao tính tiền 2 lần
+- 4 mũi tiêm đặt trước
+- 2 mũi tiêm do bác sỹ chỉ định
+
+
+Xử lý đặt trước
+- Đặt trước
+- Thanh toán
+- Vào khám
+- Thanh toán
+- Tiêm
+
+
+
+
+Qui trình khách hàng gói sẽ xử lý thế nào?
+1. Tiếp nhận
+2. Thanh toán thu ngân 1 phần
+3. Khám bệnh và chỉ định tiêm
+4. Thanh toán lần 2 công khám bệnh
+5. Tiêm
+6. Sau tiêm
+
+
+
+4 mũi Synflorix
+6.388.000VND
+
+Giá lẻ
+1.045.000	
+
+
+
+Tại sao?
+KH Gói, tích Khám trước tiêm, tích vào đây là đòi lưu lại????
+
+PK1
+331
+380
+
+
+
+Báo cáo cuối ngày
+TT VNVC Đà Nẵng báo cáo cuối ngày <31/05/2020> 
+1. PM QAs Offline đăng nhập bình thường
+- Data dữ liệu đã đến ngày 20/05/2020
+- Link Tivi Offline: Bình thường
+- Bị mất Ghi Chú khi Lưu hoặc Đặt trước không khám khi tạo Hợp Đồng.
+- Không in được phụ lục Hợp Đồng.
+- Không hủy được Hợp Đồng.
+- Khi không nhập Sinh hiệu cho khách hàng lẻ trên 21 tuổi, mặc dù có cảnh báo nhưng vẫn in được chỉ định, không in Bảng kiểm trước Tiêm -> Nên không cho bấm Được tiêm sẽ tốt hơn vì không in Bảng kiểm cũng phải hủy xử trí và qua bên Khám trước tiêm nhập lại.
+2. Các lỗi chỉ định của bác sĩ giải quyết trong ngày.
+3. Các lỗi máy in, máy tính đã giải quyết trong ngày.
+4. Hạng mục máy bấm số, âm thanh: Bình thường.
+5. Mạng SD-WAN Status Check: Bình thường
+6. Phần mềm QAs Online:
+- Lỗi hủy hoàn tất ngày hôm này thì mất các Hoàn tất trước đó của khách hàng 2000192547 - Phan Duy Long và không nhập lưu được Phản ứng sau tiêm bất thường của mũi Hexaxim được. Đã được Team hỗ trợ và lên  được báo cáo phản ứng.
+
+
+
+TT VNVC Đà Nẵng báo cáo ngày <05/01/2020> 
+1. PM QAs Offline đăng nhập bình thường
+- Data hiện tại tới ngày 22/12/2019
+- Link tivi Offline bình thường
+2. Các lỗi chỉ định của bác sĩ giải quyết trong ngày.
+3. Các lỗi máy in, máy tính đã giải quyết trong ngày.
+4. Hạng mục máy bấm số, âm thanh: Bình thường.
+5. Các hạng mục IT: Bình thường.
+6. Mạng SD-WAN Status Check: Bình thường
+7. Hôm này có 4 trường hợp Khách Hàng không được gửi tin nhắn dù đã đến lịch, đã báo Team kiểm tra nguyên nhân.
+
+
+
+
+APC Back-UPS 650VA-230V,325W
+
+
+
+1900596491 - Nguyễn Hà Văn Đạo
+
+
+
+
+
+
+
+
+
+TT VNVC Đà Nẵng báo cáo PM QAs OFFLine ngày 11/01/2020:
+- Đăng nhập bình thường.
+- Chạy full luồng các chức năng.
+* Tạo phòng ngẫu nhiên từ PK1 không vào được PT11 - Dù set full vaccine và vật tư.
+* Có tính trạng đẩy tạo phòng ngẫu nhiên vào được phòng khám PT12 và PT10, nhưng ADASIL đến lúc add thêm thì không thêm được -> Không đủ Vaccine nhưng vẫn đẩy vào tiêm khi chưa trừ đi những mũi tiêm của KH đẩy vào trước đó.
+* Sau tiêm không in được mẫu: IN phiếu đánh giá sau tiêm(Invalid column name 'isPrintDGST' và Invalid column name 'isPrintQLST').
+* Đôi khi xuất hiện lỗi xem Tivi Offline bị lỗi khi xem danh sách khám(Lễ Tân -> PK -> Bấm chỉ định -> Xem tivi Offline xuất hiện lỗi):
+Please be sure a sound file exists at the specified location.
+[FileNotFoundException: Please be sure a sound file exists at the specified location.]
+- Data hiện tại tới ngày 22/12/2019.
+- Link tivi Offline bình thường.
+- Mạng SD-WAN Status Check: Bình thường.
+
+
+
+
+
+
+
+TT VNVC Đà Nẵng báo cáo ngày <17/01/2020> 
+1. PM QAs Offline đăng nhập: Bình thường.
+- Data hiện tại tới ngày 14/01/2020.
+- Chạy full luồng các chức năng.
+- Đã in được mẫu Sau Tiêm.
+- Link tivi Offline bình thường.
+2. Các hỗ trợ bác sĩ đã giải quyết trong ngày.
+3. Các lỗi máy in, máy tính đã giải quyết trong ngày.
+4. Hạng mục máy bấm số, âm thanh: Bình thường.
+5. Các hạng mục IT: Bình thường.
+6. Mạng SD-WAN Status Check: Bình thường.
+7. Còn 1 trường hợp đổi gói của Khách Hàng 1900591541 - ĐINH HOÀNG YẾN mở lại gói cũ INF-RIX 0-12 tháng Đã tiêm 3 mũi trong gói ngày 18/11/2019 INFANRIX, SYNFLORIX, ROTARIX tại phòng tiêm số 11. Vẫn còn treo do chưa được duyệt, kho phòng tiêm tiếp tục lệch kho.
+
+
+
+
+1900542333 - Huỳnh Ngọc Anh Thái Lỗi thanh toán có quá nhiều mũi Tiêm
+
+
+1900456077 - Bùi Thị Thu Hà
+Bích thủy
+Thủy tiên
+
+ICPDU-10070
+ICTAT-10299
+ICTBS-10333
+ICTDN-10015
+
+62 nguyen ton tiet - Hai Ho
+
+4.022.300 ₫
+
+
+
+
+---------------------------------------------
+Báo cáo cuối ngày
+TT VNVC Đà Nẵng báo cáo ngày <24/05/2020> 
+1. PM QAs Offline đăng nhập: Bình thường.
+- Data hiện tại đến ngày: 20/05/2020.
+- Các chức năng: Kiểm tra theo qui trình các chức năng. 
+- Link tivi Offline bình thường.
+- Mạng SD-WAN Status Check: Bình thường.
+2. Các hỗ trợ bác sĩ đã giải quyết trong ngày.
+3. Các lỗi máy in, máy tính đã giải quyết trong ngày.
+4. Hạng mục máy bấm số, âm thanh: Bình thường.
+5. Kiểm tra trên QAs Offline:
+- 
+
+- Phòng Khám:
+	+ Không in được bảng cam kết.
+	+ Phác đồ Rotateq và Rotarix có giãn cách mũi 1 và mũi 2 là 1 tháng thay vì 30 ngày. Phác đồ Rotavim giãn cách 30 ngày.
+- Sau Tiêm:
+	+ Hủy hoàn tất của ngày khám ngày hiện tại là mất hoàn tất của những ngày trước đó -> Gây khó khăn phải nhập lại thông tin.
+	+ Phần mềm tự thoát khi Bất thường và hoàn tất tất cả.
+
+
+
+Báo cáo cuối ngày
+TT VNVC Đà Nẵng báo cáo ngày <12/05/2020> 
+1. PM QAs Offline đăng nhập: Bình thường.
+- Data hiện tại đến ngày: 11/05/2020.
+- Các chức năng theo Checklist(LT-TV-TN-PK-PT-ST-Gói): Hoạt động bình thường. 
+- Link tivi Offline: Bình thường.
+- Mạng SD-WAN Status Check: Bình thường.
+2. Các hỗ trợ bác sĩ: Đã giải quyết trong ngày.
+3. Các lỗi máy in, máy tính: Đã giải quyết trong ngày.
+4. Hạng mục máy bấm số, âm thanh: Bình thường.
+5. Mạng SD-WAN Status Check: Bình thường.
+6. Đã nhận thùng mực từ Toàn Cát về nhập kho.
+7. Bảng quyền Fotigate đã hết hạn.
+
+
+Các công việc cần làm 21.03.2020:
+1. Chạy lại dây máy cà thẻ Tầng lầu
+3. Kiểm tra bấm line điện thoại PT12 và PK13
+4. Vẽ lại sơ đồ Server
+5. Vẽ lại bố trí thiết bị TT
+6. Vẽ sơ đồ giới hạn tuổi liên quan Gói.
+
+
+
+Đà Nẵng báo cáo ngày 30/05/2020
+- Các lỗi chỉ định của bác sĩ đã được hỗ trợ trong ngày
+- Lỗi máy tính, máy in, máy bấm số đã được xử lý trong ngày
+- Hạng mục IT tại trung tâm: hoạt động bình thường.
+- Đường truyền internet: hoạt động bình thường.
+- QAs OFFline đăng nhập bình thường, đầy đủ các chức năng. Data hiện tại tới ngày 20/05/2020.
+- Kiểm tra QAs Offline:
++ Mất thông tin Ghi Chú để note các mũi hoàn trong gói.
++ Không in được Phụ Lục Hợp Đồng ở màn hình Tiếp Nhận.
++ Hủy Hợp Đồng báo lỗi ở Quản Lý Hợp Đồng.
+
+
+
+
+
+0902 132 355
+
+
+Chiều nay 29.05 IT sẽ off theo lịch, sẽ có Team IT hỗ trợ từ xa cho Group IT Support Đà Nẵng, nếu cần hỗ trợ khẩn cấp thì liên lạc cho IT theo số 0935.399.222. Cảm ơn mọi người.
+
+
+
+TT VNVC Đà Nẵng báo cáo PM QAs OFFLine ngày 13/05/2020:
+- Đăng nhập bình thường.
+- Chạy full luồng các chức năng theo Checklist Offline.
+- Data dữ liệu đã Restore đến ngày 11.05.2020
+- Link Tivi Offline: Bình thường.
+- Mạng SD-WAN Status Check: Bình thường lúc 8h00" ngày 13.05.2020. Bản quyền FortiGate đã hết hạn 12.05.2020 cần bổ sung Licence mới.
+* Kiểm tra trên QAs Offline:
+- Không in được bản cam kết.
+
+
+
+
+TT VNVC Đà Nẵng báo cáo ngày <25/05/2020> 
+1. PM QAs Offline đăng nhập bình thường
+- Data dữ liệu đã đến ngày 20/05/2020.
+- Link Tivi Offline: Bình thường.
+- Phần mềm không in được Phụ Lục Hợp Đồng khi tạo Gói Hợp Đồng.
+- Quản lý Hợp Đồng thao tác Hủy Hợp Đồng báo lỗi.
+- Màn hình khám: không in được Bảng Cam Kết.
+2. Các hỗ trợ bác sĩ đã giải quyết trong ngày.
+3. Các lỗi máy in, máy tính đã giải quyết trong ngày.
+4. Hạng mục máy bấm số, âm thanh: Bình thường.
+5. Mạng SD-WAN Status Check: Bình thường.
+6. Phần mềm QAs Online: 
+- Thu Ngân báo xuất báo cáo cuối ngày Báo cáo thu ngân(Thu tiền từng thu ngân ở từng quầy) xuất báo cáo chậm, hoặc phải bấm nhiều lần mới ra được báo cáo.
+- Đã hỗ trợ xong trường hợp Khách hàng 2000284304 - Võ Đức Thiện Khang hủy gói trong ngày và chuyển qua thanh toán lẻ mũi Iinfanrix và Rotarix 1.5ml.
+7. Hỗ trợ Điều Dưỡng phòng Đào Tạo thi tay nghề giữa năm Ngày thứ 2 và Phòng trực tuyến cho chị Oanh.
+8. Đã nhận lại thùng mực nạp từ Toàn Cát, ngày gửi đi là 18.05.2020 mất 7 ngày đi về.
+
+
+
+TT VNVC Đà Nẵng báo cáo PM QAs OFFLine ngày 26/05/2020:
+- Đăng nhập bình thường.
+- Chạy full luồng các chức năng theo Checklist Offline.
+- Data dữ liệu đã Restore đến ngày 20.05.2020. Nhờ Gen giúp dữ liệu mới, hiện tại dữ liệu đã quá 5 ngày.
+- Link Tivi Offline: Bình thường.
+- Mạng SD-WAN Status Check: Bình thường.
+* Kiểm tra trên QAs Offline:
+- Tiếp nhận:
+	+ Khi nhập bổ sung Ghi Chú sau khi mất Nút Thêm Gói -> Bấm Lưu sẽ mất Ghi chú ở đây.
+	+ In Hợp Đồng được, nhưng Phụ Lục kèm theo báo lỗi.
+- Quản lý Hợp Đồng:
+	+ Hủy Hợp Đồng báo lỗi IDClient -> Vẫn còn xuất hiện lỗi.
+- Phòng khám:
+	+ Không in được Cam kết
+	+ Mẫu in sai đường dùng khi chỉ định Dại Tiêm trong da -> Mẫu in là Tiêm Bắp.
+	+ Chọn nhóm bệnh Sùi mào gà -> Vaccine có 1 dòng bị trống không có tên(Cervarix). Khi đặt trước ở Tiếp nhận thì chỉ ra 1 Vaccine Gardasil.
+	+ Nếu có hơn 1 phòng Tiêm sẽ không in được Phiếu chỉ định của Vaccine còn lại.
+
+
+TT VNVC Đà Nẵng báo cáo ngày <26/05/2020> 
+1. PM QAs Offline đăng nhập bình thường
+- Data dữ liệu đã đến ngày 20/05/2020.
+- Link Tivi Offline: Bình thường.
+- Phần mềm không in được Phụ Lục Hợp Đồng khi tạo Gói Hợp Đồng.
+- Quản lý Hợp Đồng thao tác Hủy Hợp Đồng báo lỗi.
+- Màn hình khám: Đã in được Bảng Cam Kết và Vaccine Dại đã in đúng đường sử dụng tiêm trong da.
+2. Các hỗ trợ bác sĩ đã giải quyết trong ngày.
+3. Các lỗi máy in, máy tính đã giải quyết trong ngày.
+4. Hạng mục máy bấm số, âm thanh: Bình thường.
+5. Mạng SD-WAN Status Check: Bình thường.
+
+
+
+TT VNVC Đà Nẵng báo cáo ngày <28/05/2020> 
+1. Mạng SD-WAN Status Check & HA: Hoạt động bình thường.
+2. PM QAs Offline đăng nhập: Bình thường.
+- Data hiện tại đến ngày: 20/05/2020.
+- Các chức năng theo Checklist(LT-TV-TN-PK-PT-ST-Gói): Hoạt động bình thường. 
+- Link tivi Offline bình thường.
+- Lỗi mất thông tin ở ô ghi chú để note Hoàn mũi cho Gói.
+- Không in được Phụ Lục.
+- Không hủy được Hợp Đồng ở Quản Lý Hợp Động.
+- Hủy hoàn tất của ngày hôm này, thì những đợt khám trước đó cũng bị hủy hoàn tất.
+3. Các hỗ trợ bác sĩ đã giải quyết trong ngày.
+4. Các lỗi máy in, máy tính đã giải quyết trong ngày.
+5. Hạng mục máy bấm số, âm thanh: Bình thường.
+6. Phần mềm QAs Online hoạt động bình thường trong ngày.
+
+
+TT VNVC Đà Nẵng báo cáo ngày <29/05/2020> 
+1. Mạng SD-WAN Status Check & HA: Hoạt động bình thường 
+- Sáng thời gian từ 9h2" đến 9h53" Line WAN1 bị rớt gói.
+- Hiện tại check lúc 12h21" đã bình thường.
+2. PM QAs Offline đăng nhập: Bình thường.
+- Data hiện tại đến ngày: 20/05/2020. Nhờ @AnTran QAs Support VNVC @Vu Van Tang IT VCVN HVT HardWare Restore dữ liệu giúp, dữ liệu đã hơn 3 ngày.
+- Các chức năng theo Checklist(LT-TV-TN-PK-PT-ST-Gói): Hoạt động bình thường. 
+- Link tivi Offline bình thường.
+- Lỗi mất thông tin ở ô ghi chú để note Hoàn mũi cho Gói.
+- Không in được Phụ Lục.
+- Không hủy được Hợp Đồng ở Quản Lý Hợp Động.
+3. Các hỗ trợ bác sĩ: Đã giải quyết trong ngày.
+4. Các lỗi máy in, máy tính: Đã giải quyết trong ngày.
+5. Hạng mục máy bấm số, âm thanh: Bình thường.
+6. Phần mềm QAs Online: Hoạt động bình thường trong ngày.
+7. Các công việc tồn cần nhờ hỗ trợ:
+- Nhờ Team hỗ trợ đẩy ngày hóa đơn về ngày cũ cho khách hàng KH 2000275067 - CB Dương Thị Giang vào cuối ngày sau khi bên Thu Ngân báo kết ca giúp. 
+- Nhờ Team hỗ trợ cho khách hàng 2000229499 - Trần Khánh Vy, đã tiêm Mũi 1 Rotarix 1.5ml - Phác đồ 6 tuần - 6 tháng(2,3,4) sau 15 phút lại không đặt trước tiếp Mũi 2 vì Phác đồ đã thay đổi tên thành 6 tuần đến 24 tuần. Thu ngân không dám đặt trước cho mũi 1 phác đồ này. 
+
+
+
+TT VNVC Đà Nẵng báo cáo ngày <03/06/2020> 
+1. PM QAs Offline: Không bình thường.
+- Data hiện tại đến ngày: 20/05/2020.
+- Đăng nhập: Ban đầu đăng nhập được, nhưng kiểm tra số liệu khách hàng 1800192165 - Nguyễn Hoàng Nam thêm Gói bổ sung Tiền học đường, thì qua thanh toán báo lỗi.
+- Các chức năng theo Checklist(LT-TV-TN-PK-PT-ST-Gói): Không thanh toán được. 
+- Link Tivi Offline: Bình thường.
+- Mạng SD-WAN Status Check: Bình thường.
+- Phần mềm không vào thanh toán được và báo lỗi khi click vào, thoát ra vào lại thì báo lỗi không vào được.
+2. Các hỗ trợ bác sĩ và các bộ phận: Đã giải quyết xong trong ngày.
+3. Hạng mục máy bấm số, âm thanh, máy in, máy tính, máy photo: Bình thường.
+4. Các hạng mục IT: Đã được xử lý trong ngày.
+- Bên Nhà Cung Cấp lắp Hệ Thống Trực Tuyến Di Động qua khảo sát để lắp đặt.
+5. Phần mềm QAs: 
+- Trường hợp khách hàng 2000056995 - Phan Khôi Nguyên có Phản Ứng Sau Tiêm vào ngày 02/06/2020 không nhập được các Phản ứng sau tiêm được. Đã báo Group nhờ Team hỗ trợ.
+- Trường hợp khách hàng 1800192165 -Nguyễn Hoàng Nam sai lệch công nợ Gói Hợp Đồng cũ bị sai lệch giá trị, khách hàng cần lên Gói mới mua hôm này. Đã báo Group nhờ Team hỗ trợ.
+- Trường hợp khách hàng 2000059002 - Nguyễn Ngọc Bảo Vy có số Hợp Đồng là HD 572/2020/VNVC-ÐNG, khách hàng bị mất Mũi 2 Avaxim và có nhiều dấu hiệu lạ. Đã báo Group nhờ Team hỗ trợ.
+
+
+
+
+TT VNVC Đà Nẵng báo cáo ngày <09/06/2020> 
+1. PM QAs Offline: Không bình thường.
+- Data hiện tại đến ngày: 09/06/2020.
+- Đăng nhập: Đăng nhập bình thường.
+- Các chức năng theo Checklist(LT-TV-TN-PK-PT-ST-Gói): Bình thường. 
+- Link Tivi Offline: Bình thường.
+- Mạng SD-WAN Status Check: Bình thường.
+- Sau Tiêm: Ghi chú lưu hoàn tất, nhưng ở những mũi chưa hoàn tất cũng lấy thông tin.
+2. Các hỗ trợ bác sĩ và các bộ phận: Đã giải quyết xong trong ngày.
+3. Hạng mục máy bấm số, âm thanh, máy in, máy tính, máy photo: Bình thường.
+4. Các hạng mục IT: Bình thường.
+5. Phần mềm QAs: 
+- Trường hợp 2000300320 - Dương Lê Khánh Quỳnh, Báo cáo xuất Vaccine ở Phòng Tiên PT04 ngày 03.06.2020 không có tên khách. Đã được Team hỗ trợ xử lý.
+- Trường hợp khách hàng 2000056995 - Phan Khôi Nguyên có Phản Ứng Sau Tiêm vào ngày 02/06/2020 không nhập được các Phản ứng sau tiêm được. Vẫn chưa được xử lý.
+- Trường hợp khách hàng 1800192165 -Nguyễn Hoàng Nam sai lệch công nợ Gói Hợp Đồng cũ bị sai lệch giá trị, khách hàng cần lên Gói mới mua hôm này. Vẫn chưa được xử lý.
+- Trường hợp khách hàng 2000059002 - Nguyễn Ngọc Bảo Vy có số Hợp Đồng là HD 572/2020/VNVC-ÐNG, khách hàng bị mất Mũi 2 Avaxim và có nhiều dấu hiệu lạ. Vẫn chưa được xử lý.
+
+
+
+TT VNVC Đà Nẵng báo cáo ngày <05/06/2020> 
+1. PM QAs Offline: Bình thường.
+- Data hiện tại đến ngày: 04/06/2020.
+- Đăng nhập: Đăng nhập bình thường.
+- Các chức năng theo Checklist(LT-TV-TN-PK-PT-ST-Gói): Bình thường. 
+- Link Tivi Offline: Bình thường.
+- Mạng SD-WAN Status Check: Bình thường.
+- Sau Tiêm: Ghi chú lưu hoàn tất, nhưng ở những mũi chưa hoàn tất cũng lấy thông tin. 
+2. Các hỗ trợ bác sĩ và các bộ phận: Đã giải quyết xong trong ngày.
+3. Hạng mục máy bấm số, âm thanh, máy in, máy tính, máy photo: Bình thường.
+4. Các hạng mục IT: Đã được xử lý trong ngày.
+5. Phần mềm QAs: Hoạt động bình thường.
+
+
+
+TT VNVC Đà Nẵng báo cáo ngày <09/06/2020> 
+1. PM QAs Offline: Bình thường.
+- Data hiện tại đến ngày: 08/06/2020.
+- Đăng nhập: Đăng nhập bình thường.
+- Các chức năng theo Checklist(LT-TV-TN-PK-PT-ST-Gói): Bình thường. 
+- Link Tivi Offline: Bình thường.
+- Mạng SD-WAN Status Check: Bình thường.
+- Sau Tiêm: Ghi chú lưu hoàn tất, nhưng ở những mũi chưa hoàn tất cũng lấy thông tin. 
+2. Các hỗ trợ bác sĩ và các bộ phận: Đã giải quyết trong ngày.
+3. Hạng mục máy bấm số, âm thanh, máy in, máy tính, máy photo: Hoạt động bình thường.
+4. Các hạng mục IT: Đã được xử lý trong ngày.
+5. Phần mềm QAs: Hoạt động bình thường.
+6. Các lỗi tồn động:
+- Trường hợp khách hàng 2000056995 - Phan Khôi Nguyên có Phản Ứng Sau Tiêm vào ngày 02/06/2020 không nhập được các Phản ứng sau tiêm được. 
+- Trường hợp khách hàng 1800192165 - Nguyễn Hoàng Nam sai lệch công nợ Gói Hợp Đồng cũ bị sai lệch giá trị.
+- Trường hợp khách hàng 2000059002 - Nguyễn Ngọc Bảo Vy có số Hợp Đồng là HD 572/2020/VNVC-ÐNG, khách hàng bị mất Mũi 2 Avaxim và có nhiều dấu hiệu lạ. 
+- Trường trường hợp khách hàng 2000250904 - Phạm Khải Phong có PUST, nhập lên QAs nhưng sau khi hoàn tất thì bị mất thông tin đã nhập và xuất báo cáo không có thông tin những vắc xin phản ứng. 
+
+
+
+
+2000059002 
+
+
+2000250904 - Phạm Khải Phong
+
+
+Nhờ Team hỗ trợ trường hợp khách hàng 2000250904 - Phạm Khải Phong có PUST, nhập lên QAs nhưng sau khi hoàn tất thì bị mất thông tin đã nhập và xuất báo cáo không có thông tin những vắc xin phản ứng. Nhờ Team hỗ trợ. Tương tự như trường hợp đã báo trước đó.
+
+
+TT VNVC Đà Nẵng báo cáo ngày <12/06/2020> 
+1. PM QAs Offline: Bình thường.
+- Data hiện tại đến ngày: 11/06/2020.
+- Đăng nhập: Đăng nhập bình thường.
+- Các chức năng theo Checklist(LT-TV-TN-PK-PT-ST-Gói): Bình thường. 
+- Link Tivi Offline: Bình thường.
+- Mạng SD-WAN Status Check: Bình thường.
+- Không in được Phụ Lục -> Nhờ Fix lỗi để Đào Tạo Hội Nhập Tư Vấn Gói và Thu Ngân Gói.
+- Nhập thông tin Hoàn sau khi thêm Gói lưu hoặc đặt trước không khám sẽ bị mất.
+2. Các hỗ trợ bác sĩ và các bộ phận: Đã giải quyết trong ngày.
+3. Hạng mục máy bấm số, âm thanh, máy in, máy tính, máy photo: Hoạt động bình thường.
+4. Các hạng mục IT: Đã được xử lý trong ngày.
+- Đã nhận thùng mực về từ Toàn Cát.
+5. Phần mềm QAs: Bình thường.
+6. Các lỗi tồn động:
+- Trường hợp khách hàng 1800192165 - Nguyễn Hoàng Nam sai lệch công nợ Gói Hợp Đồng cũ bị sai lệch giá trị.
+- Trường hợp khách hàng 2000059002 - Nguyễn Ngọc Bảo Vy có số Hợp Đồng là HD 572/2020/VNVC-ÐNG, khách hàng bị mất Mũi 2 Avaxim và có nhiều dấu hiệu lạ. 
+- Không nhập được phản ứng sau tiêm cho các khách hàng:
+	+ KH 2000056995 - Phan Khôi Nguyên ngày 02/06/2020
+	+ KH 2000250904 - Phạm Khải Phong ngày 06/06/2020
+	+ KH 1900577306 - Phạm Đức Trọng ngày 10/06/2020
+	+ KH 1900576065 - Huỳnh Nhật Long ngày 10/06/2020
+
+
+- Xuất hiện 2 trường hợp chỉ định vào PT11 báo lỗi trùng khóa:
+	+ KH 1900427259 - Nguyễn Quang Bình
+	+ KH 1900239905 - Nguyễn Đình Thế Kiệt
+Đã báo Group nhờ kiểm tra và theo dõi buổi chiều không xuất hiện lại lỗi.	
+
+
+
+
+
+
+
+
+
+TT VNVC Đà Nẵng báo cáo ngày <13/06/2020> 
+1. PM QAs Offline: Bình thường.
+- Data hiện tại đến ngày: 12/06/2020.
+- Đăng nhập: Đăng nhập bình thường.
+- Các chức năng theo Checklist(LT-TV-TN-PK-PT-ST-Gói): Bình thường. 
+- Link Tivi Offline: Bình thường.
+- Mạng SD-WAN Status Check: Bình thường.
+2. Các hỗ trợ bác sĩ và các bộ phận: Đã giải quyết trong ngày.
+3. Hạng mục máy bấm số, âm thanh, máy in, máy tính, máy photo: Hoạt động bình thường.
+4. Các hạng mục IT: Đã được xử lý trong ngày.
+5. Phần mềm QAs: Bình thường.
+- Bấm giảm tiền âm(Bị kẹp phím) sẽ không thể hiện trên Bill.
+6. Các lỗi tồn động:
+- Trường hợp khách hàng 1800192165 - Nguyễn Hoàng Nam sai lệch công nợ Gói Hợp Đồng cũ bị sai lệch giá trị.
+- Trường hợp khách hàng 2000059002 - Nguyễn Ngọc Bảo Vy có số Hợp Đồng là HD 572/2020/VNVC-ÐNG, khách hàng bị mất Mũi 2 Avaxim và có nhiều dấu hiệu lạ. 
+- Không nhập được phản ứng sau tiêm cho các khách hàng:
+	+ KH 2000056995 - Phan Khôi Nguyên ngày 02/06/2020
+	+ KH 2000250904 - Phạm Khải Phong ngày 06/06/2020
+	+ KH 1900577306 - Phạm Đức Trọng ngày 10/06/2020
+	+ KH 1900576065 - Huỳnh Nhật Long ngày 10/06/2020
+
+
+TT VNVC Đà Nẵng báo cáo ngày <14/06/2020> 
+1. PM QAs Offline: Bình thường.
+- Data hiện tại đến ngày: 13/06/2020.
+- Đăng nhập: Đăng nhập bình thường.
+- Các chức năng theo Checklist(LT-TV-TN-PK-PT-ST-Gói): Bình thường. 
+- Lưu mấy Hoàn Mũi nếu bổ sung sau khi Thêm Gói.
+- In Phụ Lục để thể hiện số Mũi và Tổng tiền Hợp Đồng không được, khó đối chiếu khi hướng dẫn Đào Tạo trên PM Offline.
+- Link Tivi Offline: Bình thường.
+- Mạng SD-WAN Status Check: Bình thường.
+2. Các hỗ trợ bác sĩ và các bộ phận: Đã giải quyết trong ngày.
+3. Hạng mục máy bấm số, âm thanh, máy in, máy tính, máy photo: 
+- Bị lỗi Đăng ký và Call ở Lễ Tân 1 7h30, sau đó đăng ký không được các máy khác lúc 8h nếu tắt đi bật lại, đã xử lý xong lúc 8h37.
+- Lỗi máy lấy số thứ tự ở Sảnh phân luồng Trệt - Lầu lúc 10h41, đã xử lý xong lúc 11h.
+- Máy Phòng Tiêm 15A Lầu Update Windows.
+4. Các hạng mục IT: Đã được xử lý trong ngày.
+- Hiện phòng Đào Tạo cần 1 port mạng để kéo Trực Tuyến Di Động.
+5. Phần mềm QAs: Bình thường.
+6. Các lỗi tồn động:
+- Trường hợp khách hàng 1800192165 - Nguyễn Hoàng Nam sai lệch công nợ Gói Hợp Đồng cũ bị sai lệch giá trị.
+- Trường hợp khách hàng 2000059002 - Nguyễn Ngọc Bảo Vy có số Hợp Đồng là HD 572/2020/VNVC-ÐNG, khách hàng bị mất Mũi 2 Avaxim và có nhiều dấu hiệu lạ. 
+- Không nhập được phản ứng sau tiêm cho các khách hàng:
+	+ KH 2000056995 - Phan Khôi Nguyên ngày 02/06/2020
+	+ KH 2000250904 - Phạm Khải Phong ngày 06/06/2020
+	+ KH 1900577306 - Phạm Đức Trọng ngày 10/06/2020
+	+ KH 1900576065 - Huỳnh Nhật Long ngày 10/06/2020
+
+
+
+TT VNVC Đà Nẵng báo cáo ngày <15/06/2020> 
+1. PM QAs Offline: Bình thường.
+- Data hiện tại đến ngày: 14/06/2020.
+- Đăng nhập: Đăng nhập bình thường.
+- Các chức năng theo Checklist(LT-TV-TN-PK-PT-ST-Gói): Bình thường. 
+- Link Tivi Offline: Bình thường.
+- Mạng SD-WAN Status Check: Bình thường.
+2. Các hỗ trợ bác sĩ và các bộ phận: Đã giải quyết trong ngày.
+3. Hạng mục máy bấm số, âm thanh, máy in, máy tính, máy photo: Bình Thường.
+4. Các hạng mục IT: Đã được xử lý trong ngày.
+5. Phần mềm QAs: Bình thường.
+- Trường hợp khách hàng 2000323414 - Nguyễn Thị Hiệp:
+* Buổi sáng tiêm Influvax ở Trệt.
+* Buổi chiều tiêm Prevenar 13 ở Lầu.
+Nhập phản ứng sau tiêm và nhiệt độ hoàn tất ở Sau Tiêm Trệt buổi sáng, thì lấy dữ liệu qua luôn mũi buổi chiều ở Sau Tiêm Lầu.
+6. Các lỗi tồn động:
+- Trường hợp khách hàng 1800192165 - Nguyễn Hoàng Nam sai lệch công nợ Gói Hợp Đồng cũ bị sai lệch giá trị.
+- Trường hợp khách hàng 2000059002 - Nguyễn Ngọc Bảo Vy có số Hợp Đồng là HD 572/2020/VNVC-ÐNG, khách hàng bị mất Mũi 2 Avaxim và có nhiều dấu hiệu lạ. 
+- Không nhập được phản ứng sau tiêm cho các khách hàng:
+	+ KH 2000056995 - Phan Khôi Nguyên ngày 02/06/2020
+	+ KH 2000250904 - Phạm Khải Phong ngày 06/06/2020
+	+ KH 1900577306 - Phạm Đức Trọng ngày 10/06/2020
+	+ KH 1900576065 - Huỳnh Nhật Long ngày 10/06/2020
+
+
+TT VNVC Đà Nẵng báo cáo ngày <16/06/2020> 
+1. PM QAs Offline: Bình thường.
+- Data hiện tại đến ngày: 14/06/2020.
+- Đăng nhập: Đăng nhập bình thường.
+- Các chức năng theo Checklist(LT-TV-TN-PK-PT-ST-Gói): Bình thường. 
+- Link Tivi Offline: Bình thường.
+- Mạng SD-WAN Status Check: Bình thường.
+- Bị mất thông tin Ghi chú mô tả Hoàn Mũi nếu được bổ sung sau khi đã Thêm gói vào rồi.
+2. Các hỗ trợ bác sĩ và các bộ phận: Đã giải quyết trong ngày.
+3. Hạng mục máy bấm số, âm thanh, máy in, máy tính, máy photo: Bình Thường.
+4. Các hạng mục IT: Đã được xử lý trong ngày.
+- Đã chuẩn bị xong Trực Tuyến Di Động ở Phòng Đào Tạo để mai bắt đầu đợt đào tạo mới.
+5. Phần mềm QAs: Bình thường.
+6. Các lỗi tồn động:
+- Trường hợp khách hàng 1800192165 - Nguyễn Hoàng Nam sai lệch công nợ Gói Hợp Đồng cũ bị sai lệch giá trị.
+- Trường hợp khách hàng 2000059002 - Nguyễn Ngọc Bảo Vy có số Hợp Đồng là HD 572/2020/VNVC-ÐNG, khách hàng bị mất Mũi 2 Avaxim và có nhiều dấu hiệu lạ. 
+- Không nhập được phản ứng sau tiêm cho các khách hàng:
+	+ KH 2000056995 - Phan Khôi Nguyên ngày 02/06/2020
+	+ KH 2000250904 - Phạm Khải Phong ngày 06/06/2020
+	+ KH 1900577306 - Phạm Đức Trọng ngày 10/06/2020
+	+ KH 1900576065 - Huỳnh Nhật Long ngày 10/06/2020
+
+
+TT VNVC Đà Nẵng báo cáo ngày <17/06/2020> 
+1. PM QAs Offline: Bình thường.
+- Data hiện tại đến ngày: 16/06/2020.
+- Đăng nhập: Đăng nhập bình thường.
+- Các chức năng theo Checklist(LT-TV-TN-PK-PT-ST-Gói): Bình thường. 
+- Link Tivi Offline: Bình thường.
+- Mạng SD-WAN Status Check: Bình thường.
+- Bị mất thông tin Ghi chú mô tả Hoàn Mũi nếu được bổ sung sau khi đã Thêm gói vào rồi.
+- Lỗi không in được Phụ Lục -> Nhờ Team fix lỗi để Tư Vấn Kiến Tập có thể thao tác luyện tập làm Gói, lên Gói và Hoàn Mũi tính được tiền sẽ thanh toán.
+2. Các hỗ trợ bác sĩ và các bộ phận: Đã giải quyết trong ngày.
+3. Hạng mục máy bấm số, âm thanh, máy in, máy tính, máy photo: Bình Thường.
+4. Các hạng mục IT: Đã được xử lý trong ngày.
+- Hỗ trợ Phòng Trực Tuyến Ngày 01 cho đợt Hội Nhập lần 2 của VNVC Quảng Nam và VNVC Huế. 
+5. Phần mềm QAs: Bình thường.
+6. Các lỗi tồn động:
+- Trường hợp khách hàng 1800192165 - Nguyễn Hoàng Nam sai lệch công nợ Gói Hợp Đồng cũ bị sai lệch giá trị.
+- Trường hợp khách hàng 2000059002 - Nguyễn Ngọc Bảo Vy có số Hợp Đồng là HD 572/2020/VNVC-ÐNG, khách hàng bị mất Mũi 2 Avaxim và có nhiều dấu hiệu lạ. 
+- Không nhập được phản ứng sau tiêm cho các khách hàng:
+	+ KH 2000056995 - Phan Khôi Nguyên ngày 02/06/2020
+	+ KH 2000250904 - Phạm Khải Phong ngày 06/06/2020
+	+ KH 1900577306 - Phạm Đức Trọng ngày 10/06/2020
+	+ KH 1900576065 - Huỳnh Nhật Long ngày 10/06/2020
+- Nhờ Team hỗ trợ xác định nguyên nhân khách hàng 1900200995 - Đinh Khải Uyên không nhận được tin nhắn mũi Thủy Đậu cho ngày hẹn khám 13.06.2020 có ghi trên Sổ Khám giúp.
+
+
+
+
+TT VNVC Đà Nẵng báo cáo ngày <29/06/2020> 
+1. PM QAs Offline: Bình thường.
+- Data hiện tại đến ngày: 28/06/2020.
+- Đăng nhập: Đăng nhập bình thường.
+- Các chức năng theo Checklist(LT-TV-TN-PK-PT-ST-Gói): Bình thường. 
+- Link Tivi Offline: Bình thường.
+- Không in được Phụ Lục Hợp Đồng.
+- Không in được ở Màn hình Khám và Sau Tiêm, load đẩy lệnh in rồi mất luôn.
+2. Các hỗ trợ bác sĩ và các bộ phận: Đã giải quyết trong ngày.
+3. Mạng SD-WAN Status Check: Phần mềm bình thường.
+- Vẫn tắt Line WAN1 để đảm bảo đường truyền.
+4. Hạng mục máy bấm số, âm thanh, máy in, máy tính, máy photo: Bình thường.
+5. Các hạng mục IT: Đã được xử lý trong ngày.
+6. Phần mềm QAs: Bình thường.
+7. Tình trạng Oncall:
+- Chưa nhận được phản hồi lồi Oncall từ các bác sỹ trực Oncall Tối qua và Sáng này.
+- Tối 28.06: Bác sỹ trực OnCall báo lại: Điện thoại bình thường.
+8. Các lỗi tồn động:
+- Trường hợp khách hàng 1800192165 - Nguyễn Hoàng Nam sai lệch công nợ Gói Hợp Đồng cũ, đã hết công nợ nhưng vẫn báo còn công nợ.
+- Trường hợp khách hàng 2000059002 - Nguyễn Ngọc Bảo Vy có số Hợp Đồng là HD 572/2020/VNVC-ÐNG, khách hàng bị mất Mũi 2 Avaxim. 
+- Trường hợp khách hàng 1900482008 - Nguyễn Ngọc Huyền Anh, mua gói hợp đồng 110919 - Gói 12-24(INF) đã thu hết 7.220.000, công nợ cũng hết, nhưng Giá Trị Hợp Đồng lại thể hiện 9.741.000.
+
+
+
+- Phòng Tiêm 11 bị mất cân đối khi phân bổ khách từ Phòng Khám Ưu Tiên(1,2,3) sang Phòng Tiêm Ưu Tiên(10,11,12).
+- Trường hợp khách hàng 1800192165 - Nguyễn Hoàng Nam sai lệch công nợ Gói Hợp Đồng cũ, đã hết công nợ nhưng vẫn báo còn công nợ.
+- Trường hợp khách hàng 2000059002 - Nguyễn Ngọc Bảo Vy có số Hợp Đồng là HD 572/2020/VNVC-ÐNG, khách hàng bị mất Mũi 2 Avaxim. 
+- Trường hợp khách hàng 1900482008 - Nguyễn Ngọc Huyền Anh, mua gói hợp đồng 110919 - Gói 12-24(INF) đã thu hết 7.220.000, công nợ cũng hết, nhưng Giá Trị Hợp Đồng lại thể hiện 9.741.000.
+- Không nhập được phản ứng sau tiêm cho các khách hàng:
+	+ KH 2000056995 - Phan Khôi Nguyên ngày 02/06/2020
+	+ KH 2000250904 - Phạm Khải Phong ngày 06/06/2020
+	+ KH 1900577306 - Phạm Đức Trọng ngày 10/06/2020
+	+ KH 1900576065 - Huỳnh Nhật Long ngày 10/06/2020
+- Nhờ cung cấp giúp Log nhắn tin của Tổng Đài cho khách hàng 2000311897 - Võ Ngọc Hương Ly có số điện thoại 0903558179 vào ngày 21/06/2020, khách hàng không nhận được tin nhắn nhắc lịch.
+- Nhờ cung cấp giúp Log nhắn tin của Tổng Đài cho khách hàng 1900593836 - NGUYỄN TẤN THANH TÙNG vào số điện thoại 0968000012 vào ngày 02/05/202, khách hàng không nhận được tin nhắn nhắc lịch.
+- Khách hàng 2000001615 - Nguyễn Phúc Khang cọc 2 lần 1 triệu do sai thao tác, chưa hủy được Bill thu trùng 1 triệu thứ 2.
+- 
+
+
+
+Nhờ Team hỗ trợ Hủy giúp Bill Cọc có số 013200704-0020 cho khách hàng 2000001615 - Nguyễn Phúc Khang, khách hàng mua gói bổ sung 160220 - Gói 12-24 Tháng(Hex), trong gói có Hoàn 1 Thủy Đậu, 1 Syn, 1 MMRII. Thu Ngân sai sót Thu Bill thao tác trên phần mềm 2 lần 1 triệu thành 2 Bill 013200704-0019 và 013200704-0020; Nhờ Team hỗ trợ Hủy giúp Bill sau 013200704-0020. Cảm ơn Team
+
+
+
+2000289128
+
+PM QAs Offline: Bình thường.
+- Data hiện tại đến ngày: 05/07/2020.
+- Đăng nhập: Đăng nhập bình thường.
+- Các chức năng theo Checklist(LT-TV-TN-PK-PT-ST-Gói): Bình thường. 
+- Link Tivi Offline: Bình thường.
+- Không in được Phụ Lục Hợp Đồng.
+
+
+
+1900352680 - Nguyễn Thế Hùng
+
+
+- Trường hợp khách hàng 2000295478, trước khi Hủy Gói in lại Bill cũ đã Tạm Ứng và so sánh với Bill cũ đã in cho khách hàng giá trị còn lại 12.699.000; nhưng sau khi Hủy Hợp Đồng in lại Bill cũ tạm ứng lại lên số tiền 9.888.000; bị lệch ở GT Hợp Đồng.
+
+
+
+1. Khách hàng 2000024227 - Nguyễn Bảo Nam điện thoại 0935260890 phàn nàn không nhận được tin nhắn hoãn tiêm mũi BC ngày 12.07.2020, trên SalesForce có ghi nhận nhắn tin bằng tay thành công. CSKH đã kiểm tra trên điện thoại khách hàng có nhận các tin trước đó nhưng riêng tin nhắn 12.07 về lịch hẹn 14.07 thì không thấy. Khách hàng đi sớm 1 ngày(13.07) nên phàn nàn Complain.
+2. Khách hàng 1900539318 - NGUYỄN QUỲNH QUYÊN số điện thoại 0905297133 báo không nhận được tin nhắn nhắc lịch tiêm 04.07.2020; kiểm tra SaleForce thì thấy đã nhắn thành công. Thấy có nhắn 2 lần nhưng lần 1 bị Error.
+
+
+Ngày 14/07/2020.
+
+- Phòng Tiêm 11 bị mất cân đối khi phân bổ khách từ Phòng Khám Ưu Tiên(1,2,3) sang Phòng Tiêm Ưu Tiên(10,11,12).
+- Trường hợp khách hàng 1800192165 - Nguyễn Hoàng Nam sai lệch công nợ Gói Hợp Đồng cũ, đã hết công nợ nhưng vẫn báo còn công nợ.
+- Trường hợp khách hàng 2000059002 - Nguyễn Ngọc Bảo Vy có số Hợp Đồng là HD 572/2020/VNVC-ÐNG, khách hàng bị mất Mũi 2 Avaxim. 
+- Trường hợp khách hàng 1900482008 - Nguyễn Ngọc Huyền Anh, mua gói hợp đồng 110919 - Gói 12-24(INF) đã thu hết 7.220.000, công nợ cũng hết, nhưng Giá Trị Hợp Đồng lại thể hiện 9.741.000.
+- Không nhập được phản ứng sau tiêm cho các khách hàng:
+	+ KH 2000056995 - Phan Khôi Nguyên ngày 02/06/2020
+	+ KH 2000250904 - Phạm Khải Phong ngày 06/06/2020
+	+ KH 1900577306 - Phạm Đức Trọng ngày 10/06/2020
+	+ KH 1900576065 - Huỳnh Nhật Long ngày 10/06/2020
+- Khách hàng 2000001615 - Nguyễn Phúc Khang cọc 2 lần 1 triệu do sai thao tác, chưa hủy được Bill thu trùng 1 triệu thứ 2.
+- Trường hợp khách hàng 2000295478, trước khi Hủy Gói in lại Bill cũ đã Tạm Ứng và so sánh với Bill cũ đã in cho khách hàng giá trị còn lại 12.699.000; nhưng sau khi Hủy Hợp Đồng in lại Bill cũ tạm ứng lại lên số tiền 9.888.000; bị lệch ở GT Hợp Đồng.
+
+
+
+
+
+
+
+Báo cáo cuối ngày
+TT VNVC Đà Nẵng báo cáo ngày <17/07/2020> 
+1. PM QAs Offline đăng nhập: Bình thường.
+- Data hiện tại đến ngày: 23/07/2020.
+- Các chức năng: Kiểm tra theo qui trình các chức năng. 
+- Link tivi Offline bình thường.
+- Không in được Phụ Lục.
+3. Mạng SD-WAN Status Check: Có vấn đề về Port01.
+- Vẫn tắt Line WAN1 để đảm bảo đường truyền.
+- Line Port1 có tình trạng rớt gói làm phần mềm báo lỗi đã tắt và thông báo nhà mạng kiểm tra lại từ 10h sáng, chiều có họp trực tuyến nên chưa dám cắm vào sợ ảnh hưởng rớt Trực Tuyến.
+2. Các hỗ trợ bác sĩ: Đã giải quyết trong ngày.
+3. Các lỗi máy in, máy tính: Đã giải quyết trong ngày.
+- PT01 báo Update đã xử lý xong Ghost lại.
+4. Hạng mục máy bấm số, âm thanh: Bình thường.
+5. Phần mềm QAs Online hoạt động: Có báo lỗi rớt phần mềm đường truyền lúc 10h, kiểm tra thấy do Port01 rớt gói nên đã tắt Port1.
+6. CRM/Oncall: Các bác sỹ Oncall bình thường, chưa nhận được phản hồi phàn nàn.
+7. Các tồn đồng chưa giải quyết:
+
+
+
+
+- Trường hợp khách hàng 2000038689 - Trần Lê Nhật Đan phần mềm bị rớt tích Hợp đồng Mũi 1 của Vaxigrip 0.25ml nên không chỉ định được mũi trong gói, khi xem phần mềm Offline thì vẫn còn tích ở đây, khách đã tiêm trước đó mũi Lẻ Cúm Vaxigrip 0.5ml.
+- Phòng Tiêm 11 bị mất cân đối khi phân bổ khách từ Phòng Khám Ưu Tiên(1,2,3) sang Phòng Tiêm Ưu Tiên(10,11,12).
+- Trường hợp khách hàng 1800192165 - Nguyễn Hoàng Nam sai lệch công nợ Gói Hợp Đồng cũ, đã hết công nợ nhưng vẫn báo còn công nợ.
+- Trường hợp khách hàng 2000059002 - Nguyễn Ngọc Bảo Vy có số Hợp Đồng là HD 572/2020/VNVC-ÐNG, khách hàng bị mất Mũi 2 Avaxim. 
+- Trường hợp khách hàng 1900482008 - Nguyễn Ngọc Huyền Anh, mua gói hợp đồng 110919 - Gói 12-24(INF) đã thu hết 7.220.000, công nợ cũng hết, nhưng Giá Trị Hợp Đồng lại thể hiện 9.741.000.
+- Không nhập được phản ứng sau tiêm cho các khách hàng:
+	+ KH 2000056995 - Phan Khôi Nguyên ngày 02/06/2020
+	+ KH 2000250904 - Phạm Khải Phong ngày 06/06/2020
+	+ KH 1900577306 - Phạm Đức Trọng ngày 10/06/2020
+	+ KH 1900576065 - Huỳnh Nhật Long ngày 10/06/2020
+- Khách hàng 2000001615 - Nguyễn Phúc Khang cọc 2 lần 1 triệu do sai thao tác, chưa hủy được Bill thu trùng 1 triệu thứ 2.
+- Trường hợp khách hàng 2000295478, trước khi Hủy Gói in lại Bill cũ đã Tạm Ứng và so sánh với Bill cũ đã in cho khách hàng giá trị còn lại 12.699.000; nhưng sau khi Hủy Hợp Đồng in lại Bill cũ tạm ứng lại lên số tiền 9.888.000; bị lệch ở GT Hợp Đồng.
+- Nhờ Team kiểm tra giúp trường hợp khách hàng 1900670874 - CB TRỊNH THỊ HỒNG THANH có số điện thoại nhận tin nhắn nhắc lịch là 0989134345 không nhận được tin nhắn nhắc lịch trên điện thoại vào ngày 16/07/2020. Kiểm tra trên SalesForce thấy có gửi 3 lần, nhưng 2 lần đầu Fail và lần 3 thì thành công; Kiểm tra trên điện thoại khách hàng không thấy có tin nhắn, mặc dù các lịch hẹn trước đó vẫn nhận được tin nhắn.
+- Trường hợp KH 2000415649 - Dương Bảo Uyên khách hàng mua gói trong ngày bị sai, nên Thu Ngân Gói vào Hoàn Phí và Hủy Bill trong ngày không load được PDF và tìm ở Roaming không thấy file PDF tạm để in lại phiếu Hủy.
+- Trường hợp khách hàng 2000429480 - Ngô Phạm Kim Uyên, chỉ định mũi Engerix B 20mcg 1ml phác đồ Nhanh Viêm Gan B.
+	+ Phác đồ Vaccine có 4 mũi hẹn tiêm
+	+ Nhưng Nhóm bệnh chỉ có 3 mũi.
+- Kiểm tra tin nhắn nhắc lịch  2000329071 - Phạm Phan Gia Bảo có số điện thoại 0963715579 có lịch hẹn đi khám ngày 19.07.2020; Hiện theo CRM có 3 tin nhắn đến khách hàng lúc 9h14" ngày 17.07 nhưng tin nhắn cuối báo thành công. Kiểm tra tin báo thành công có được gửi đến khách hàng.
+
+
+8. Đề xuất: Hướng dẫn cấu hình Camera phòng trực tuyến để NAS, hiện tại chuyển Camera đã được cấu hình từ PT04A và PT06A ít hoạt động xuống đã cấu thành sẵn IP nên lắp vào là chạy.
+9. Các hạng mục khác:
+- Đã chuyển đủ 2 bộ máy PC và 2 máy in cho TT Huế.
+- Chiều đã gửi bổ sung 2 hộp mực in 325.
+
+
+
+
+
+
+
+
+
+
+
+TT VNVC Đà Nẵng báo cáo ngày <30/07/2020> 
+1. PM QAs Offline đăng nhập: Bình thường.
+- Data hiện tại đến ngày: 30/07/2020.
+- Các chức năng: Kiểm tra theo qui trình các chức năng. 
+- Link tivi Offline bình thường.
+- Không in được Phụ Lục.
+--------------------------------
+- Phòng Tiêm 11 bị mất cân đối khi phân bổ khách từ Phòng Khám Ưu Tiên(1,2,3) sang Phòng Tiêm Ưu Tiên(10,11,12).
+- Trường hợp khách hàng 1800192165 - Nguyễn Hoàng Nam sai lệch công nợ Gói Hợp Đồng cũ, đã hết công nợ nhưng vẫn báo còn công nợ.
+- Trường hợp khách hàng 2000059002 - Nguyễn Ngọc Bảo Vy có số Hợp Đồng là HD 572/2020/VNVC-ÐNG, khách hàng bị mất Mũi 2 Avaxim. 
+- Trường hợp khách hàng 1900482008 - Nguyễn Ngọc Huyền Anh, mua gói hợp đồng 110919 - Gói 12-24(INF) đã thu hết 7.220.000, công nợ cũng hết, nhưng Giá Trị Hợp Đồng lại thể hiện 9.741.000.
+- Không nhập được phản ứng sau tiêm cho các khách hàng:
+	+ KH 2000056995 - Phan Khôi Nguyên ngày 02/06/2020
+	+ KH 2000250904 - Phạm Khải Phong ngày 06/06/2020
+	+ KH 1900577306 - Phạm Đức Trọng ngày 10/06/2020
+	+ KH 1900576065 - Huỳnh Nhật Long ngày 10/06/2020
+- Khách hàng 2000001615 - Nguyễn Phúc Khang cọc 2 lần 1 triệu do sai thao tác, chưa hủy được Bill thu trùng 1 triệu thứ 2.
+- Trường hợp khách hàng 2000295478, trước khi Hủy Gói in lại Bill cũ đã Tạm Ứng và so sánh với Bill cũ đã in cho khách hàng giá trị còn lại 12.699.000; nhưng sau khi Hủy Hợp Đồng in lại Bill cũ tạm ứng lại lên số tiền 9.888.000; bị lệch ở GT Hợp Đồng.
+- Trường hợp khách hàng 2000429480 - Ngô Phạm Kim Uyên, chỉ định mũi Engerix B 20mcg 1ml phác đồ Nhanh Viêm Gan B.
+	+ Phác đồ Vaccine có 4 mũi hẹn tiêm
+	+ Nhưng Nhóm bệnh chỉ có 3 mũi.
+- Trường hợp xin check Log Tổng Đài giúp cho trường hợp KH Hoàng Ngọc Phương Uyên 2000417265 không nhận được tin nhắn nhắc lịch vào số điện thoại 0914900806.
+
+
+
+TT VNVC Đà Nẵng báo cáo ngày <17/07/2020> 
+1. PM QAs Offline đăng nhập: Bình thường.
+- Data hiện tại đến ngày: 23/07/2020.
+- Các chức năng: Kiểm tra theo qui trình các chức năng. 
+- Link tivi Offline bình thường.
+- Không in được Phụ Lục.
+--------------------------------
+- Nhờ Team kiểm tra giúp trường hợp khách hàng 1900670874 - CB TRỊNH THỊ HỒNG THANH có số điện thoại nhận tin nhắn nhắc lịch là 0989134345 không nhận được tin nhắn nhắc lịch trên điện thoại vào ngày 16/07/2020. Kiểm tra trên SalesForce thấy có gửi 3 lần, nhưng 2 lần đầu Fail và lần 3 thì thành công; Kiểm tra trên điện thoại khách hàng không thấy có tin nhắn, mặc dù các lịch hẹn trước đó vẫn nhận được tin nhắn.

@@ -1,0 +1,502 @@
+IF EXISTS (SELECT 1 FROM sysobjects WHERE name = 'ws_Vaccine_Random_PhongTiem_NhieuMaChung') DROP PROCEDURE ws_Vaccine_Random_PhongTiem_NhieuMaChung
+GO
+SET QUOTED_IDENTIFIER OFF
+GO
+-- =============================================
+-- Author:		Hieunt
+-- Create date: 2018-01-18 14:28
+-- Description:	Thuật toán random phòng tiêm vaccine cho nhiều mã chung
+-- Version: 1.0.0.0
+-- Version: 1.0.1.0 2018-01-20 9:16 hieunt chỉ lấy thuốc còn
+-- Version: 1.0.1.1 2018-04-17 17:00 thuongvt radom các phòng tiêm cùng nhóm tầng với phòng khám, nếu phòng khám không có nhóm tầng thì random các phòng tiêm chung tầng
+-- Version: 1.0.6.0 2018-04-23 11:35 thuongvt Nếu phòng tiêm bị tắt thì không random phòng tiêm
+-- Version: 1.0.7.0 2019-06-07 9:58 hieunt 
+-- =============================================
+CREATE PROCEDURE [dbo].[ws_Vaccine_Random_PhongTiem_NhieuMaChung]
+    @SessionID VARCHAR(MAX),
+    @FacID VARCHAR(10),
+    @MaChung VARCHAR(MAX),
+    @RoomID INT = NULL
+AS -- ========================debug================
+--DECLARE @FacID VARCHAR(10) = '8.13'
+--DECLARE @MaChung VARCHAR(100) = '10002|9'
+--DECLARE @RoomID INT = 98
+-- =============================================
+-- EXEC ws_Vaccine_Random_PhongTiem_NhieuMaChung '222222', '8.11','8|10010', 1
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @NhomTangPhongKham VARCHAR(10) ------------------------Version: 1.0.1.1
+    DECLARE @TangPhongKham INT
+    SELECT @NhomTangPhongKham = Nhom
+    FROM QAHosGenericDB..L_DepartmentRoom WITH (NOLOCK)
+    WHERE RoomID = @RoomID
+          AND FacID = @FacID
+
+    --select @NhomTangPhongKham -----debug------------
+Nhóm 5
+    IF (@NhomTangPhongKham IS NULL)
+    BEGIN
+        SELECT @TangPhongKham = Tang
+        FROM QAHosGenericDB..L_DepartmentRoom WITH (NOLOCK)
+        WHERE RoomID = @RoomID
+              AND FacID = @FacID
+    END
+
+   --select @NhomTangPhongKham as TangPhongKham--------------debug-------------
+    CREATE TABLE #L_DRoom
+    (
+        Khoa INT IDENTITY(1, 1),
+        RoomID INT,
+        FacID VARCHAR(10),
+        Limit INT,
+        IsLocked BIT,
+        IsHetKho BIT,
+        StockID INT,
+        Tang INT,
+        Nhom VARCHAR(MAX)
+    )
+
+    IF (@NhomTangPhongKham IS NOT NULL)
+    BEGIN
+        INSERT INTO #L_DRoom
+        (
+            RoomID,
+            FacID,
+            Limit,
+            IsLocked,
+            IsHetKho,
+            StockID,
+            Tang,
+            Nhom
+        )
+        SELECT RoomID,
+               FacID,
+               Limit,
+               IsLocked,
+               CAST(0 AS BIT) IsHetKho,
+               CAST(0 AS INT) StockID,
+               Tang,
+               Nhom
+        FROM dbo.L_DepartmentRoom dr WITH (NOLOCK)
+        WHERE IsPhongTiem = 1
+              AND
+              (
+                  IsLocked = 0
+                  OR IsLocked IS NULL
+              )
+              AND FacID = @FacID
+              AND Nhom = @NhomTangPhongKham
+              AND IsUsing <> '0'
+
+    --select * from #L_DRoom -----debug------------
+    END
+    ELSE
+    BEGIN
+        INSERT INTO #L_DRoom
+        (
+            RoomID,
+            FacID,
+            Limit,
+            IsLocked,
+            IsHetKho,
+            StockID,
+            Tang,
+            Nhom
+        )
+        SELECT RoomID,
+               FacID,
+               Limit,
+               IsLocked,
+               CAST(0 AS BIT) IsHetKho,
+               CAST(0 AS INT) StockID,
+               Tang,
+               Nhom
+        FROM dbo.L_DepartmentRoom dr WITH (NOLOCK)
+        WHERE IsPhongTiem = 1
+              AND
+              (
+                  IsLocked = 0
+                  OR IsLocked IS NULL
+              )
+              AND FacID = @FacID
+              AND Tang = @TangPhongKham
+              AND IsUsing <> '0'
+			  
+RoomID			  
+122
+123
+124
+    --select * from #L_DRoom -----debug------------
+    END; ---------------------------------------------------------Version: 1.0.1.1
+
+
+    CREATE TABLE #MaChung
+    (
+        IDRow INT,
+        MaChung VARCHAR(50)
+    )
+
+    INSERT INTO #MaChung
+    (
+        IDRow,
+        MaChung
+    )
+    SELECT RowId,
+           VALUE
+    FROM dbo.Split('|', @MaChung)
+
+    --select * from #MaChung ------------debug------------
+
+    UPDATE #L_DRoom
+    SET StockID = s.StockID
+    FROM #L_DRoom t
+        INNER JOIN dbo.L_InventoryStock s WITH (NOLOCK)
+            ON t.RoomID = s.RoomID
+               AND s.FacID = @FacID
+
+    --select * from #L_DRoom --------------debug-------------------
+select * FROM dbo.L_InventoryStock s WITH (NOLOCK)
+
+    SELECT SUM(Qty) Qty,
+           StockID
+    INTO #tempProductFirst
+    FROM dbo.INV_Product WITH (NOLOCK)
+    WHERE StockID IN
+          (
+              SELECT StockID FROM #L_DRoom
+          )
+          AND CAST(ExpDate AS DATE) > CAST(GETDATE() AS DATE)
+          AND FacID = @FacID
+          AND ProductID IN
+              (
+                  SELECT ProductID
+                  FROM dbo.L_Product p WITH (NOLOCK)
+                  WHERE MaChung IN
+                        (
+                            SELECT MaChung FROM #MaChung
+                        )
+                        AND FacID = @FacID
+              )
+          AND Qty > 0
+    GROUP BY dbo.INV_Product.StockID
+
+
+    UPDATE #L_DRoom
+    SET IsHetKho = CASE
+                       WHEN ISNULL(Qty, 0) > 0 THEN
+                           0
+                       ELSE
+                           1
+                   END
+    FROM #L_DRoom t
+        LEFT JOIN #tempProductFirst tt
+            ON t.StockID = tt.StockID
+
+    DELETE #L_DRoom
+    WHERE IsHetKho = 1
+
+
+    DROP TABLE #tempProductFirst
+
+    CREATE TABLE #SlChiDinhTiem
+    (
+        ClinicalSessionID UNIQUEIDENTIFIER,
+        RoomID INT,
+        DuocTiemLucAsInt INT,
+        HoanTatLucAsInt INT
+    )
+    DECLARE @c INT =
+            (
+                SELECT COUNT(1) FROM #L_DRoom
+            )
+    DECLARE @i INT = 1
+
+    SELECT *
+    INTO #rawChiDinh
+    FROM Vaccine_TimeRecord_PhongTiem WITH (NOLOCK)
+    WHERE DuocTiemLucAsInt = FORMAT(GETDATE(), 'yyyyMMdd', 'en-US')
+	AND RoomID IN ('122','123','124')
+	
+   
+	INSERT INTO #SlChiDinhTiem
+        (
+            ClinicalSessionID,
+            RoomID,
+            DuocTiemLucAsInt,
+            HoanTatLucAsInt
+        )
+        SELECT ClinicalSessionID,
+               t.RoomID,
+               DuocTiemLucAsInt,
+               HoanTatTiemLucAsInt
+        FROM #rawChiDinh t INNER JOIN #L_DRoom  r
+		ON r.RoomID = t.RoomID
+		
+
+    SELECT COUNT(ClinicalSessionID) SLBenhNhan,
+           RoomID
+    INTO #tempTongBenhNhanCounted
+    FROM #SlChiDinhTiem
+    GROUP BY RoomID
+
+
+
+    SELECT Khoa,
+           FacID,
+           Limit,
+           IsLocked,
+           ISNULL(SLBenhNhan, 0) SLBenhNhan,
+           a.RoomID,
+           CASE
+               WHEN SLBenhNhan >= Limit THEN
+                   1
+               ELSE
+                   0
+           END OutLimit
+    INTO #tempLimit
+    FROM #L_DRoom a
+        LEFT JOIN #tempTongBenhNhanCounted b
+            ON a.RoomID = b.RoomID
+
+		
+
+    DELETE #tempLimit
+    WHERE OutLimit = 1
+
+    DECLARE @cNew INT =
+            (
+                SELECT COUNT(1) FROM #tempLimit
+            )
+    DECLARE @j INT = 1
+
+
+    WHILE @j <= @cNew
+    BEGIN
+        DECLARE @MaxBN INT
+        DECLARE @Min INT
+
+        SELECT @MaxBN = MAX(SLBenhNhan),
+            @Min = MIN(SLBenhNhan)
+        FROM #tempLimit
+
+        IF @MaxBN - @Min >= 5
+        BEGIN
+            DELETE #tempLimit
+            WHERE SLBenhNhan = @MaxBN
+        END
+
+        SET @j = @j + 1
+    END
+
+
+    CREATE TABLE #TempBNTime
+    (
+        Khoa INT IDENTITY(1, 1),
+        RoomID INT,
+        DuocTiemLuc DATETIME,
+        HoanTatLuc DATETIME
+    )
+
+    INSERT INTO #TempBNTime
+    (
+        RoomID,
+        DuocTiemLuc,
+        HoanTatLuc
+    )
+    SELECT RoomID,
+           DuocTiemLuc,
+           HoanTatTiem
+    FROM #rawChiDinh
+    WHERE RoomID IN
+          (
+              SELECT RoomID FROM #tempLimit
+          )
+
+    CREATE TABLE #tempBNMinMaxTime
+    (
+        Khoa INT IDENTITY(1, 1),
+        RoomID INT,
+        ThoiGianTrungBinh INT,
+        SLBNCho INT,
+        ThoiGianCho INT,
+        StockID INT,
+        HanDungGanNhat DATETIME
+    )
+
+    INSERT INTO #tempBNMinMaxTime
+    (
+        RoomID
+    )
+    SELECT RoomID
+    FROM #tempLimit
+	
+
+    DECLARE @K INT = 1
+    DECLARE @CMinMax INT =
+            (
+                SELECT COUNT(1) FROM #tempBNMinMaxTime
+            )
+
+
+    WHILE @K <= @CMinMax
+    BEGIN
+
+        DECLARE @RoomIDMinMax INT
+
+        SELECT @RoomIDMinMax = RoomID
+        FROM #tempBNMinMaxTime
+        WHERE Khoa = @K
+
+        SELECT TOP 5
+               DATEDIFF(MINUTE, DuocTiemLuc, HoanTatLuc) PhutChenhLech
+        INTO #tempDatediff
+        FROM #TempBNTime
+        WHERE HoanTatLuc IS NOT NULL
+              AND RoomID = @RoomIDMinMax
+        ORDER BY HoanTatLuc
+
+        DECLARE @ThoiGianTrungBinh INT
+        SELECT @ThoiGianTrungBinh = SUM(PhutChenhLech) / 5
+        FROM #tempDatediff
+        DECLARE @SLCho INT
+
+        SELECT @SLCho = COUNT(1)
+        FROM #TempBNTime
+        WHERE HoanTatLuc IS NULL
+              AND RoomID = @RoomIDMinMax
+
+        UPDATE #tempBNMinMaxTime
+        SET ThoiGianTrungBinh = CASE
+                                    WHEN @ThoiGianTrungBinh IS NULL THEN
+                                        2
+                                    ELSE
+                                        @ThoiGianTrungBinh
+                                END,
+            SLBNCho = @SLCho
+        WHERE RoomID = @RoomIDMinMax
+
+        DROP TABLE #tempDatediff
+
+        SET @K = @K + 1
+    END
+
+    UPDATE #tempBNMinMaxTime
+    SET ThoiGianCho = ThoiGianTrungBinh * SLBNCho
+
+    UPDATE #tempBNMinMaxTime
+    SET StockID = s.StockID
+    FROM #tempBNMinMaxTime t
+        INNER JOIN dbo.L_InventoryStock s WITH (NOLOCK)
+            ON t.RoomID = s.RoomID
+               AND s.FacID = @FacID
+
+			   
+
+    SELECT *
+    INTO #tempProduct
+    FROM dbo.INV_Product WITH (NOLOCK)
+    WHERE StockID IN
+          (
+              SELECT StockID FROM #tempBNMinMaxTime
+          )
+          AND CAST(ExpDate AS DATE) > CAST(GETDATE() AS DATE)
+          AND FacID = @FacID
+          AND ProductID IN
+              (
+                  SELECT ProductID
+                  FROM dbo.L_Product p WITH (NOLOCK)
+                  WHERE MaChung IN
+                        (
+                            SELECT MaChung FROM #MaChung
+                        )
+                        AND FacID = @FacID
+              )
+
+
+    SELECT StockID,
+           MIN(ExpDate) HanDungNhoNhat
+    INTO #tempHanDung
+    FROM #tempProduct
+    GROUP BY StockID
+
+    UPDATE #tempBNMinMaxTime
+    SET HanDungGanNhat = tt.HanDungNhoNhat
+    FROM #tempBNMinMaxTime t
+        INNER JOIN #tempHanDung tt
+            ON t.StockID = tt.StockID
+
+
+    DECLARE @Top1SLBNCho INT
+
+    DECLARE @Top2SLBNCho INT
+    DECLARE @CountRaw INT
+
+    SELECT @CountRaw = COUNT(1)
+    FROM #rawChiDinh
+
+    DELETE #tempBNMinMaxTime
+    WHERE HanDungGanNhat IS NULL
+
+    SELECT TOP 1
+           @Top1SLBNCho = SLBNCho
+    FROM #tempBNMinMaxTime
+    ORDER BY ThoiGianCho
+
+    SELECT TOP 2
+           @Top2SLBNCho = SLBNCho
+    FROM #tempBNMinMaxTime
+    ORDER BY ThoiGianCho
+
+    IF @Top1SLBNCho - @Top2SLBNCho >= 3
+       OR @CountRaw = 0
+    BEGIN
+
+        DELETE #tempBNMinMaxTime
+        WHERE HanDungGanNhat IS NULL
+
+        IF
+        (
+            SELECT COUNT(1) FROM #tempBNMinMaxTime
+        ) > 1
+        BEGIN
+            DELETE #tempBNMinMaxTime
+            WHERE RoomID =
+            (
+                SELECT TOP 1 RoomID FROM #tempBNMinMaxTime ORDER BY ThoiGianCho
+            )
+        END
+
+
+    END
+	
+    SELECT t.Khoa,
+           t.RoomID,
+           t.ThoiGianTrungBinh,
+           t.SLBNCho,
+           t.ThoiGianCho,
+           t.StockID,
+           t.HanDungGanNhat,
+           dr.RoomName
+    FROM #tempBNMinMaxTime t
+        INNER JOIN dbo.L_DepartmentRoom dr WITH (NOLOCK)
+            ON t.RoomID = dr.RoomID
+               AND dr.FacID = @FacID
+    ORDER BY ThoiGianCho,
+             HanDungGanNhat
+
+    DROP TABLE #L_DRoom,
+               #SlChiDinhTiem,
+               #tempTongBenhNhanCounted,
+               #tempLimit,
+               #TempBNTime,
+               #rawChiDinh,
+               #tempBNMinMaxTime,
+               #tempProduct,
+               #tempHanDung
+    DROP TABLE #MaChung
+END
+
+
+
+GO

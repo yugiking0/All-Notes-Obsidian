@@ -1,0 +1,613 @@
+01. Xử lý 01
+exec QAHosGenericDB..ws_CN_FacAdmissions_WarnJustDischargedPatient @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@FacID=N'8.11',@PatientID=N'de8e63ee-cbfa-455a-be45-fa2345f4df8b'
+/*
+Version: 1.0.0.0 2017-10-27 12:00 HiepNH : ....................... auto description
+Version: 1.0.0.1 20200430 hungnq optimize
+*/
+02. Xử lý 02
+exec QAHosGenericDB..ws_CN_FacAdmissions_GetExistTodayV2 @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@PatientID=N'de8e63ee-cbfa-455a-be45-fa2345f4df8b',@SelectedFacAdmissionID=N'949be1f6-fea5-494a-bd73-8afd62ef3e04',@FacID=N'8.11'
+/*
+Version: 1.0.0.0
+Version: 1.0.0.1 -- Bo dieu kien lay benh nhan.
+Version: 1.0.0.2 -- Trung lay kiem tra trong ngay
+Version: 1.0.0.3 -- Trung lay them loai doi tuong cua benh nhan
+Version: 1.0.0.4 20161228 -- Trung lay them khu tiep nhan
+Version: 1.0.5.0 20170419 14:25 M.Hieu bỏ lấy theo Fac
+Version: 1.0.6.0 20170421 10:15 M.Hieu Tạo bảng tạm
+Version: 1.0.7.0 20170424 11:11 M.Hieu Lấy lại điều kiện FacAd do phải tạo nhiều FacAd trong ngày
+Version: 1.0.8.0 20170609 14:55 M.Hieu Lấy thêm IsArmy
+Version: 1.0.9.0 20170613 14:00 M.Hieu Lấy thêm Mã đối tượng
+Version: 1.0.10.0 20170626 10:40 hungnq thêm setting 464 để ktra điều kiện cho phép nhập viện nội trú
+Version: 1.0.11.0 20170627 09:20 M.Hieu Kiểm tra BN có ở tổ nhập viện không
+Version: 1.0.12.0 20180317 9:54 Tam fix setting theo kiểu mới
+Version: 1.0.13.0 20180511 10:10 M.Hieu Bỏ FacAdmissionID khi kiểm tra đang có nằm viện không?
+Version: 1.0.13.3 20180705 10:20 M.Hieu thêm thông tin khoa và ngày vào thông báo
+Version: 1.0.13.4 20181206 10:00 M.Hieu Bỏ @UserID
+Version: 1.0.13.5 20200825 van optimize
+*/
+03. Xử lý 03
+exec QAHosGenericDB..ws_CN_PatientScheduledVisits_CanhBaoTaiKham @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@PatientID=N'de8e63ee-cbfa-455a-be45-fa2345f4df8b',@FacID=N'8.11'
+/*
+Version: 1.0.1.0 20160602 10:55 Trung lam canh bao tai kham cho chon phong.
+Version: 1.0.2.0 20160725 14:42 Trung sua canh bao tai kham
+Version: 1.0.3.0 20160725 14:54 Trung sua canh bao tai kham
+*/
+04. Xử lý 04
+Bảng CN_FacAdmissions ????
+SELECT  @DischargedOn = DischargedOn,
+        @AdmitOn = CAST(AdmitOn AS DATE)
+FROM    dbo.CN_FacAdmissions WITH ( NOLOCK )
+WHERE   FacAdmissionID = @FacAdmissionID
+        AND FacID = @FacID --1.0.5.1
+
+1 - N'Đợt khám này của bệnh nhân đã hoàn tất, không thể chỉnh sửa dịch vụ.' AS [Notification],
+2 - N'Bệnh nhân chưa có đợt khám nào.' AS [Notification],
+3 - N'OK.' AS [Notification],
+
+05. Xử lý 05
+exec QAHosGenericDB..ws_L_PayType_TimDoiTuongThanhToan @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@DoiTuongName=N'KHÔNG BẢO HIỂM',@DoiTuongID=N'2',@TheBH=N'',@IsRightRoute=N'0',@GCS=N'',@TransferID=N'00000000-0000-0000-0000-000000000000'
+--> Không dùng ở VNVC
+/*
+Version: 1.0.0.1 20160331 8:22
+Version: 1.0.0.2 20160404 15:41
+Version: 1.0.3.0 20160616 15:41 -- Trung kiem tra bao hiem 5 nam
+Version: 1.0.4.0 20160722 10:49 -- Trung sua doi tuong mien phi
+Version: 1.0.5.0 20160802 10:55 -- Trua sua kham nhieu phong
+Version: 1.0.6.0 20160808 11:00 -- Trung lam them doi tuong BH PVI
+Version: 1.0.7.0 20160824 10:33 -- Trung sua lay doi tuong thanh toan benh nhan bao hiem ko co giay chuyen tuyen
+Version: 1.0.8.0 20161011 15:07 -- Trung sua lay doi tuong thanh toan benh quan bao hiem
+Version: 1.0.9.0 20170116 14:56 -- Trung lam them doi tuong kham chuyen gia
+Version: 1.0.10.0 20170802 10:15 M.Hieu Thêm đối tượng Khám sức khỏe
+Version: 1.0.11.0 20170926 11:00 M.Hieu Thêm đối tượng VIP
+Version: 1.0.12.0 20170927 17:55 M.Hieu Thêm @DoiTuongID
+Version: 1.0.13.0 20180730 10:19 thuongvt: thêm đối tượng ID=14, đối tượng tính tiền=55
+*/
+06. Xử lý 06
+exec QAHosGenericDB..ws_KTTrungPhong @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@FacID=N'8.11',@RoomID=N'1',@FacAdmissionID=N'949be1f6-fea5-494a-bd73-8afd62ef3e04'
+CN_PhysicianAdmissions --> Xếp vào phòng khám.
+/*
+Version: 1.0.0.0 M.Hieu 20171206 17:15 Kiểm tra trùng phòng vaccine
+Version: 1.0.1.0 M.Hieu 20180723 11:35 Bỏ kiểm tra RoomID do trường hợp 2 máy thực hiện cùng lúc
+Version: 1.0.1.1 M.Hieu 20181206 09:20 Bỏ @UserID
+*/
+07. Xử lý 07
+exec QAHosGenericDB..ws_L_PayType_TimDoiTuongThanhToan @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@DoiTuongName=N'KHÔNG BẢO HIỂM',@DoiTuongID=N'2',@TheBH=N'',@IsRightRoute=N'0',@GCS=N'',@TransferID=N'00000000-0000-0000-0000-000000000000'
+/*
+Version: 1.0.0.1 20160331 8:22
+Version: 1.0.0.2 20160404 15:41
+Version: 1.0.3.0 20160616 15:41 -- Trung kiem tra bao hiem 5 nam
+Version: 1.0.4.0 20160722 10:49 -- Trung sua doi tuong mien phi
+Version: 1.0.5.0 20160802 10:55 -- Trua sua kham nhieu phong
+Version: 1.0.6.0 20160808 11:00 -- Trung lam them doi tuong BH PVI
+Version: 1.0.7.0 20160824 10:33 -- Trung sua lay doi tuong thanh toan benh nhan bao hiem ko co giay chuyen tuyen
+Version: 1.0.8.0 20161011 15:07 -- Trung sua lay doi tuong thanh toan benh quan bao hiem
+Version: 1.0.9.0 20170116 14:56 -- Trung lam them doi tuong kham chuyen gia
+Version: 1.0.10.0 20170802 10:15 M.Hieu Thêm đối tượng Khám sức khỏe
+Version: 1.0.11.0 20170926 11:00 M.Hieu Thêm đối tượng VIP
+Version: 1.0.12.0 20170927 17:55 M.Hieu Thêm @DoiTuongID
+Version: 1.0.13.0 20180730 10:19 thuongvt: thêm đối tượng ID=14, đối tượng tính tiền=55
+*/
+08. Xử lý 08
+exec QAHosGenericDB..ws_LayMuiTiemTrongHopDong @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@FacID=N'8.11',@PatientID=N'de8e63ee-cbfa-455a-be45-fa2345f4df8b'
+/*
+Version: 1.0.0.0 M.Hieu 20180710 10:50 Lấy các mui tiêm trong HĐ
+*/ 
+
+ SELECT ClinicalSessionID ,
+               HopDongID ,
+               IsMuiNgoaiDanhMuc ,
+               CompletedOn
+        INTO   #CN_ClinicalSessionsByPatientID
+        FROM   dbo.CN_ClinicalSessions WITH ( NOLOCK )
+        WHERE  PatientID = @PatientID
+
+        SELECT ClinicalSessionID
+        FROM   #CN_ClinicalSessionsByPatientID
+        WHERE  ISNULL (HopDongID, '00000000-0000-0000-0000-000000000000') <> '00000000-0000-0000-0000-000000000000'
+               AND IsMuiNgoaiDanhMuc = 0
+               AND CompletedOn IS NULL
+
+Chekc các mũi trong Hợp Đồng CN_ClinicalSessions
+
+09. Xử lý 09
+exec QAHosGenericDB..ws_KTThanhToanHopDong @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@FacID=N'8.11',@PatientID=N'de8e63ee-cbfa-455a-be45-fa2345f4df8b'
+/*
+Version: 1.0.0.0 M.Hieu Tạo mới - Kiểm tra xem có hợp đồng nào chưa thanh toán hết thì thông báo
+Version: 1.0.1.0 M.Hieu 20180427 13:55 Tối ưu
+*/
+DECLARE @KT BIT = 0
+
+SELECT	@KT = 1 --*
+FROM	dbo.Vaccine_HopDong WITH (NOLOCK)
+WHERE	PatientID = @PatientID AND	ISNULL(IsCancel, 0) = 0 AND IsPaid = 1 AND	IsDone = 0
+
+IF @KT = 1
+	SELECT	N'Bệnh nhân còn hợp đồng chưa thanh toán đủ. Vui lòng nhắc nhở bệnh nhân thanh toán.'
+ELSE
+	SELECT 'OK'
+
+10. Xử lý 10
+exec QAHosGenericDB..ws_MDM_Patient_SaveV2 @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@FacID=N'8.11',@PatientID=N'de8e63ee-cbfa-455a-be45-fa2345f4df8b',@PatientHospitalID=N'',@MOHID=N'',@FullName=N'03.04 KH LẺ 03',@Gender=N'0',@DoB=N'2020-11-11 00:00:00.000',@DobAccuracyCode=N'3',@DoB_DD=N'11',@DoB_MM=N'11',@DoB_YYYY=N'2020',@ArmyLevel=N'',@ArmyPlace=N'',@ArmyStatus=N'',@NameRelation=N'',@TelRelation=N'',@Ethnicity=N'Kinh',@MaritalStatus=N'',@Occupation=N'13',@NationalIDNo=N'VIỆT NAM',@Address=N'39 Lê Thanh Nghị, Phường Hải Châu I, Quận Hải Châu, Tp. Đà Nẵng',@Street=N'39 Lê Thanh Nghị',@Country=N'',@Province=N'Tp. Đà Nẵng',@District=N'Quận Hải Châu',@Ward=N'Phường Hải Châu I',@Address2=N'',@Street2=N'',@Country2=N'',@Province2=N'',@District2=N'',@Ward2=N'',@HomePhone=N'090535353535352',@Mobile=N'090535353535352',@WorkPhone=N'',@Company=N'',@Note=N'',@DiaChi=N'39 Lê Thanh Nghị, Phường Hải Châu I, Quận Hải Châu, Tp. Đà Nẵng',@IsVoDanh=N'0',@IsDuSinh=N'0',@MaTiemChung=N'',@GhiChu=N'',@LeadID=N'',@Email=N''
+/*
+Version: 1.0.0.0_ws_MDM_Patient_Save2
+Version: 1.0.1.0 20160607 8:49 Trung sua tao ma benh nhan theo FacID
+Version: 1.0.2.0 20160914 4:50 Trung lam tao ma benh nhan
+Version: 1.0.3.0 20161118 10:50 Trung tang do dai cua noi cong tac
+Version: 1.0.4.0 20170105 14:21 Trung tang do dai cua dan toc
+Version: 1.0.5.0 20170119 16:10 M.Hieu Nếu mã BN đã có thì không lưu
+Version: 1.0.6.0 20170316 11:40 M.Hieu Tối ưu tốc độ
+Version: 1.0.7.0 20170412 10:30 M.Hieu thêm try catch khi lưu
+Version: 1.0.8.0 20171031 18:55 M.Hieu Thêm trường IsDuSinh
+Version: 1.0.9.3 20171109 10:40 M.Hieu Thêm bắt theo Setting
+Version: 1.0.9.4 20171212 10:00 VanPD Thêm tham số IsKsk
+Version: 1.0.10.0 20180227 17:55 VanPD Trong trường hợp @Address = '' thì lưu địa chỉ cty thay thế 
+Version: 1.0.10.1 20180329 16:10 VanPD Lưu thêm mã tiêm chủng
+Version: 1.0.10.3 20180329 16:45 VanPD Lưu thêm ghi chú
+Version: 1.0.10.4 20180404 08:45 VanPD Quản lý hệ thống chuỗi khám bệnh, cho phép cập nhật lại thông tin bệnh nhân của cơ sở khác
+Version: 1.0.11.0 M.Hieu 20180406 16:20 Không cập nhật FacID
+Version: 1.0.12.0 Nhanvt 20180516 10:56 UPDATE lại mã bênh nhân đoàn theo mã mới 
+Version: 1.0.13.0 M.Hieu 20180516 16:30 Bỏ so FacID + Fix  IF ERROR_NUMBER () <> 2627 thành  IF ERROR_NUMBER () = 2627
+Version: 1.0.14.0 Van 20180605 10:35 ràng buộc điều kiện bắt buộc nhập sdt cho VNVC có setting (90007), đổi cách lấy setting
+Version: 1.0.14.1 Van 20180626 09:20 fix lỗi trùng mã bn đối với trường hợp nhập tay, trùng mã không trả về thông báo lỗi
+Version: 1.0.15.0 Van 20180612 08:35 Thêm cột CreatedItemAsInt
+Version: 1.0.15.1 Van 20180629 15:45 thêm cột tạo bn từ web FOR vnvc
+Version: 1.0.16.1 Van 20180807 11:00 lưu thêm nhà mạng cho bn
+Version: 1.0.16.2 Van 20180809 14:45 fix lỗi ko tìm dc mã nhà mạng đối với sdt 11 số
+Version: 1.0.17.0 M.Hieu 20180831 17:40 Bỏ cột Note
+Version: 1.0.17.1 M.Hieu 20180905 10:00 Thêm cột Note
+Version: 1.0.17.2 M.Hieu 20180905 10:00 Thêm giá trị mặc định cho cột Note
+Version: 1.0.18.0 20180906 thopt changing setting to use fn_SettingValue_GetByName
+Version: 1.0.19.0 20181008 08:55 M.Hieu Cấp phát thêm vùng nhớ cho biến @Note
+Version: 1.0.19.0 20181008 08:55 M.Hieu Cấp phát thêm vùng nhớ cho biến @Street, @Street2
+Version: 1.0.20.0 20181022 16:05 M.Hieu Lấy ra mã BN sau khi lưu xong
+Version: 1.0.20.1 20190120 11:25 M.Hieu Sửa cách lưu tên không dấu REPLACE(REPLACE( REPLACE( dbo.CovertNoUnicode( @FullName ), '?', '' ), '`', '' ), '´', '')
+Version: 1.0.20.2 tuanlt 20191106 11:40 lưu thêm LeadID 
+Version: 1.0.20.3 Van 20200228 11:40 lưu riêng mã tiêm chủng ra bảng mới
+Version: 1.0.20.4 Văn 20200228 lưu thêm cột năm tạo
+Version: 1.0.20.5 Văn 20200812 lưu thêm cột Email
+*/
+Sau khi thêm vào thông tin table MDM_Patient bằng cách Insert hoặc Update thì xử lý tiếp
+ IF @changed = 1
+    BEGIN
+        EXEC History.dbo.sp_MDM_Patient_LogUpdate @PatientID = @PatientID, @UserID = @UserID, @FacID = @FacID
+    END
+--------> Nguyên nhân không lưu được trường Người liên hệ 1, Liên hệ 2, mối quan hệ 1, mối quan hệ 2, số điện thoại người liên hệ.
+
+
+Đẩy tiếp qua Log chỗ này để theo dõi lịch sử nữa gồm 2 log là [History]..[MDM_Patient] và [History]..[MDM_PatientLog] 
+Xử lý sp_MDM_Patient_LogUpdate
+/*
+Version: 1.0.0.0 M.Hieu 20180831 17:35 Bỏ cột Note
+Version: 1.0.1.0 M.Hieu 20180910 10:30 Bỏ so sánh FacID
+Version: 1.0.1.1 tuanlt 20191106 11:40 lưu thêm LeadID vào lịch sử
+*/
+--01
+FROM [History]..[MDM_Patient] with (nolock)
+WHERE PatientID = @PatientID
+    AND HistorySeq = (SELECT MAX(HistorySeq) 
+					FROM [History]..[MDM_Patient] with (nolock)
+					WHERE PatientID = @PatientID
+--02
+INSERT [History]..[MDM_PatientLog] 
+'PatientHospitalID'
+'MOHID'
+'FullName'
+'FullNameUnUnicode'
+'Gender'
+'DoB'
+'DobAccuracyCode'
+'DoB_DD'
+'NameRelation'
+'TelRelation'
+'DiaChi'
+
+
+Có check Invalid object name 'AuditDB.dbo.VersionControl'.
+-> cần DataBase AuditDB
+Cần lấy được store xử lý này mới nhất Online là gì?sp_MDM_Patient_LogUpdate???
+
+Trường [History]..[MDM_Patient] vẫn chưa có bổ sung thêm cột Email.
+
+11. Xử lý 11
+
+exec QAHosGenericDB..ws_CN_FacAdmissions_SaveV2 @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@FacID=N'8.11',@FacAdmissionID=N'949be1f6-fea5-494a-bd73-8afd62ef3e04',@PatientID=N'de8e63ee-cbfa-455a-be45-fa2345f4df8b',@FacAdmissionNumber=N'',@FacAdmissionType=N'OP',@SoNhapVien=N'',@DoiTuongThanhToanID=N'0',@DoiTuongID=N'2',@DoiTuongUuTien=N'',@IsKhamDungLichHen=N'0',@IsRightRoute=N'0',@IsOverRoute=N'0',@IsTransfered=N'0',@IsMedicarePatient=N'0',@MedicareCardNo=N'',@RegHospitalCode=N'',@EffectiveFrom=N'1900-01-01 00:00:00.000',@EffectiveThru=N'1900-01-01 00:00:00.000',@IsArmy=N'0',@ReasonAdmit=N'',@IsPriority=N'0',@PersonType=N'',@TranferForm=N'0',@InjuredTime=N'',@Specialist=default,@GCS=N'',@IsBH5Nam=N'0',@ThoiGianBH5Nam=N'',@KhuTiepNhanID=N'0',@NguoiLienHe1=N'NGUYỄN HOÀNG ANH',@NguoiLienHe2=N'',@PhanLoaiCapCuu=N'',@HinhThucDen=N'Chọn hình thức đến',@TGTiepNhan=N'2021-03-04 16:25:49',@NguyenNhanCapCuuID=N'0',@BoPhanBiThuongID=default,@DiaDiemXayRaTaiNanID=N'0',@DienBienSauTaiNanID=N'0',@MoiLienHe=N'Khác',@MoiLienHe2=N'Khác',@IsThongTuyen=N'0',@IsChieu=N'1',@IsCanNgheo=N'0',@IsNgoaiGio=N'0',@IsNVBV=N'0',@NguonTiepNhan=N'1',@IsKhamSucKhoe=N'0',@IsEmergency=N'0',@IPUser=N'127.0.0.1',@MacAddressUser=N'28F10E1116F8',@SDTNguoiLienHe1=N'090535353535352',@SDTNguoiLienHe2=N'',@LoaiBenhNhan=N''
+Nguyên nhân gây ra in sai thông tin người liên hệ 
+/*
+Version: 1.0.0.0 20160322 10:33 -- Dung cho Tiep nhan moi
+Version: 1.0.0.1 20160323 9:24 -- Luu Doi Tuong Uu Tien
+Version: 1.0.0.2 20160331 8:18 -- Luu Giay Chung Sinh
+Version: 1.0.0.3 20160331 14:14 -- Luu BHYT 5 Nam
+Version: 1.0.0.4 20160824 12:36 -- Luu them thong tin
+Version: 1.0.0.5 20160826 9:26 -- Tam them gia tri mac dinh cho @NguoiLienHe
+Version: 1.0.0.6 20160909 17:02 Trung them luu thoi gian tiep nhan
+Version: 1.0.0.7 20161010 14:33 Trung luu them thong tin cap cuu
+Version: 1.0.0.8 20161012 14:49 Trung sua thong tin cap cuu
+Version: 1.0.9.0 20161021 16:25 M.Hieu Mở tìm đối tượng thanh toán cho Nội trú
+Version: 1.0.10.0 20161116 9:09 Trung luu them cot MoiLienHe
+Version: 1.0.11.0 20161117 15:41 Trung luu them cot IsThongTuyen
+Version: 1.0.12.0 20161121 14:45 M.Hieu Bỏ đều kiện @charge khi cập nhật
+Version: 1.0.13.0 20161214 14:45 Trung sua viet hoa chu cai dau tien nguoi lien he
+Version: 1.0.14.0 20161220 14:45 Trung luu them cot IsChieu
+Version: 1.0.15.0 20170105 9:22 Trung sua ten nguoi lien he
+Version: 1.0.16.0 20170214 15:22 Trung luu them cot IsCanNgheo
+Version: 1.0.17.0 20170220 08:40 M.Hieu lưu thêm cột STTTheoKhuTiepNhan
+Version: 1.0.18.0 20170222 10:45 M.Hieu lưu thêm IsNgoaiGio
+Version: 1.0.18.1 20170222 11:30 M.Hieu Sửa lại tạo STT theo khu
+Version: 1.0.19.0 20170310 08:30 M.Hieu Thêm lưu cột AdmitDateAsInt
+Version: 1.0.20.0 20170609 08:45 M.Hieu Thêm tham số truyền vào @IsKhamSucKhoe + Mở so sánh xem có thay đổi không rồi mới UPDATE
+Version: 1.0.21.0 20170726 17:00 M.Hieu Lưu thêm trường IsNVBV
+Version: 1.0.22.0 20170727 17:30 M.Hieu Lưu thêm trường NguonTiepNhan
+Version: 1.0.23.0 20170818 13:55 M.Hieu Lưu thêm trường @IsEmergency
+Version: 1.0.24.0 20170918 08:55 HiepNH ADD parameters @IPUser & @MacAddressUser
+Version: 1.0.25.1 20171030 15:35 M.Hieu Thêm setting nếu viết hoa tất cả thì không viết hoa chữ cái đầu
+Version: 1.0.26.0 20180327 13:45 M.Hieu Cập nhật thời gian tiếp nhận
+Version: 1.0.27.0 20180406 16:10 M.Hieu Không cập nhật FacID
+Version: 1.0.28.0 20180426 14:00 M.Hieu Lưu lại AdmitDate
+Version: 1.0.29.0 20180608 09:55 M.Hieu Thay GetDate() thành @TGTiepNhan để tạo FacAdNumber theo ngày tạo đợt khám (cu là tạo theo ngày hiện tại)
+Version: 1.0.30.0 20180807 11:20 M.Hieu Lưu thêm SDT người liên hệ
+Version: 1.0.4.0 20180509 thopt changing setting to use fn_SettingValue_GetByName
+Version: 1.0.31.0 20181015 Van, thêm loại bệnh nhân, tick(83395)
+*/
+
+Liên quan bảng này
+  FROM   CN_FacAdmissions WITH (NOLOCK)
+
+Đẩy tiếp qua Log chỗ này để theo dõi lịch sử nữa
+    EXEC History..sp_CN_FacAdmissions_LogUpdate @FacAdmissionID, @UserID
+
+Mỗi lần xếp khám là đẩy qua đây nhé.
+[History]..[CN_FacAdmissions] 
+--> Lấy lịch sử xếp khám cũng như lưu thay đổi người liên hệ ở bảng này và xác định ai đẩy dữ liệu
+
+
+12. Xử lý 12
+
+exec QAHosGenericDB..ws_CN_Case_SaveV2 @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@FacAdmissionID=N'949be1f6-fea5-494a-bd73-8afd62ef3e04',@FacID=N'8.11',@RoomID=N'',@CaseID=N'483d0e84-b698-4f7c-a7d0-71026481e6cb',@CaseNumber=N'',@PatientID=N'de8e63ee-cbfa-455a-be45-fa2345f4df8b',@AdmissionType=N'OP'
+Chưa rõ select * from CN_Case where PatientID = 'DE8E63EE-CBFA-455A-BE45-FA2345F4DF8B' để quản lý điều gì?
+có thể log chỗ này qua History EXEC History..sp_CN_Case_LogUpdate @FacAdmissionID, @UserID
+
+13. Xử lý 13
+
+exec QAHosGenericDB..ws_CN_PhysicianAdmissions_SaveV2 @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@FacID=N'8.11',@PhysicianAdmissionID=N'8bbe3764-7ccc-11eb-8c0f-28f10e1116f8',@FacAdmissionID=N'949be1f6-fea5-494a-bd73-8afd62ef3e04',@PatientID=N'de8e63ee-cbfa-455a-be45-fa2345f4df8b',@STTKham=N'0',@RoomID=N'1',@BedID=N'0',@SpecialistID=N'0',@IsPriority=N'0',@IsTrucTiep=N'0',@TransferID=N'00000000-0000-0000-0000-000000000000',@TGTiepNhan=N'2021-03-04 16:25:49',@IPUser=N'127.0.0.1',@MacAddressUser=N'28F10E1116F8'
+
+Xử lý dữ liệu vào phòng khám lần 2????
+Liên quan CN_PhysicianAdmissions 
+/*
+Version: 1.0.0.0 20160322 10:33 -- Dung cho Tiep nhan moi
+Version: 1.0.1.0 20160907 11:42 -- Trung sua update room
+Version: 1.0.2.0 20160914 15:05 -- Trung cho chon thoi gian
+Version: 1.0.3.0 20161013 14:30 -- Trung sua phat sinh so thu tu kham
+Version: 1.0.4.0 20170310 08:45 -- M.Hieu lưu thêm cột AdmitDateAsInt
+Version: 1.0.5.0 20170918 08:55 HiepNH ADD parameters @IPUser & @MacAddressUser
+Version: 1.0.6.0 20171206 17:05 M.Hieu Thêm lưu cùng Physic
+Version: 1.0.7.0 20171221 17:30 M.Hieu Fix Lỗi Duplicate key 
+Version: 1.0.8.0 20180302 11:00 M.Hieu Thêm History
+Version: 1.0.9.0 20180320 10:10 M.Hieu Thêm FacID
+Version: 1.0.10.0 20180327 14:20 M.Hieu Cho phép cập nhật ngày khám
+Version: 1.0.11.0 20180405 08:40 M.Hieu Thêm @BSChiDinh
+Version: 1.0.12.0 20180406 09:35 M.Hieu Cập nhật thêm STTKham
+Version: 1.0.13.0 M.Hieu 20180406 16:20 Không cập nhật FacID
+Version: 1.0.13.1 M.Hieu 20180411 10:50 Sửa lại điều kiện cập nhật
+Version: 1.0.14.0 M.Hieu 20180620 10:00 Lưu STTKham bằng -1 để cấp STTKham sau (nhằm mục đích cho liên tục)
+Version: 1.0.15.0 20180726 13:20 Van không kiểm tra trùng phòng khám chỉ đối với các dvtt vìđã có kiểm tra tại cd dvtt
+Version: 1.0.16.0 20180806 09:00 Van Van thêm biến IsTrongGoi khi lưu Phys để thêm điều kiện kiểm tra giữa dv gói và dv công khám
+Version: 1.0.16.1 20180821 09:45 Van Van thêm Cột IsTrongGoi khi lưu Phys để thêm điều kiện kiểm tra giữa dv gói và dv công khám
+Version: 1.0.17.0 20180925 18:15 M.Hieu Sửa FacID = @FacID thành FacID = ISNULL(@Original_FacID, @FacID) tránh trường hợp lưu sai STTKham khi khách hàng là chuỗi lưu từ nhiều cơ sở khác nhau
+Version: 1.0.18.0 20180926 08:35 Van, thêm param DeptId mặc định là 0
+Version: 1.0.19.0 20181026 14:25 M.Hieu Fix lỗi
+Version: 1.0.19.1 20181026 14:25 M.Hieu Thêm điều kiện
+Version: 1.0.20.0 20181107 16:55 M.Hieu Chuyển ngày hẹn thì tính lại STT phòng tiêm 
+*/
+Phòng khám và bác sỹ chỉ định????
+
+
+14. Xử lý 14
+exec QAHosGenericDB..ws_Vaccine_DanhSachChoKham_Save @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@PatientID=N'de8e63ee-cbfa-455a-be45-fa2345f4df8b',@PhysicianAdmissionID=N'8bbe3764-7ccc-11eb-8c0f-28f10e1116f8',@FacAdmissionID=N'949be1f6-fea5-494a-bd73-8afd62ef3e04',@RoomID=N'1',@STT=N'0',@Ngay=N'2021-03-04 16:25:49',@FacID=N'8.11'
+-- =============================================
+-- Author:		Hieunt
+-- Create date: 2017-12-04 14:30
+-- Description:	Insert bn vào danh sách chờ khám
+-- Version: 1.0.0.0
+-- Version: 1.0.1.0 hieunt fix trùng bn
+-- Version: 1.0.2.0 hieunt fix trùng bn
+-- Version: 1.0.3.0 M.Hieu 20180405 10:50 Lấy thêm STT trong trường hợp @STT = 0
+-- Version: 1.0.4.0 M.Hieu 20180406 10:00 Cập nhật phòng khám
+-- Version: 1.0.5.0 2018-06-05 9:02 hieunt thêm cột
+-- Version: 1.0.6.0 M.Hieu 20181023 10:20 Cập nhật ngày khi thay đổi ngày ở TN
+
+Gán vào bảng  UPDATE  dbo.Vaccine_DanhSachChoKham
+        SET RoomID = @RoomID,
+Lấy phòng khám
+ngoài ra đẩy vào lịch sử ở phòng khám như sau:
+
+EXECUTE History.dbo.sp_Vaccine_DanhSachChoKham_LogUpdate @PhysicianAdmissionID = @PhysicianAdmissionID, -- uniqueidentifier
+                                                                 @UserID = @UserID -- uniqueidentifier
+
+15. Xử lý 15
+exec QAHosGenericDB..ws_LayMuiTiemTrongHopDong @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@FacID=N'8.11',@PatientID=N'de8e63ee-cbfa-455a-be45-fa2345f4df8b'
+ Trùng lại xử lý 8?????
+ 
+ exec QAHosGenericDB..ws_KTThanhToanHopDong @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@FacID=N'8.11',@PatientID=N'de8e63ee-cbfa-455a-be45-fa2345f4df8b'
+
+Trùng lại xử lý 9??
+
+
+
+exec QAHosGenericDB..ws_CN_ClinicalSessions_SaveV2 @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@ClinicalSessionID=N'8bbe3765-7ccc-11eb-8c0f-28f10e1116f8',@FacAdmissionType=N'OP',@OrderIndex=N'0',@FacID=N'8.11',@ParentClinicalSessionID=N'8bbe3765-7ccc-11eb-8c0f-28f10e1116f8',@PhysicianAdmissionID=N'8bbe3764-7ccc-11eb-8c0f-28f10e1116f8',@FacAdmissionID=N'949be1f6-fea5-494a-bd73-8afd62ef3e04',@PatientID=N'de8e63ee-cbfa-455a-be45-fa2345f4df8b',@ServiceID=N'1',@ServiceTypeID=N'1',@ServiceHospitalTypeID=N'1',@ServiceHospitalTypeSubID=N'16',@Qty=N'1',@DeptID=N'0',@RoomID=N'1',@DoiTuongThanhToan=N'99',@DonGia=N'0',@IsPaid=N'0',@IsRightRoute=N'0',@IsNgoaiGio=N'0',@IsChieu=N'1',@MedicareCardNo=N'',@TGTiepNhan=N'2021-03-04 16:25:49',@IsTrongGoi=N'0',@NguoiThucHien=N'00000000-0000-0000-0000-000000000000',@HopDongID=default,@TongTien=N'0',@IPUser=N'127.0.0.1',@MacAddressUser=N'28F10E1116F8'
+
+/*
+Version: 1.0.0.0 20160824 Trung lam luu dich vu
+Version: 1.0.1.0 20160825 Trung lam lay tien chenh lech va VAT cho dich vu bac si gia dinh
+Version: 1.0.2.0 20160914 Trung luu theo thoi gian tu chon
+Version: 1.0.3.0 20160929 Trung luu them cot IsTrongGoi
+Version: 1.0.4.0 20161215 09:10 M.Hieu Thêm tính năng dịch vụ miễn phí vào thẳng phòng khám
+Version: 1.0.5.0 20170213 19:16 Trung sua luu gia bao hiem ngoai gio
+Version: 1.0.6.0 20170220 14:10 M.Hieu Tiền công khám tiếp nhận phòng BSGĐ ngoài giờ lấy tiền chênh lệch + VAT
+Version: 1.0.7.0 20170321 17:15 M.Hieu Lưu thêm bác si chỉ định
+Version: 1.0.8.0 20170324 21:27 Trung sua luu don gia ngoai gio
+Version: 1.0.9.0 20170326 M.Hieu sửa lại chỗ điều kiện UPDATE (những dữ liệu kiểu số mà ISNULL thì mặc định là một con số)
+Version: 1.0.10.0 20170608 19:35 M.Hieu Sửa lại @NguoiThucHien thành kiểu UNIQUEIDENTIFIER
+Version: 1.0.11.0 20170712 11:20 M.Hieu Ngoài giờ viện phí vẫn cho lưu khi có Setting
+Version: 1.0.12.0 20170725 16:35 M.Hieu
+Version: 1.0.12.1 20170726 16:35 M.Hieu Bệnh nhân là nhân viên bệnh viện ngoài giờ + đối tượng BH không tính tiền chênh lệch (Setting: 40101)
+Version: 1.0.13.0 20170804 16:35 HiepNH : ADD column  STTMuiTiem, NgayDung, Loai, GoiID
+Version: 1.0.14.0 20170926 18:45 M.Hieu Lấy lại giá tiền chênh lệch
+Version: 1.0.15.0 20171106 09:10 M.Hieu Nếu RoomID = '' thì gán RoomID = NULL (cho vaccine tiếp nhận không có công khám) + Cập nhật roomID, Phy
+Version: 1.0.16.1 20171121 14:15 M.Hieu Lưu thêm cột IsDatTruoc
+Version: 1.0.17.0 20171216 17:10 M.Hieu Thêm cột @ChiDinh_PhongKhamYN
+Version: 1.0.18.0 20171221 14:35 M.Hieu Sửa lại điều kiện
+Version: 1.0.19.0 20170104 08:30 M.Hieu Thêm điều kiện khi lưu/sửa giá
+Version: 1.0.20.0 20180116 08:35 M.Hieu Tính tiền rồi không cập nhật số hợp đồng
+Version: 1.0.21.1 20180117 11:15 M.Hieu Chỉ đặt trước mới thay đổi trạng thái @ChiDinh_PhongKhamYN
+Version: 1.0.22.0 20180119 11:10 M.Hieu Thêm biến @IsChiDinh
+Version: 1.0.23.1 20180130 11:40 M.Hieu Thêm @IsMuiNgoaiDanhMuc
+Version: 1.0.24.0 20180226 09:25 M.Hieu Bỏ FacID
+Version: 1.0.25.0 20180306 07:30 M.Hieu Nếu đợt khám đã có phòng thì lấy lại Physic cu dùng
+Version: 1.0.26.0 20180313 11:05 M.Hieu Trường hợp tạo hợp đồng sau khi tạo công khám thì lấy lại Physic của công khám gán cho Clinical
+Version: 1.0.27.0 2018-03-13 17:05 hieunt setting kiểu mới
+Version: 1.0.28.0 20180406 16:05 M.Hieu không cập nhật FacID
+Version: 1.0.28.1 20180410 10:10 Van Mui đặt trước SET roomID = 0 ticket 81366
+Version: 1.0.29.0 20180420 10:34 M.Hieu Các mui IsMuiNgoaiDanhMuc = 1 thì IsDatTruoc = 1 và DonGia lấy giá DatTruoc
+Version: 1.0.29.1 20180423 13:45 M.Hieu Bỏ Version 1.0.29.0
+Version: 1.0.30.0 20180502 16:00 M.Hieu Bỏ FacID
+Version: 1.0.31.0 20180502 16:00 M.Hieu Tối ưu
+Version: 1.0.32.0 20180723 09:50 M.Hieu Lưu history khi UPDATE Clinical
+Version: 1.0.33.0 20180806 09:00 Van khi kiểm tra lại phòng khám đã có hay chưa sẽ thêm điều kiện phân biệt theo nhóm dv gói và dv công khám(bổ sung 1.0.25.0)
+Version: 1.0.34.0 20180809 14:20 M.Hieu Lưu thêm thông tin đặt trước mui vaccine
+Version: 1.0.34.1 20180830 15:30 M.Hieu Lấy @ParentClinicalSessionID theo công khám cho VNVC
+Version: 1.0.34.2 20180831 11:00 M.Hieu Cập nhật thêm cột [UserCreatedDateAsInt]
+Version: 1.0.34.3 20180910 11:10 M.Hieu Lưu thêm FacAd khi cập nhật cho Phys = '00000000-0000-0000-0000-000000000000'
+Version: 1.0.34.4 20181026 14:30 M.Hieu Fix lỗi
+Version: 1.0.34.5 20181026 14:30 M.Hieu Thêm điều kiện
+Version: 1.0.34.6 20181030 10:40 M.Hieu Fix lỗi không cập nhật ngày TN
+Version: 1.0.34.7 20181219 11:25 M.Hieu Không cập nhật @FacAdmissionID, @PhysicianAdmissionID, @ParentClinicalSessionID, @PatientID
+Version: 1.0.34.8 20190103 08:35 M.Hieu Fix lỗi cập nhật lại facAd + physic từ cơ sở khác cho clinical
+Version: 1.0.34.10 20190128 16:05 M.Hieu kiểm tra mui đã có chưa
+Version: 1.0.34.11 20190403 17:50 M.Hieu Tìm giá trị lại cho Original
+Version: 1.0.34.12 20190411 13:35 M.Hieu Cập nhật lại biến IsChiDinh khi lưu
+Version: 1.0.34.13 20200825 15:35 Van optimize
+*/
+
+16. Xử lý 16
+Xử lý mối quan hệ
+
+exec QAHosGenericDB..ws_L_MoiQuanHe_Get @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@FacID=N'8.11'
+
+
+----------------------
+17. Xử lý 17
+Xử lý các Tab load lại dữ liệu
+exec QAHosGenericDB..ws_MDM_Patient_LayLichSuKham @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@FacID=N'8.11',@PatientID=N'00000000-0000-0000-0000-000000000000'
+/* 
+Version: 1.0.0.0 20160907 Trung lay lich su kham cua benh nhan
+Version: 1.0.1.0 20170404 15:40 M.Hieu Tạo bảng tạm + Lấy ngày lại ngày tái khám + bỏ FacID thừa
+Version: 1.0.2.0 20200825 13:40 Van optimize
+*/
+
+SELECT phys.AdmitOn, phys.FacAdmissionID, phys.RoomID, phys.PhysicianAdmissionID, phys.PrimaryDoctor, dr.RoomName, d.ICD10 ChanDoan,
+       CONVERT ( NVARCHAR(20), ps.ScheduledDate, 103 ) + ' ' + CAST(ps.Buoi AS NVARCHAR(20)) NgayTK, ps.ScheduledDate ScheduledDate, e.FullName BacSi
+FROM CN_PhysicianAdmissions phys WITH (NOLOCK)
+    LEFT JOIN dbo.L_DepartmentRoom dr WITH (NOLOCK)
+        ON phys.RoomID = dr.RoomID AND dr.FacID = @FacID
+    LEFT JOIN dbo.CN_Diagnosis d WITH (NOLOCK)
+        ON d.PhysicianAdmissionID = phys.PhysicianAdmissionID
+    LEFT JOIN dbo.CN_PatientScheduledVisits ps WITH (NOLOCK)
+        ON phys.PhysicianAdmissionID = ps.PhysicianAdmissionID
+    LEFT JOIN Security..Users u WITH (NOLOCK)
+        ON u.ID = phys.PrimaryDoctor AND u.FacID = @FacID
+    LEFT JOIN HR..MDM_Employee e WITH (NOLOCK)
+        ON u.EmpID = e.EmployeeID AND e.FacID = @FacID
+WHERE phys.PatientID = @PatientID
+ORDER BY ScheduledDate DESC
+
+18. Xử lý 18
+Lấy độ tuổi chọn phác đồ
+
+exec QAHosGenericDB..ws_KTDoTuoiTruocKhiChonPhacDo @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@DoB=N'0001-01-01'
+/*
+Version: 1.0.0.0 M.Hieu 20180208 17:10 Kiểm tra độ tuổi trước khi chọn phác đồ
+Version: 1.0.1.0 M.Hieu 20180621 11:00 Thêm biến KieuTriSo, TriSoMin, TriSoMax
+Version: 1.0.1.1 20200825 Van optimize
+*/
+
+19. Xử lý 19
+exec QAHosGenericDB..ws_TaoSoHopDongVaccine @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@FacID=N'8.11',@HopDongGrid=N'0'
+/*
+Version: 1.0.0.3 M.Hieu 20171116 Tạo số hợp đồng tự động cho vaccine
+Version: 1.0.1.0 M.Hieu 20171208 Thêm bảng #SoHopDong
+Version: 1.0.2.0 M.Hieu 20181003 Cấp thêm vùng nhớ cho biến @SoHopDongMoi
+Version: 1.0.3.0 M.Hieu 20190107 Bỏ kiểm tra @UserID tồn tại
+Version: 1.0.4.0 M.Hieu 20190211 14:30 Thêm điều kiện =  
+*/
+Vaccine_HopDong 
+
+
+20. Xử lý 20
+exec QAHosGenericDB..ws_L_ServicePackage_ListChiLayGoi @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@FacID=N'8.11'
+/*
+Version: 1.0.0.0 M.Hieu 20170929 10:20 Lấy các gói
+Version: 1.0.1.0 M.Hieu 20180410 14:30 Bỏ FacID
+Version: 1.0.2.0 M.Hieu 20180622 08:40 Lấy gói theo FacID trong chuỗi
+Version: 1.0.2.1 20180717 14:00 Van, đổi cách so sách hạn dùng của đơn giá
+Version: 1.0.3.0 M.Hieu 20180725 13:45 Gói phải IsActive mới được thấy
+Version: 1.0.3.1 M.Hieu 20180815 16:00 Lấy FacID gói theo chuỗi
+Version: 1.0.3.2 Van 20200825 optimize
+*/
+
+21. Xử lý 21
+exec QAHosGenericDB..ws_Vaccine_HopDong_ListByPatientID @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@FacID=N'8.11',@PatientID=N'a997c8e7-9893-47f8-900c-ea29807b1815'
+-> liệt kê các Gói đang có hiệu lực theo Trung Tâm đó.
+
+22. Xử lý 22
+exec QAHosGenericDB..ws_MDM_NguoiLienHe_ListByPatientID @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@FacID=N'8.11',@PatientID=N'a997c8e7-9893-47f8-900c-ea29807b1815'
+
+
+
+23. Xử lý 23
+exec QAHosGenericDB..ws_KTDoTuoiTruocKhiChonPhacDo @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@DoB=N'0001-01-01'
+
+
+24. Xử lý 24
+exec QAHosGenericDB..ws_L_DepartmentRoom_ListForReception @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@FacID=N'8.11'
+Danh sách phòng khám khả dụng.
+
+25. Xử lý 25
+exec QAHosGenericDB..ws_CN_FacAdmissions_ListInDay @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@FacID=N'8.11',@PatientHospitalID=N'2100000003',@MedicareCode=N'',@RegCode=N'',@PhysicianAdmissionID=N'00000000-0000-0000-0000-000000000000',@FacAdmissionID=N'949be1f6-fea5-494a-bd73-8afd62ef3e04',@SelectedPatientID=N'de8e63ee-cbfa-455a-be45-fa2345f4df8b'
+
+/*
+Version: 1.0.0.0 M.Hieu 20170424 16:35 Lấy ra tất cả các đợt khám trong ngày
+Version: 1.0.0.1 VanPD 20171229 14:00 Lấy thêm cột nguồn tiếp nhận
+Version: 1.0.0.2 VanPD 20180212 14:20 loại bỏ các trường hợp là ksk
+Version: 1.0.1.0 M.Hieu 20180426 14:50 Quét mã BN liên cơ sở
+Version: 1.0.2.0 M.Hieu 20180618 14:20 Chỉ lấy các FacAd chưa đóng ra
+Version: 1.0.3.0 20200825 13:20 VanPD optimize
+*/
+
+26. Xử lý 26
+exec QAHosGenericDB..ws_MDM_Patient_GetInfoFromBarCodeForOP @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@FacID=N'8.11',@PatientHospitalID=N'2100000003',@MedicareCode=N'',@RegCode=N'',@PhysicianAdmissionID=N'00000000-0000-0000-0000-000000000000',@FacAdmissionID=N'949be1f6-fea5-494a-bd73-8afd62ef3e04',@SelectedPatientID=N'de8e63ee-cbfa-455a-be45-fa2345f4df8b'
+
+
+
+27. Xử lý 27
+exec QAHosGenericDB..ws_KTBenhNhanTrungMa @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@PatientHospitalID=N'',@FacID=N'8.11',@PatientID=N'de8e63ee-cbfa-455a-be45-fa2345f4df8b'
+
+
+28. Xử lý 28
+exec QAHosGenericDB..ws_L_DepartmentRoom_ListForReception @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@FacID=N'8.11',@PatientID=N'de8e63ee-cbfa-455a-be45-fa2345f4df8b'
+
+29. Xử lý 29
+exec QAHosGenericDB..ws_GetAgePatient @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@Date=N'2020-11-11'
+
+30. Xử lý 30
+exec QAHosGenericDB..ws_KTDoTuoiTruocKhiChonPhacDo @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@DoB=N'2020-01-01'
+
+30. Xử lý 31
+exec QAHosGenericDB..ws_MDM_Province_GetByName @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@ProvinceName=N' Tp. Đà Nẵng'
+
+
+30. Xử lý 32
+exec QAHosGenericDB..ws_CN_ClinicalSessions_ListDichVuChiDinhTiepNhanChiDinh @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@PatientID=N'de8e63ee-cbfa-455a-be45-fa2345f4df8b',@FacAdmissionID=N'949be1f6-fea5-494a-bd73-8afd62ef3e04',@FacID=N'8.11'
+
+
+30. Xử lý 33
+exec QAHosGenericDB..ws_MDM_Patient_LayLichSuKham @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@FacID=N'8.11',@PatientID=N'de8e63ee-cbfa-455a-be45-fa2345f4df8b'
+
+
+30. Xử lý 34
+
+exec QAHosGenericDB..ws_CN_ClinicalSessions_GetByNgayChiDinh @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@FacID=N'8.11',@NgayChiDinh=N'2021-03-04',@PatientID=N'de8e63ee-cbfa-455a-be45-fa2345f4df8b'
+
+
+
+
+exec QAHosGenericDB..ws_Vaccine_TiepNhan_TabVaccine_List @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@FacID=N'8.11',@PatientID=N'de8e63ee-cbfa-455a-be45-fa2345f4df8b',@FacAdmissionID=N'949be1f6-fea5-494a-bd73-8afd62ef3e04',@SoHopDong=N'0'
+
+
+exec QAHosGenericDB..ws_CN_PhysicianAdmission_ThongKePhongKham @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@FacID=N'8.11'
+
+
+exec QAHosGenericDB..ws_Vaccine_LichSuTiemVaccine @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@PatientID=N'de8e63ee-cbfa-455a-be45-fa2345f4df8b',@FacID=N'8.11'
+
+exec QAHosGenericDB..ws_Vaccine_LichSuTiem @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@PatientID=N'de8e63ee-cbfa-455a-be45-fa2345f4df8b',@FacID=N'8.11'
+
+
+exec QAHosGenericDB..ws_CongNo_Get @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@PatientID=N'de8e63ee-cbfa-455a-be45-fa2345f4df8b'
+
+exec QAHosGenericDB..ws_KTDoTuoiTruocKhiChonPhacDo @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@DoB=N'2020-11-11'
+
+exec QAHosGenericDB..ws_CN_PhysicianAdmission_ThongKePhongKham @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@FacID=N'8.11'
+
+exec QAHosGenericDB..ws_Vaccine_TiepNhan_TabVaccine_List @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@FacID=N'8.11',@PatientID=N'de8e63ee-cbfa-455a-be45-fa2345f4df8b',@FacAdmissionID=N'949be1f6-fea5-494a-bd73-8afd62ef3e04',@SoHopDong=N'0'
+
+exec QAHosGenericDB..ws_CN_PhysicianAdmission_ThongKePhongKham @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@FacID=N'8.11'
+
+exec QAHosGenericDB..ws_Vaccine_LichSuTiemVaccine @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@PatientID=N'de8e63ee-cbfa-455a-be45-fa2345f4df8b',@FacID=N'8.11'
+
+exec QAHosGenericDB..ws_Vaccine_LichSuTiem @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@PatientID=N'de8e63ee-cbfa-455a-be45-fa2345f4df8b',@FacID=N'8.11'
+
+exec QAHosGenericDB..ws_CongNo_Get @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@PatientID=N'de8e63ee-cbfa-455a-be45-fa2345f4df8b'
+
+exec QAHosGenericDB..ws_KTDoTuoiTruocKhiChonPhacDo @SessionID='36B441F0-D922-4149-85C4-CA4127783D9D#::1',@DoB=N'2020-11-11'
+
+???? Tại sao 1 xử lý lưu khi Xếp khám lại Load quá nhiều dữ liệu không cần thiết như vậy nhiều lần?????
+
+
+
+
+
+
+
+Báo cáo anh
+sáng này hệ thống điện khi chuyển điện áp từ điện lưới sang chạy máy phát điện và chuyển ngược lại từ máy phát điện sang lại điện lưới thì có 1 số vị trí UPS không có khả năng tích điện, bị sụp nguồn làm tắt PC, sau đó tự sạc lại rồi sụp lại do điện chuyển sang CPU, bật tắt liên tục; Tạm thời xử lý là:
+- Báo vị trí đó tắt nguồn UPS và báo IT.
+- Rút nguồn CPU nối với UPS.
+- Để UPS chạy tầm 10-15s để sạc.
+- Sau đó cắm CPU vào thì hoạt động lại.
+Xin anh cho giải pháp xử lý trường hợp này ạ.
+
+
+
+
+
+
+Nhờ Team hỗ trợ reset lại mật khẩu cho bạn nhân viên Tư Vấn bị quên mật khẩu giúp, thông tin:
+- Nhân viên 5705 - PHAN THANH THẢO LY - VC5705
+- Email: lyptt@vnvc.vn
+Cảm ơn Team.
+
+mã nhân viên: 9289
+Võ DOãn Tình
+tinhvd@vnvc.vn
+Vnvc@198
+
+Nhờ Team hỗ trợ reset lại mật khẩu Email cho GDTT Quảng Bình đăng nhập vào báo sai mật khẩu(Có thể bị khóa tài khoản do đăng nhập sai), thông tin:
+- Nhân viên 9289 - Võ Doãn Tình
+- Email: tinhvd@vnvc.vn
+Cảm ơn Team.
+
+2000406489
+
+2000134532 - Dương Minh Huy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

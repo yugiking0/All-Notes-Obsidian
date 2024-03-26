@@ -1,0 +1,6 @@
+- [Download bộ giáo trình tiếng Anh giao tiếp PDF mới nhất (jaxtina.com)](https://jaxtina.com/tong-hop-giao-trinh-tieng-anh-giao-tiep-hieu-qua/)
+- [Tài liệu học tập | Jaxtina English Center](https://jaxtina.com/tai-lieu-hoc/)
+- [7 giáo trình Tiếng Anh cho người đi làm hữu ích, đáng đọc (jaxtina.com)](https://jaxtina.com/giao-trinh-tieng-anh-cho-nguoi-di-lam/)
+- [[JAXTINA] 600 Essential Words for the TOEIC - Google Drive](https://drive.google.com/drive/folders/1NIlgbObmdr1bCRjE-RDrIJzmRbqgWc5P)
+- [30 ngày học tiếng Anh cơ bản, căn bản từ đầu cùng Jaxtina](https://jaxtina.com/hoc-tieng-anh-co-ban/)
+- 

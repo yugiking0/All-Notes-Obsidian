@@ -1,0 +1,225 @@
+{
+  "main": {
+    "id": "153d17233450f986",
+    "type": "split",
+    "children": [
+      {
+        "id": "5b02f4ba5aa23c29",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d0c6299241ec3c19",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Microsoft Azure.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "52bf02d08e748d45",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "detail/Microsoft Azure Fundamentals.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "8d90591a8a63720a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "detail/Microsoft Azure Fundamentals.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "b7bd9299b81068c6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Main.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "0fca1e41a4b25a44",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Main.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "ac08d5f9e3fe7a1a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Microsoft Azure.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "1c2078549e4195d6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Azure-Fundametals/Roadmap Azure.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 6
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "5b2248ae6a952dbe",
+    "type": "split",
+    "children": [
+      {
+        "id": "44b19a8499226541",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "85cd2d8f9691cec1",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "3587d05f6e35e129",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "8a43448e792f470d",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "12ee2bf2ff7f08fd",
+    "type": "split",
+    "children": [
+      {
+        "id": "e62908207521edd6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "219b7ffbde5f0173",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Azure-Fundametals/Roadmap Azure.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "34832bcf06b62796",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Azure-Fundametals/Roadmap Azure.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "e0478943001eb4e3",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "593ad45e0e5b6810",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Azure-Fundametals/Roadmap Azure.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "1c2078549e4195d6",
+  "lastOpenFiles": [
+    "Microsoft Azure.md",
+    "Module 01 - Outline.md",
+    "Main.md",
+    "Format your notes.md",
+    "CompTIA_A+/Troubleshooting Theory.md",
+    "Azure SQL Beginner/Main.md",
+    "detail/Microsoft Azure Fundamentals.md",
+    "detail/1-Six Knowledge Domain Areas.md",
+    "detail/2-What is cloud computing.md",
+    "tour-002.png.md"
+  ]
+}

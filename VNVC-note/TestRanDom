@@ -1,0 +1,330 @@
+Từ 2 tháng - 6 tuổi
+Tháng và tháng thay vì 30 ngày
+- 4-6 tuổi ưu tiên Tetraxim thay vì Adacel/Boostrix
+- 
+
+
+
+TH1: KH 3 tuổi
+- Đã tiêm 1 6in1
+- Đã tiêm 2 6in1
+- Đã tiêm 3 6in1
+- Đã tiêm 4 6in1
+TH2: KH 5 tuổi
+- Chưa tiêm
+- Đã tiêm 1 6in1, 5in1
+- Đã tiêm 2 6in1
+- Đã tiêm 3 6in1
+- Đã tiêm 4 6in1
+TH3: KH 7 tuổi
+- Chưa tiêm
+- Đã tiêm 1 6in1, 5in1
+- Đã tiêm 2 6in1
+a. Chọn phác đồ nào?
+b. Mũi hẹn kế tiếp là mũi nào? và cách bao nhiêu tháng/Năm?
+
+
+ EXEC ws_Vaccine_Random_PhongTiem '2222222', '8.11',8,2
+ 
+ exec ws_DanhSachPhongTiem_Random_setting '222222', 8.11
+
+
+
+EXEC ws_Vaccine_Random_PhongTiem_NhieuMaChung '222222', '8.11',8, 1
+
+
+EXEC ws_Vaccine_Random_PhongTiem_NhieuMaChung '222222', '8.11',41, 1
+
+
+ FacID,	RoomNo,	RoomName,	RoomOption,	IsMedicare,	IsService,	IsArmy
+
+ 
+ SELECT SUM(Qty) Qty,
+           StockID
+    FROM dbo.INV_Product WITH (NOLOCK)
+    WHERE CAST(ExpDate AS DATE) > CAST(GETDATE() AS DATE)
+          AND FacID = '8.11'
+          AND ProductID IN
+              (
+                  SELECT ProductID
+                  FROM dbo.L_Product p WITH (NOLOCK)
+                  WHERE  MaChung_CheckSum =CHECKSUM(8)
+                        AND FacID_CheckSum = CHECKSUM('8.11')
+              )
+    GROUP BY dbo.INV_Product.StockID
+	
+	
+	
+	
+	 SELECT SUM(Qty) Qty,
+           StockID
+    FROM dbo.INV_Product WITH (NOLOCK)
+    WHERE CAST(ExpDate AS DATE) > CAST(GETDATE() AS DATE)
+          AND FacID = '8.11'
+          AND ProductID IN
+              (
+                  SELECT ProductID
+                  FROM dbo.L_Product p WITH (NOLOCK)
+                  WHERE  MaChung_CheckSum =CHECKSUM(8)
+                        AND FacID_CheckSum = CHECKSUM('8.11')
+              )
+    GROUP BY dbo.INV_Product.StockID
+	
+	
+	
+	 SELECT SUM(Qty) Qty,
+           StockID
+    FROM dbo.INV_Product WITH (NOLOCK)
+    WHERE CAST(ExpDate AS DATE) > CAST(GETDATE() AS DATE)
+          AND FacID = '8.11'
+          AND ProductID IN
+              (
+                  SELECT ProductID
+                  FROM dbo.L_Product p WITH (NOLOCK)
+                  WHERE  FacID_CheckSum = CHECKSUM('8.11')
+              )
+    GROUP BY dbo.INV_Product.StockID
+
+
+Anh cho em hỏi: Tư Vấn sẽ vẽ lộ trình Tiêm BH-HG-UV cho khách hàng 3 tuổi(cụ thể 3 tuổi 2 tháng) khi trước đó đã từng tiêm 1 mũi 6in1(Infanrix) lúc 18 tháng như thì sẽ thế nào vậy ạ? Khi khách muốn mua Gói Tiền Học Đường.
+Có phải sẽ theo lộ trình:
+- Mũi Tetraxim trong gói được tính là M2 và tiêm ngay hôm mua(Khi đủ khoảng cách hơn 1 tháng so với M1 trước đó)
+- M3 sẽ cách M2 là 1 tháng, M3 sẽ là Tetraxim
+- M4: Cách M3 là 12 tháng( 1 năm) khi này khách sẽ 4 tuổi 4 tháng.
+	*Lúc này M4 có thể tiêm Tetraxim hoặc Adacel/Boostrix/ Td (Tdap/ Td)
+- M5: Vì mũi M4 tiêm khi lớn hơn 4 tuổi nên bỏ qua M5 không tiêm
+- M6: Sẽ dùng Tdap/ Td và hẹn cách M4 ít nhất là 5 năm.
+- Tiêm nhắc mỗi 10 năm sau đó.
+=> Tư Vấn làm Gói Tiền Học Đường sẽ chọn Phác Đồ 2 tháng - 6 tuổi(2,3,4) không ạ? và click M1 là tiêm ngoài để M2 là tiêm hôm này luôn không?
+Hoặc cách làm đó không đúng mà phải giải thích cách khác ạ? Anh hướng dẫn lại em với?
+
+
+
+
+-- EXEC ws_Vaccine_Random_PhongTiem_NhieuMaChung '222222', '8.11',8, 1
+
+
+
+SELECT RoomID,
+               FacID,
+               Limit,
+               IsLocked,
+               CAST(0 AS BIT) IsHetKho,
+               CAST(0 AS INT) StockID,
+               Tang,
+               Nhom
+        FROM dbo.L_DepartmentRoom dr WITH (NOLOCK)
+        WHERE IsPhongTiem = 1
+              AND
+              (
+                  IsLocked = 0
+                  OR IsLocked IS NULL
+              )
+              AND FacID = '8.11'
+              AND Nhom = 5
+              AND IsUsing <> '0'
+
+
+
+
+    SELECT SUM(Qty) Qty,
+           StockID
+   
+    FROM dbo.INV_Product WITH (NOLOCK)
+    WHERE StockID  = 0
+          AND CAST(ExpDate AS DATE) > CAST(GETDATE() AS DATE)
+          AND FacID = '8.11'
+          AND ProductID IN
+              (
+                  SELECT ProductID
+                  FROM dbo.L_Product p WITH (NOLOCK)
+                  WHERE FacID = '8.11'
+              )
+          AND Qty > 0
+    GROUP BY dbo.INV_Product.StockID
+	
+ SELECT ClinicalSessionID,
+               t.RoomID,
+               DuocTiemLucAsInt,
+               HoanTatTiemLucAsInt
+        FROM #rawChiDinh t INNER JOIN #L_DRoom  r
+		ON r.RoomID = t.RoomID
+
+
+
+    SELECT ClinicalSessionID,
+               t.RoomID,
+               DuocTiemLucAsInt,
+               HoanTatTiemLucAsInt
+    FROM Vaccine_TimeRecord_PhongTiem WITH (NOLOCK)
+    WHERE DuocTiemLucAsInt = FORMAT(GETDATE(), 'yyyyMMdd', 'en-US')
+	AND RoomID IN ('122','123','124')
+	
+	
+	
+	    SELECT ClinicalSessionID,
+               RoomID,
+               DuocTiemLucAsInt,
+               HoanTatTiemLucAsInt, *
+    FROM Vaccine_TimeRecord_PhongTiem WITH (NOLOCK)
+    WHERE  DuocTiemLucAsInt = FORMAT(GETDATE(), 'yyyyMMdd', 'en-US')
+AND RoomID IN ('122','123','124')
+	AND RoomID='123'
+	
+	
+	
+	
+	SELECT COUNT(ClinicalSessionID) SLBenhNhan,
+           RoomID
+    FROM 
+	(
+	    SELECT ClinicalSessionID,
+               RoomID,
+               DuocTiemLucAsInt,
+               HoanTatTiemLucAsInt, *
+    FROM Vaccine_TimeRecord_PhongTiem WITH (NOLOCK)
+    WHERE  DuocTiemLucAsInt = FORMAT(GETDATE(), 'yyyyMMdd', 'en-US')
+AND RoomID IN ('122','123','124')	
+	)
+    GROUP BY RoomID
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+    SELECT 
+           FacID,
+           Limit,
+           IsLocked,
+           ISNULL(SLBenhNhan, 0) SLBenhNhan,
+           a.RoomID,
+           CASE
+               WHEN SLBenhNhan >= Limit THEN
+                   1
+               ELSE
+                   0
+           END OutLimit
+    FROM 
+	(
+	SELECT RoomID,
+               FacID,
+               Limit,
+               IsLocked,
+               CAST(0 AS BIT) IsHetKho,
+               CAST(0 AS INT) StockID,
+               Tang,
+               Nhom
+        FROM dbo.L_DepartmentRoom dr WITH (NOLOCK)
+        WHERE IsPhongTiem = 1
+              AND
+              (
+                  IsLocked = 0
+                  OR IsLocked IS NULL
+              )
+              AND FacID = '8.11'
+              AND Tang = 5
+              AND IsUsing <> '0'
+			  ) a
+LEFT JOIN 
+	
+(	
+	SELECT COUNT(ClinicalSessionID) SLBenhNhan,
+           RoomID
+    FROM 
+	(
+	    SELECT ClinicalSessionID,
+               RoomID,
+               DuocTiemLucAsInt,
+               HoanTatTiemLucAsInt
+    FROM Vaccine_TimeRecord_PhongTiem WITH (NOLOCK)
+    WHERE  DuocTiemLucAsInt = FORMAT(GETDATE(), 'yyyyMMdd', 'en-US')
+AND RoomID IN ('122','123','124')	
+	) a
+    GROUP BY RoomID
+)	c
+
+ON a.RoomID = c.RoomID
+	
+	
+	
+	
+	
+	
+	
+	SELECT COUNT(1) FROM (
+ SELECT 
+           FacID,
+           Limit,
+           IsLocked,
+           ISNULL(SLBenhNhan, 0) SLBenhNhan,
+           a.RoomID,
+           CASE
+               WHEN SLBenhNhan >= Limit THEN
+                   1
+               ELSE
+                   0
+           END OutLimit
+    FROM 
+	(
+	SELECT RoomID,
+               FacID,
+               Limit,
+               IsLocked,
+               CAST(0 AS BIT) IsHetKho,
+               CAST(0 AS INT) StockID,
+               Tang,
+               Nhom
+        FROM dbo.L_DepartmentRoom dr WITH (NOLOCK)
+        WHERE IsPhongTiem = 1
+              AND
+              (
+                  IsLocked = 0
+                  OR IsLocked IS NULL
+              )
+              AND FacID = '8.11'
+              AND Tang = 5
+              AND IsUsing <> '0'
+			  ) a
+LEFT JOIN 
+	
+(	
+	SELECT COUNT(ClinicalSessionID) SLBenhNhan,
+           RoomID
+    FROM 
+	(
+	    SELECT ClinicalSessionID,
+               RoomID,
+               DuocTiemLucAsInt,
+               HoanTatTiemLucAsInt
+    FROM Vaccine_TimeRecord_PhongTiem WITH (NOLOCK)
+    WHERE  DuocTiemLucAsInt = FORMAT(GETDATE(), 'yyyyMMdd', 'en-US')
+AND RoomID IN ('122','123','124')	
+	) a
+    GROUP BY RoomID
+)	c
+
+ON a.RoomID = c.RoomID
+	)d
+	---3
+	
+	Các bảng quan trọng:
+	
+	L_DepartmentRoom
+	
+	
+	Lấy bảng này ra:
+	
+	    SELECT *
+    FROM Vaccine_TimeRecord_PhongTiem WITH (NOLOCK)
+    WHERE DuocTiemLucAsInt = FORMAT(GETDATE(), 'yyyyMMdd', 'en-US')
+	
+Tập trung Build các bảng theo cấu trúc:
+- Đẩy dữ liệu ra từ Demo
+	
+	

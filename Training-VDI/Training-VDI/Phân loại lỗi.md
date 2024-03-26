@@ -1,0 +1,11 @@
+- Access Deny [[Access Denied]]
+- Lỗi **couldn’t connect to server** [[COULDN’T CONNECT TO SERVER]]
+- Lỗi **error cannot start desktop** [[ERROR CANNOT START DESKTOP]]
+- Lỗi **Loading Failed** :
+	- All available desktop sources for this desktop are currently bus. Please try connecting to this desktop again later, or contact your system administrator. [[Loading Failed 01]]
+	- The display protocol for this desktop is currently not available. Please contact your system administrator. [[Loading Failed 02]]
+	- The View agent reports that this desktop source is currently disabled. Flease contact your system administrator. [[Loading Failed 03]]
+- Lỗi **kẹt Sesion** trước VPN 
+	- [[Loading Failed 03]] The View agent reports that this desktop source is currently disabled. Flease contact your system administrator
+	- [[Loading Failed 04]] The assigned desktop source for this desktop is not currently available. Please try connecting to this desktop again later, or contact your system administrator.
+	- 

@@ -1,0 +1,62 @@
+docker search mysql
+
+docker run --name testmysql1 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=passroot -d mysql:latest --max_connections=200
+
+docker ps
+
+docker exec -it testmysql1 bash
+
+mysql -uroot -ppassroot
+ 
+ 
+mysql
+
+
+create user 'testuser'@'%' identified by 'testpass';
+SELECT user,host FROM mysql.user;
+1. Tạo User cho Database
+CREATE USER 'testuser'@'%' IDENTIFIED BY 'testpass';
+
+2. Tạo Database
+create database aliconcon;
+
+3. Cấp quyền user trên Database aliconcon
+GRANT ALL PRIVILEGES ON aliconcon.* TO 'testuser'@'%';
+
+4. Cấp quyền chính thức chạy
+FLUSH PRIVILEGES;
+
+
+
+
+GRANT ALL PRIVILEGES ON demo.* TO 'testuser'@'%';
+FLUSH PRIVILEGES;
+
+
+
+mysql -utestuser -ptestpass
+
+Cộng hòa xã hội chủ nghĩa Việt Nam
+Độc lập - Tự Do - Hạnh Phúc
+
+
+
+
+
+Phòng tuyển dụng - Trung tâm Phát triển nguồn lực FPT Software
+
+quinguyen@rgf-hragent.asia
+
+Engineer
+
+CN Công ty cổ phần công nghệ giải pháp Thi Thiên tại Đà Nẵng
+Nhân viên kỹ thuật
+
+nhannp@partvietnam.com
+
+
+tinybit.cc/eb8a0a40
+
+065_<#007>
+
+An_Introduction_to_APIs-Brian_Cooksey

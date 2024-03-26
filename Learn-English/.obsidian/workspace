@@ -1,0 +1,103 @@
+{
+  "main": {
+    "id": "ee5d34d97114d27a",
+    "type": "split",
+    "children": [
+      {
+        "id": "b157b7afd0a3d829",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Nodejs Backend/Main.md",
+            "mode": "preview",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e7a5b71c7c14fbb8",
+    "type": "split",
+    "children": [
+      {
+        "id": "bdd9cd6343d11cfe",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e2e1688b0510b771",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "e59200fb387eee3a",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 183
+  },
+  "right": {
+    "id": "a537f679aa3cec67",
+    "type": "split",
+    "children": [
+      {
+        "id": "e37181d85327e339",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1ed89020718618d5",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Nodejs Backend/Main.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 354.3999938964844,
+    "collapsed": true
+  },
+  "active": "b157b7afd0a3d829",
+  "lastOpenFiles": [
+    "Nodejs Backend/Main.md",
+    "main-anonystick.md",
+    "Untitled 7/Untitled 7.md",
+    "Untitled 8.md",
+    "Untitled 6/Untitled 6.md",
+    "Untitled 5/Untitled 5.md",
+    "Untitled 4/Untitled 4.md",
+    "Untitled 3/Untitled 3.md",
+    "Untitled 2/Untitled 2.md",
+    "Untitled 1/Untitled 1.md"
+  ]
+}

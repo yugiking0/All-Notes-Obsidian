@@ -1,0 +1,1 @@
+The `realmd` system provides a clear and simple way to discover and join identity domains to achieve direct domain integration. It configures underlying Linux system services, such as SSSD or Winbind, to connect to the domain.

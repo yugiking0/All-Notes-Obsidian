@@ -1,0 +1,102 @@
+{
+  "main": {
+    "id": "f7b1c27281f16ee3",
+    "type": "split",
+    "children": [
+      {
+        "id": "e282a908f48fe64d",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Thư viện như React + Redux.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "b296f534c79b485b",
+    "type": "split",
+    "children": [
+      {
+        "id": "a169858edfcff57d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0dbab9b2fdf8be20",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "083af6f3fc2725bd",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "cba9b1260ec39960",
+    "type": "split",
+    "children": [
+      {
+        "id": "e2922b829f801a90",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "36d8b3d3b881cf14",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Thư viện như React + Redux.md",
+                "collapseAll": true,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": true,
+                "unlinkedCollapsed": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 310.3999938964844
+  },
+  "active": "e282a908f48fe64d",
+  "lastOpenFiles": [
+    "Thư viện như React + Redux.md",
+    "Actions.md",
+    "Redux là gì.md",
+    "Core/Store.md",
+    "content/Dispatch.md",
+    "Core/Views.md",
+    "Core/state.md",
+    "Untitled.md",
+    "lib/script.js.md",
+    "lib/core.js.md"
+  ]
+}

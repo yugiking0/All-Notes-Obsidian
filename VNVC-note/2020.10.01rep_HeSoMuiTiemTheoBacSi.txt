@@ -1,0 +1,341 @@
+DECLARE @date DATETIME = '2020-10-01'
+DECLARE @TuNgayAsInt INT = FORMAT ( @date, 'yyyyMMdd', 'EN-US' )
+DECLARE @DenNgayAsInt INT = FORMAT ( @date, 'yyyyMMdd', 'EN-US' )
+
+DECLARE @FacID VARCHAR(10) = '8.11'
+
+--Các mũi được chỉ định ở Phòng khám đã được Tiêm trong ngày.
+SELECT COUNT ( DISTINCT s.ClinicalSessionID ) SoMui, d.UserCreatedByChiDinh, CSSV.RoomIDChiDinh RoomIDTiem, CSSV.FacID_DaTiem
+FROM QAHosGenericDB..CN_ClinicalSessionID_Vaccine CSSV WITH (NOLOCK)
+JOIN QAHosGenericDB..CN_ClinicalSessions s WITH (NOLOCK) ON CSSV.ClinicalSessionID = s.ClinicalSessionID
+JOIN QAHosGenericDB..Vaccine_PhacDoBenhNhan_Detail d WITH (NOLOCK) ON s.ClinicalSessionID = d.ClinicalSessionID AND s.PatientID = d.PatientID
+WHERE CSSV.NgayTiemAsInt BETWEEN @TuNgayAsInt AND @DenNgayAsInt AND CSSV.FacID_DaTiem_Checksum = CHECKSUM ( @FacID )
+GROUP BY UserCreatedByChiDinh, CSSV.RoomIDChiDinh, CSSV.FacID_DaTiem
+
+--Các khách hàng được Tiêm ở các phòng tiêm.
+SELECT s.PatientID, d.UserCreatedByChiDinh, CSSV.RoomIDChiDinh RoomIDTiem, CSSV.FacID_ChiDinh FacID_DaTiem
+FROM QAHosGenericDB..CN_ClinicalSessionID_Vaccine CSSV WITH (NOLOCK)
+JOIN QAHosGenericDB..CN_ClinicalSessions s WITH (NOLOCK) ON CSSV.ClinicalSessionID = s.ClinicalSessionID
+JOIN QAHosGenericDB..Vaccine_PhacDoBenhNhan_Detail d WITH (NOLOCK) ON s.ClinicalSessionID = d.ClinicalSessionID AND s.PatientID = d.PatientID
+WHERE CSSV.NgayChiDinhAsInt BETWEEN @TuNgayAsInt AND @DenNgayAsInt AND CSSV.FacID_ChiDinh_Checksum = CHECKSUM ( @FacID )
+    AND CSSV.NgayTiem IS NOT NULL
+GROUP BY s.PatientID, d.UserCreatedByChiDinh, CSSV.RoomIDChiDinh, CSSV.FacID_ChiDinh
+
+
+--------------------------------------------------
+
+-- =============================================
+-- Author:		<Author,,Châu >
+-- Create date: <Create Date,,2019-02-20>
+-- Description:	<Description,, Châu tạo mới báo cáo >
+-- =============================================
+
+/*
+version 1.0.0.0 châu tạo mới báo cáo 
+version 1.0.0.1 châu 20192203 chỉnh sửa lại cách lấy dữ liệu báo cáo 
+version 1.0.0.2 châu 20190205 Chỉnh sửa lại ngày in báo cáo
+version 1.0.1.0 Văn 20190816 Fix lỗi sai số lượng BN + lấy trùng bn nếu đến 2 lần
+version 1.0.1.1 Văn 20190904 Fix lỗi do admin chỉ định vaccine, tự bấm tiêm
+version 1.0.2.0 Văn 20190909 Fix , đếm só khách theo số bs bấm chỉ định, không dựa vào phòng khám nữa, không thể dò với quản lý tập trung, đã báo với khách hàng
+version 1.0.3.0 Văn 20200629 tách thống kê ở các phòng lưu động ra riêng
+version 1.0.3.1 Văn 20200716 tách thống kê ở các phòng lưu động ra riêng + FIX
+version 1.0.3.2 Văn 20200720 tách thống kê ở các phòng lưu động ra riêng + FIX
+version 1.0.4.0 Văn 20200921 tách thống kê ở các phòng Người lớn ra
+version 1.0.4.1 Văn 20200922 tách thống kê ở các phòng Người lớn ra chuyển qua phòng chỉ định
+version 1.0.4.2 Văn 20200923 optimize
+*/
+
+CREATE PROCEDURE [dbo].[rep_HeSoMuiTiemTheoBacSi]
+    (
+    @FacID VARCHAR(10), @DateFrom DATETIME, @DateThru DATETIME, @IsDebug BIT = 0)
+AS
+BEGIN
+
+    ----===========================debug===============================
+    --DECLARE @IsDebug BIT = 1
+    --DECLARE @FacID VARCHAR(10) = '8'
+    --DECLARE @DateFrom DATETIME = '2019-06-14'
+    --DECLARE @DateThru DATETIME = '2019-08-16'
+    --SELECT @DateFrom = '20200922', @DateThru = '20200923', @FacID = '8.1'
+    SET NOCOUNT ON
+
+    DECLARE @TuNgayAsInt INT = FORMAT ( @DateFrom, 'yyyyMMdd', 'EN-US' )
+    DECLARE @DenNgayAsInt INT = FORMAT ( @DateThru, 'yyyyMMdd', 'EN-US' )
+
+    SET @DateFrom = CONVERT ( DATE, @DateFrom )
+    SET @DateThru = CONVERT ( DATE, @DateThru )
+
+    DECLARE @check_SumFacId INT = CHECKSUM ( @FacID )
+
+    IF @IsDebug = 0
+        SELECT *
+        FROM Reports..L_DinhDangExcel e WITH (NOLOCK)
+        ORDER BY STT
+
+    CREATE TABLE #Header
+        (Cot1 NVARCHAR(300),
+         cot2 NVARCHAR(300),
+         cot3 NVARCHAR(300),
+         cot4 NVARCHAR(300),
+         cot5 NVARCHAR(300),
+         cot6 NVARCHAR(300),
+         cot7 NVARCHAR(300),
+         cot8 NVARCHAR(300),
+         cot9 NVARCHAR(300),
+         IsMerge INT,
+         StartCell NVARCHAR(300),
+         EndCell NVARCHAR(300),
+         StyleSheet INT,
+         VerticalMerge NVARCHAR(300),
+         DinhDangCell VARCHAR(100),
+         RowHeight INT)
+
+    INSERT #Header
+    (Cot1, cot2, cot3, cot4, cot5, cot6, cot7, cot8, cot9, IsMerge, StartCell, EndCell, StyleSheet, VerticalMerge, DinhDangCell, RowHeight)
+    VALUES
+    (   N'STT',                                                                                                                                      -- Cot1 - nvarchar(300)
+        N'Tài khoản bác sĩ',                                                                                                                         -- cot2 - nvarchar(300)
+        N'Họ và tên bác sĩ',                                                                                                                         -- cot3 - nvarchar(300)
+        N'Số mũi tiêm',                                                                                                                              -- cot4 - nvarchar(300)
+        N'Số khách hàng',                                                                                                                            -- cot5 - nvarchar(300)
+        N'Mũi tiêm Phòng tiêm lưu động', N'Khách hàng Phòng tiêm lưu động', N'Mũi tiêm Phòng tiêm người lớn', N'Khách hàng Phòng tiêm người lớn', 0, -- IsMerge - int
+        N'',                                                                                                                                         -- StartCell - nvarchar(300)
+        N'',                                                                                                                                         -- EndCell - nvarchar(300)
+        3,                                                                                                                                           -- StyleSheet - int
+        N'',                                                                                                                                         -- VerticalMerge - nvarchar(300)
+        '',                                                                                                                                          -- DinhDangCell - varchar(100)
+        0                                                                                                                                            -- RowHeight - int
+        )
+
+    DECLARE @TenCongTy NVARCHAR(500)
+    DECLARE @TenChiNhanh NVARCHAR(500)
+
+    SELECT @TenCongTy = HospitalCouncil, @TenChiNhanh = CustomerFullName
+    FROM QAHosGenericDB..L_Customer WITH (NOLOCK)
+    WHERE FacID = @FacID
+
+    IF @IsDebug = 0
+    BEGIN
+        SELECT @TenCongTy, 1 isMerge, 'A' StartCell, 'C' EndCell, 6 StyleSheet
+
+        SELECT @TenChiNhanh, 1 isMerge, 'A' StartCell, 'C' EndCell, 6 StyleSheet
+
+        SELECT N'BÁO CÁO HỆ SỐ MŨI TIÊM THEO BÁC SĨ', 1 isMerge, 'A' StartCell, 'G' EndCell, 19 StyleSheet, 50 RowHeight
+
+        --SELECT @DateFrom 
+        SELECT N'Từ ngày ' + FORMAT ( @DateFrom, 'dd/MM/yyyy' ) + N' đến ' + FORMAT ( @DateThru, 'dd/MM/yyyy' ), 1 isMerge, 'A' StartCell, 'E' EndCell, 9 StyleSheet
+
+        SELECT NULL
+
+        SELECT *
+        FROM #Header
+    END
+
+    SELECT COUNT ( DISTINCT s.ClinicalSessionID ) SoMui, d.UserCreatedByChiDinh, CSSV.RoomIDChiDinh RoomIDTiem, CSSV.FacID_DaTiem
+    INTO #MuiTiem
+    FROM QAHosGenericDB..CN_ClinicalSessionID_Vaccine CSSV WITH (NOLOCK)
+        JOIN QAHosGenericDB..CN_ClinicalSessions s WITH (NOLOCK)
+            ON CSSV.ClinicalSessionID = s.ClinicalSessionID
+        JOIN QAHosGenericDB..Vaccine_PhacDoBenhNhan_Detail d WITH (NOLOCK)
+            ON s.ClinicalSessionID = d.ClinicalSessionID AND s.PatientID = d.PatientID
+    --JOIN QAHosGenericDB..L_Product c WITH (NOLOCK)
+    --    ON c.ProductID = b.ProductID AND c.FacID = a.FacID
+    WHERE CSSV.NgayTiemAsInt BETWEEN @TuNgayAsInt AND @DenNgayAsInt AND CSSV.FacID_DaTiem_Checksum = CHECKSUM ( @FacID ) --AND c.ProductTypeID = 17
+    --AND d.UserCreatedByChiDinh = '793ADE0C-AF6C-4A75-AE14-3431C60FD9DD'
+    GROUP BY UserCreatedByChiDinh, CSSV.RoomIDChiDinh, CSSV.FacID_DaTiem
+
+    --SELECT	*
+    --INTO	#Temp_CN_ClinicalSessionID_Vaccine
+    --FROM	QAHosGenericDB..CN_ClinicalSessionID_Vaccine WITH (NOLOCK)
+    --WHERE	(FacID_ChiDinh_Checksum = @check_SumFacId OR FacID_DaTiem_Checksum = @check_SumFacId)
+    --		AND (NgayChiDinhAsInt BETWEEN @TuNgayAsInt AND @DenNgayAsInt OR NgayTiemAsInt BETWEEN @TuNgayAsInt AND @DenNgayAsInt)
+
+    SELECT s.PatientID, d.UserCreatedByChiDinh, CSSV.RoomIDChiDinh RoomIDTiem, CSSV.FacID_ChiDinh FacID_DaTiem
+    INTO #temp_KhachDCTiem
+    FROM QAHosGenericDB..CN_ClinicalSessionID_Vaccine CSSV WITH (NOLOCK)
+        JOIN QAHosGenericDB..CN_ClinicalSessions s WITH (NOLOCK)
+            ON CSSV.ClinicalSessionID = s.ClinicalSessionID
+        JOIN QAHosGenericDB..Vaccine_PhacDoBenhNhan_Detail d WITH (NOLOCK)
+            ON s.ClinicalSessionID = d.ClinicalSessionID AND s.PatientID = d.PatientID
+    --JOIN QAHosGenericDB..L_Product c WITH (NOLOCK)
+    --    ON c.ProductID = b.ProductID AND c.FacID = a.FacID
+    WHERE CSSV.NgayChiDinhAsInt BETWEEN @TuNgayAsInt AND @DenNgayAsInt AND CSSV.FacID_ChiDinh_Checksum = CHECKSUM ( @FacID ) --AND c.ProductTypeID = 17
+          AND CSSV.NgayTiem IS NOT NULL
+    --AND b.UserCreatedByChiDinh = '793ADE0C-AF6C-4A75-AE14-3431C60FD9DD'
+    GROUP BY s.PatientID, d.UserCreatedByChiDinh, CSSV.RoomIDChiDinh, CSSV.FacID_ChiDinh
+
+    CREATE TABLE #KetQua
+        (TaiKhoanLogin VARCHAR(300),
+         TenBacSi NVARCHAR(300),
+         IDBacSi UNIQUEIDENTIFIER,
+         SoMuiTiem DECIMAL(18, 2),
+         SoBenhnhan DECIMAL(18, 2),
+         SoMuiTiemLD DECIMAL(18, 2),
+         SoBenhnhanLD DECIMAL(18, 2),
+         SoMuiTiemNL DECIMAL(18, 2),
+         SoBenhnhanNL DECIMAL(18, 2),
+         PatientID UNIQUEIDENTIFIER,
+         ClinicalSessionID UNIQUEIDENTIFIER)
+
+    INSERT #KetQua
+    (IDBacSi, SoBenhnhan)
+    SELECT UserCreatedByChiDinh, COUNT ( DISTINCT PatientID ) BenhNhan
+    FROM #temp_KhachDCTiem a
+        JOIN QAHosGenericDB..L_DepartmentRoom DR WITH (NOLOCK)
+            ON a.RoomIDTiem = DR.RoomID AND a.FacID_DaTiem = DR.FacID
+        LEFT JOIN QAHosGenericDB..L_PhongDoiTuongPhong b WITH (NOLOCK)
+            ON DR.RoomID = b.RoomID AND b.FacID = DR.FacID
+        LEFT JOIN QAHosGenericDB..L_DoiTuongPhong c WITH (NOLOCK)
+            ON c.DoiTuongPhongID = b.DoiTuongPhongID AND c.FacID = DR.FacID
+    WHERE DR.RoomName NOT LIKE N'%lưu động%' AND ISNULL ( c.TenDoiTuong, N'' ) <> N'Phòng cho người lớn'
+    GROUP BY UserCreatedByChiDinh
+
+    INSERT #KetQua
+    (IDBacSi, SoBenhnhan)
+    SELECT UserCreatedByChiDinh, 0 BenhNhan
+    FROM #temp_KhachDCTiem a
+        JOIN QAHosGenericDB..L_DepartmentRoom DR WITH (NOLOCK)
+            ON a.RoomIDTiem = DR.RoomID AND a.FacID_DaTiem = DR.FacID
+        LEFT JOIN QAHosGenericDB..L_PhongDoiTuongPhong b WITH (NOLOCK)
+            ON DR.RoomID = b.RoomID AND b.FacID = DR.FacID
+        LEFT JOIN QAHosGenericDB..L_DoiTuongPhong c WITH (NOLOCK)
+            ON c.DoiTuongPhongID = b.DoiTuongPhongID AND c.FacID = DR.FacID
+    WHERE DR.RoomName LIKE N'%lưu động%' AND NOT EXISTS
+    (SELECT 1 FROM #KetQua b WHERE a.UserCreatedByChiDinh = b.IDBacSi) AND ISNULL ( c.TenDoiTuong, N'' ) <> N'Phòng cho người lớn'
+    GROUP BY UserCreatedByChiDinh
+
+
+    INSERT #KetQua
+    (IDBacSi, SoBenhnhan)
+    SELECT UserCreatedByChiDinh, 0 BenhNhan
+    FROM #temp_KhachDCTiem a
+        JOIN QAHosGenericDB..L_DepartmentRoom DR WITH (NOLOCK)
+            ON a.RoomIDTiem = DR.RoomID AND a.FacID_DaTiem = DR.FacID
+        LEFT JOIN QAHosGenericDB..L_PhongDoiTuongPhong b WITH (NOLOCK)
+            ON DR.RoomID = b.RoomID AND b.FacID = DR.FacID
+        LEFT JOIN QAHosGenericDB..L_DoiTuongPhong c WITH (NOLOCK)
+            ON c.DoiTuongPhongID = b.DoiTuongPhongID AND c.FacID = DR.FacID
+    WHERE DR.RoomName NOT LIKE N'%lưu động%' AND ISNULL ( c.TenDoiTuong, N'' ) = N'Phòng cho người lớn' AND NOT EXISTS
+    (SELECT 1 FROM #KetQua b WHERE a.UserCreatedByChiDinh = b.IDBacSi)
+    GROUP BY UserCreatedByChiDinh
+
+    UPDATE #KetQua
+    SET SoBenhnhanLD = BenhNhan
+    FROM #KetQua a
+        JOIN
+        (   SELECT UserCreatedByChiDinh, COUNT ( DISTINCT PatientID ) BenhNhan
+            FROM #temp_KhachDCTiem a1
+                JOIN QAHosGenericDB..L_DepartmentRoom DR WITH (NOLOCK)
+                    ON a1.RoomIDTiem = DR.RoomID AND a1.FacID_DaTiem = DR.FacID
+            WHERE DR.RoomName LIKE N'%lưu động%'
+            GROUP BY UserCreatedByChiDinh) b
+            ON a.IDBacSi = b.UserCreatedByChiDinh
+
+    UPDATE #KetQua
+    SET SoBenhnhanNL = BenhNhan
+    FROM #KetQua a
+        JOIN
+        (   SELECT UserCreatedByChiDinh, COUNT ( DISTINCT PatientID ) BenhNhan
+            FROM #temp_KhachDCTiem a1
+                JOIN QAHosGenericDB..L_DepartmentRoom DR WITH (NOLOCK)
+                    ON a1.RoomIDTiem = DR.RoomID AND a1.FacID_DaTiem = DR.FacID
+                LEFT JOIN QAHosGenericDB..L_PhongDoiTuongPhong b WITH (NOLOCK)
+                    ON DR.RoomID = b.RoomID AND b.FacID = DR.FacID
+                LEFT JOIN QAHosGenericDB..L_DoiTuongPhong c WITH (NOLOCK)
+                    ON c.DoiTuongPhongID = b.DoiTuongPhongID AND c.FacID = DR.FacID
+            WHERE DR.RoomName NOT LIKE N'%lưu động%' AND ISNULL ( c.TenDoiTuong, N'' ) = N'Phòng cho người lớn'
+            GROUP BY UserCreatedByChiDinh) b
+            ON a.IDBacSi = b.UserCreatedByChiDinh
+
+
+    UPDATE #KetQua
+    SET TaiKhoanLogin = s.Username, TenBacSi = e.FullName
+    FROM #KetQua k
+        JOIN Security..Users s WITH (NOLOCK)
+            ON k.IDBacSi = s.ID
+        JOIN HR..MDM_Employee e WITH (NOLOCK)
+            ON s.EmpID = e.EmployeeID
+
+    UPDATE #KetQua
+    SET SoMuiTiem = w.SoMuiTiem
+    FROM #KetQua k
+        JOIN
+        (   SELECT SUM ( SoMui ) SoMuiTiem, UserCreatedByChiDinh
+            FROM #MuiTiem a
+                JOIN QAHosGenericDB..L_DepartmentRoom DR WITH (NOLOCK)
+                    ON a.RoomIDTiem = DR.RoomID AND a.FacID_DaTiem = DR.FacID
+                LEFT JOIN QAHosGenericDB..L_PhongDoiTuongPhong b WITH (NOLOCK)
+                    ON DR.RoomID = b.RoomID AND b.FacID = DR.FacID
+                LEFT JOIN QAHosGenericDB..L_DoiTuongPhong c WITH (NOLOCK)
+                    ON c.DoiTuongPhongID = b.DoiTuongPhongID AND c.FacID = DR.FacID
+            WHERE DR.RoomName NOT LIKE N'%lưu động%' AND ISNULL ( c.TenDoiTuong, N'' ) <> N'Phòng cho người lớn'
+            GROUP BY UserCreatedByChiDinh) w
+            ON k.IDBacSi = w.UserCreatedByChiDinh
+
+    UPDATE #KetQua
+    SET SoMuiTiemLD = w.SoMuiTiem
+    FROM #KetQua k
+        JOIN
+        (   SELECT SUM ( SoMui ) SoMuiTiem, UserCreatedByChiDinh
+            FROM #MuiTiem a
+                JOIN QAHosGenericDB..L_DepartmentRoom DR WITH (NOLOCK)
+                    ON a.RoomIDTiem = DR.RoomID AND a.FacID_DaTiem = DR.FacID
+                LEFT JOIN QAHosGenericDB..L_PhongDoiTuongPhong b WITH (NOLOCK)
+                    ON DR.RoomID = b.RoomID AND b.FacID = DR.FacID
+                LEFT JOIN QAHosGenericDB..L_DoiTuongPhong c WITH (NOLOCK)
+                    ON c.DoiTuongPhongID = b.DoiTuongPhongID AND c.FacID = DR.FacID
+            WHERE DR.RoomName LIKE N'%lưu động%' AND ISNULL ( c.TenDoiTuong, N'' ) <> N'Phòng cho người lớn'
+            GROUP BY UserCreatedByChiDinh) w
+            ON k.IDBacSi = w.UserCreatedByChiDinh
+
+
+    UPDATE #KetQua
+    SET SoMuiTiemNL = w.SoMuiTiem
+    FROM #KetQua k
+        JOIN
+        (   SELECT SUM ( SoMui ) SoMuiTiem, UserCreatedByChiDinh
+            FROM #MuiTiem a
+                JOIN QAHosGenericDB..L_DepartmentRoom DR WITH (NOLOCK)
+                    ON a.RoomIDTiem = DR.RoomID AND a.FacID_DaTiem = DR.FacID
+                LEFT JOIN QAHosGenericDB..L_PhongDoiTuongPhong b WITH (NOLOCK)
+                    ON DR.RoomID = b.RoomID AND b.FacID = DR.FacID
+                LEFT JOIN QAHosGenericDB..L_DoiTuongPhong c WITH (NOLOCK)
+                    ON c.DoiTuongPhongID = b.DoiTuongPhongID AND c.FacID = DR.FacID
+            WHERE DR.RoomName NOT LIKE N'%lưu động%' AND ISNULL ( c.TenDoiTuong, N'' ) = N'Phòng cho người lớn'
+            GROUP BY UserCreatedByChiDinh) w
+            ON k.IDBacSi = w.UserCreatedByChiDinh
+
+    SELECT ROW_NUMBER () OVER (ORDER BY TenBacSi) STT, TaiKhoanLogin, TenBacSi, b.SoMuiTiem SoMuiTiem, SoBenhnhan, b.SoMuiTiemLD, b.SoBenhnhanLD, b.SoMuiTiemNL, b.SoBenhnhanNL,
+           CASE WHEN b.IDBacSi IS NOT NULL
+                    THEN b.IDBacSi
+           ELSE b.IDBacSi -- UserCreatedByChiDinh
+           END IDBacSi, 4 StyleSheet, 'A-13' DinhDangCell
+    INTO #Final
+    FROM #KetQua b
+
+    --LEFT JOIN #MuiTiem a
+    --    ON a.UserCreatedByChiDinh = b.IDBacSi
+    UPDATE #Final
+    SET TaiKhoanLogin = s.Username, TenBacSi = e.FullName
+    FROM #Final k
+        JOIN Security..Users s WITH (NOLOCK)
+            ON k.IDBacSi = s.ID
+        JOIN HR..MDM_Employee e WITH (NOLOCK)
+            ON s.EmpID = e.EmployeeID
+
+    SELECT STT, TaiKhoanLogin, TenBacSi, ISNULL ( SoMuiTiem, 0 ) SoMuiTiem, SoBenhnhan, SoMuiTiemLD, SoBenhnhanLD, SoMuiTiemNL, SoBenhnhanNL, StyleSheet, DinhDangCell
+    FROM #Final
+    ORDER BY STT
+
+    IF @IsDebug = 1
+        SELECT SUM ( SoMuiTiem ) ZMuiTiem, SUM ( SoBenhnhan ) ZBenhNhan
+        FROM #Final
+
+    DROP TABLE #Header
+    DROP TABLE #MuiTiem
+    DROP TABLE #KetQua
+    --DROP TABLE #Temp_CN_ClinicalSessionID_Vaccine
+    DROP TABLE #temp_KhachDCTiem
+    DROP TABLE #Final
+END
+
